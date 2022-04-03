@@ -1,0 +1,7 @@
+.navigation {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 25px;
+  }

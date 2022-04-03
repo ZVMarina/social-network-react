@@ -1,7 +1,9 @@
+import image from '../images/main/people.png'
+
 function Main() {
     return (
         <main className="main">
-            <img className="main__image" src="https://discoverportugal.ru/media/zoo/images/praia-do-barranco-das-canas_4d99f19e19702a07a9bb6191b30fa565.jpg" />
+            <img className="main__image" src={image} />
             <section className="profile">
                 <img className="profile__avatar"/>
                 <h1 className="profile__name">Marina Z</h1>

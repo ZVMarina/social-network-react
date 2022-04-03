@@ -1,0 +1,6 @@
+.header {
+    grid-area: header;
+    background-color: #2962ff;
+    max-width: 1184px;
+    display: flex;
+  }

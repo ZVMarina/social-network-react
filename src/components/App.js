@@ -1,7 +1,7 @@
-import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
+import '../index.css';
+import Header from './Header';
+import Navbar from './Navbar';
+import Main from './Main';
 
 function App() {
   return (

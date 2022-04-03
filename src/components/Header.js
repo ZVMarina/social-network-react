@@ -1,9 +1,10 @@
 import React from "react";
+import logo from "../images/header/logo_light.svg"
 
 function Header() {
     return (
         <header className="header">
-            <img className="header__logo" src="https://cdn-icons-png.flaticon.com/512/4207/4207282.png" />
+            <img className="header__logo" src={logo} />
         </header>
     )
 }
