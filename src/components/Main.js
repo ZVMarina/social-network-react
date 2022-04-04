@@ -5,7 +5,7 @@ function Main() {
         <main className="main">
             <img className="main__image" src={image} />
             <section className="profile">
-                <img className="profile__avatar" />
+                <img className="profile__avatar" src="https://games.mail.ru/hotbox/content_files/news/2021/06/29/150b75b87bf64e07a2465f34aa08d7e7.jpg"/>
                 <h1 className="profile__name">Marina Z</h1>
                 <p className="profile__about">I like cats. I want to learn React, bacause I need to find a good job.</p>
             </section>
