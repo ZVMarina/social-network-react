@@ -1,8 +1,3 @@
 .profile {
-    display: grid;
-    grid-template-areas:
-        "avatar text";
-    grid-template-columns: 1fr 2fr;
-    column-gap: 25px;
     margin-bottom: 25px;
 }

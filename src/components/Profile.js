@@ -4,14 +4,16 @@ import Posts from './Posts';
 function Profile() {
     return (
         <>
-            <img className="profile__main-image" src={image} />
             <section className="profile">
-                <picture className="profile__picture">
-                    <img className="profile__avatar" src="https://games.mail.ru/hotbox/content_files/news/2021/06/29/150b75b87bf64e07a2465f34aa08d7e7.jpg" />
-                </picture>
-                <div className="profile__text">
-                    <h1 className="profile__name">Marina Z</h1>
-                    <p className="profile__about">I like cats. I want to learn React, bacause I need to find a good job.</p>
+                <img className="profile__main-image" src={image} />
+                <div className="profile__container">
+                    <picture className="profile__picture">
+                        <img className="profile__avatar" src="https://games.mail.ru/hotbox/content_files/news/2021/06/29/150b75b87bf64e07a2465f34aa08d7e7.jpg" />
+                    </picture>
+                    <div className="profile__text">
+                        <h1 className="profile__name">Marina Z</h1>
+                        <p className="profile__about">I like cats. I want to learn React, bacause I need to find a good job.</p>
+                    </div>
                 </div>
             </section>
             <section className="posts">
