@@ -1,7 +1,8 @@
 import '../index.css';
 import Header from './Header';
+import Messages from './Messages';
 import Navbar from './Navbar';
-import Main from './Main';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       <div className="page">
         <Header />
         <Navbar />
-        <Main />
+        <main className="main">
+          <Profile />
+        </main>
+        {/* <Messages /> */}
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import image from '../images/main/people.png'
 import Posts from './Posts';
 
-function Main() {
+function Profile() {
     return (
-        <main className="main">
-            <img className="main__image" src={image} />
+        <>
+            <img className="profile__main-image" src={image} />
             <section className="profile">
                 <picture className="profile__picture">
                     <img className="profile__avatar" src="https://games.mail.ru/hotbox/content_files/news/2021/06/29/150b75b87bf64e07a2465f34aa08d7e7.jpg" />
@@ -16,15 +16,15 @@ function Main() {
             </section>
             <section className="posts">
                 <h2 className="posts__title">My posts</h2>
-                <input className="posts__input" placeholder='your news...'/>
+                <input className="posts__input" placeholder='your news...' />
                 <button className="posts__button">Send</button>
                 <ul className="posts__item-list">
-                    <Posts post="Hey, is anybody here?"/>
-                    <Posts post="It's my first post"/>
+                    <Posts post="Hey, is anybody here?" />
+                    <Posts post="It's my first post" />
                 </ul>
             </section>
-        </main>
+        </>
     )
 }
 
-export default Main;
+export default Profile;

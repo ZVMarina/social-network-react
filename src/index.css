@@ -9,9 +9,9 @@
 @import url(./blocks/navigation/__link/navigation__link.css);
 
 @import url(./blocks/main/main.css);
-@import url(./blocks/main/__image/main__image.css);
 
 @import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__main-image/profile__main-image.css);
 @import url(./blocks/profile/__name/profile__name.css);
 @import url(./blocks/profile/__picture/profile__picture.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
