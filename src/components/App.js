@@ -13,8 +13,8 @@ function App() {
         <Navbar />
         <main className="main">
           <Profile />
+          {/* <Messages /> */}
         </main>
-        {/* <Messages /> */}
       </div>
     </div>
   );
