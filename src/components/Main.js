@@ -1,4 +1,5 @@
 import image from '../images/main/people.png'
+import Posts from './Posts';
 
 function Main() {
     return (
@@ -15,12 +16,11 @@ function Main() {
             </section>
             <section className="posts">
                 <h2 className="posts__title">My posts</h2>
-                <input className="posts__input" placeholder='your news...'></input>
+                <input className="posts__input" placeholder='your news...'/>
                 <button className="posts__button">Send</button>
                 <ul className="posts__item-list">
-                    <li className="posts__item">
-                        <span className="posts__text">Hey, nobody love me?</span>
-                    </li>
+                    <Posts post="Hey, is anybody here?"/>
+                    <Posts post="It's my first post"/>
                 </ul>
             </section>
         </main>
