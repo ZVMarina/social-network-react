@@ -9,12 +9,11 @@ function Main() {
                 <h1 className="profile__name">Marina Z</h1>
                 <p className="profile__about">I like cats. I want to learn React, bacause I need to find a good job.</p>
             </section>
-            <section>
-                <h2>My posts</h2>
-                <p>new post</p>
-            </section>
-            <section>
-                <h2>Hey, nobody love me?</h2>
+            <section className="posts">
+                <h2 className="posts__title">My posts</h2>
+                <input className="posts__input" placeholder='your news...'></input>
+                <button className="posts__button">Send</button>
+                <p>Hey, nobody love me?</p>
             </section>
         </main>
     )
