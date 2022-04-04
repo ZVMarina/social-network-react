@@ -2,4 +2,10 @@
     color: #8793a3;
     font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
+    transition: opacity .3s ease;
+}
+
+.navigation__link:hover {
+    opacity: .7;
 }
