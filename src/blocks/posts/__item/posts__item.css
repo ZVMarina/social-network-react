@@ -1,0 +1,11 @@
+.posts__item {
+    color: #2962ff;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.posts__item::before {
+    content: "\2B24";
+    padding-right: 10px;
+  }

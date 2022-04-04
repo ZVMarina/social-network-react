@@ -1,0 +1,10 @@
+.posts__button {
+    align-self: flex-end;
+    margin-top: 10px;
+    padding: 10px 50px;
+    background-color: #2962ff;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+}
