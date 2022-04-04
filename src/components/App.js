@@ -1,3 +1,4 @@
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
 import Messages from './Messages';
@@ -6,17 +7,20 @@ import Profile from './Profile';
 
 function App() {
   return (
-    <div className="App">
-
-      <div className="page">
-        <Header />
-        <Navbar />
-        <main className="main">
-          <Profile />
-          {/* <Messages /> */}
-        </main>
+    <BrowserRouter>
+      <div className="App">
+        <div className="page">
+          <Header />
+          <Navbar />
+          <main className="main">
+            <Routes>
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/messages' element={<Messages />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
