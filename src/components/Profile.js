@@ -11,8 +11,8 @@ function Profile() {
                         <img className="profile__avatar" src="https://games.mail.ru/hotbox/content_files/news/2021/06/29/150b75b87bf64e07a2465f34aa08d7e7.jpg" />
                     </picture>
                     <div className="profile__text">
-                        <h1 className="profile__name">Marina Z</h1>
-                        <p className="profile__about">I like cats. I want to learn React, bacause I need to find a good job.</p>
+                        <h1 className="profile__name">Yennefer of Vengerberg</h1>
+                        <p className="profile__about">I'm Yennefer of Vengerberg, born on Belleteyn in 1173, a sorceress. I love Geralt of Rivia's and Ciri.</p>
                     </div>
                 </div>
             </section>

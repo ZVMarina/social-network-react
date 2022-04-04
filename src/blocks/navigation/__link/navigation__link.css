@@ -10,3 +10,9 @@
 .navigation__link:hover {
     opacity: .7;
 }
+
+/* Если у ссылки есть класс active, то */
+/* Класс active добавляет NavLink */
+.navigation__link.active {
+    opacity: .7;
+}

@@ -1,20 +1,22 @@
+import { NavLink } from "react-router-dom";
+
 function Navbar() {
     return (
         <nav className="navigation">
             <li className="navigation__item">
-                <a className="navigation__link" href='/profile'>Profile</a>
+                <NavLink className="navigation__link" to="/profile">Profile</NavLink>
             </li>
             <li className="navigation__item">
-                <a className="navigation__link" href="/messages">Messages</a>
+                <NavLink className="navigation__link" to="/messages">Messages</NavLink>
             </li>
             <li className="navigation__item">
-                <a className="navigation__link">News</a>
+                <NavLink className="navigation__link" to="/news" >News</NavLink>
             </li>
             <li className="navigation__item">
-                <a className="navigation__link">Music</a>
+                <NavLink className="navigation__link" to="/music">Music</NavLink>
             </li>
             <li className="navigation__item">
-                <a className="navigation__link">Settings</a>
+                <NavLink className="navigation__link" to="/settings">Settings</NavLink>
             </li>
         </nav>
     )
