@@ -1,14 +1,9 @@
 import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
 import Posts from './Posts'
+import { postsData } from '../..';
 
 function Profile() {
-
-    const postsData = [
-        { post: "Hey, is anybody here?" },
-        { post: "It's my first post" }
-    ]
-
     return (
         <>
             <section className="profile">
