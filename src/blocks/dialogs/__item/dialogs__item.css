@@ -2,15 +2,9 @@
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
-    color: #2962ff;
     list-style: none;
     font-size: 18px;
 }
-
-.dialogs__item::before {
-    content: "\2B24";
-    padding-right: 10px;
-  }
 
 .dialogs__item:last-of-type {
     margin-bottom: 0;

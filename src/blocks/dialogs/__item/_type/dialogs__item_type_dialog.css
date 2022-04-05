@@ -1,0 +1,8 @@
+.dialogs__item_type_dialog {
+    color: #2962ff;
+}
+
+.dialogs__item_type_dialog::before {
+    content: "\2B24";
+    padding-right: 10px;
+  }

@@ -1,0 +1,7 @@
+.dialogs {
+    display: grid;
+    grid-template-areas:
+      "title title"
+      "dialogs messages";
+      grid-template-columns: 1fr 2fr;
+}
