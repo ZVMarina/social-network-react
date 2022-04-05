@@ -18,7 +18,7 @@ function Profile(props) {
                 <input className="posts__input" placeholder='your news...' />
                 <button className="posts__button">Send</button>
                 <ul className="posts__item-list">
-                    {props.posts.map(postItem => <Posts post={postItem.post} />)}
+                    {props.state.postsData.map(postItem => <Posts post={postItem.post} />)}
                 </ul>
             </section>
         </>

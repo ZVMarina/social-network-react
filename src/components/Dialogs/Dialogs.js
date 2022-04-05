@@ -6,10 +6,10 @@ function Dialogs(props) {
         <section className="dialogs">
             <h1 className="dialogs__title">Dialogs</h1>
             <ul className="dialogs__list dialogs__list_type_dialog">
-                {props.dialogs.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />)}
+                {props.state.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />)}
             </ul>
             <ul className="dialogs__list dialogs__list_type_messages">
-                {props.messages.map(messageItem => <Messages message={messageItem.message} />)}
+                {props.state.messagesData.map(messageItem => <Messages message={messageItem.message} />)}
             </ul>
         </section>
     )
