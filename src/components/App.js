@@ -8,7 +8,7 @@ import Profile from '../components/Profile/Profile';
 import Music from './Music';
 import Settings from './Settings';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
@@ -17,8 +17,8 @@ function App() {
           <Navbar />
           <main className="main">
             <Routes>
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/dialogs*" element={<Dialogs />} />
+              <Route path="/profile" element={<Profile posts={props.posts} />} />
+              <Route path="/dialogs*" element={<Dialogs dialogs={props.dialogs} messages={props.messages} />} />
               <Route path="/news" element={<News />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />

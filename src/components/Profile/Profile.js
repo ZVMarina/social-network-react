@@ -1,9 +1,8 @@
 import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
 import Posts from './Posts'
-import { postsData } from '../..';
 
-function Profile() {
+function Profile(props) {
     return (
         <>
             <section className="profile">
@@ -19,7 +18,7 @@ function Profile() {
                 <input className="posts__input" placeholder='your news...' />
                 <button className="posts__button">Send</button>
                 <ul className="posts__item-list">
-                    {postsData.map(postItem => <Posts post={postItem.post} />)}
+                    {props.posts.map(postItem => <Posts post={postItem.post} />)}
                 </ul>
             </section>
         </>
