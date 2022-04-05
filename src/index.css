@@ -8,6 +8,12 @@
 @import url(./blocks/navigation/__item/navigation__item.css);
 @import url(./blocks/navigation/__link/navigation__link.css);
 
+@import url(./blocks/navigation/__item/_type/navigation__item_type_ftiends.css);
+@import url(./blocks/navigation/__avatar-container/navigation__avatar-container.css);
+@import url(./blocks/navigation/__avatar/navigation__avatar.css);
+@import url(./blocks/navigation/__avatar-name/navigation__avatar-name.css);
+@import url(./blocks/navigation/__friends-container/navigation__friends-container.css);
+
 @import url(./blocks/main/main.css);
 
 @import url(./blocks/profile/profile.css);

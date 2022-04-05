@@ -1,0 +1,4 @@
+.navigation__item_type_ftiends {
+    display: flex;
+    flex-direction: column;
+}

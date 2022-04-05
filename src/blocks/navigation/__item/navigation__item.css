@@ -6,4 +6,5 @@
 
 .navigation__item:last-of-type {
   padding-top: 25px;
+  font-size: 24px;
 }
