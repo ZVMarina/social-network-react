@@ -4,7 +4,7 @@ import Header from './Header';
 import Dialogs from './Dialogs';
 import Navbar from './Navbar';
 import News from './News';
-import Profile from './Profile';
+import Profile from '../components/Profile/Profile';
 import Music from './Music';
 import Settings from './Settings';
 

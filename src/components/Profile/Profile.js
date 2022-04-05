@@ -1,6 +1,6 @@
-import image from '../images/main/people.png'
-import Posts from './Posts';
+import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
+import Posts from './Posts'
 
 function Profile() {
 
