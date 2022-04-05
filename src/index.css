@@ -34,5 +34,6 @@
 @import url(./blocks/dialogs/__item/dialogs__item.css);
 @import url(./blocks/dialogs/__item/_type/dialogs__item_type_dialog.css);
 @import url(./blocks/dialogs/__item/_type/dialogs__item_type_messages.css);
+@import url(./blocks/dialogs/__link/dialogs__link.css);
 @import url(./blocks/dialogs/__text/dialogs__text.css);
 @import url(./blocks/dialogs/__container/dialogs__container.css);

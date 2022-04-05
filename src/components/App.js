@@ -18,7 +18,7 @@ function App() {
           <main className="main">
             <Routes>
               <Route path="/profile" element={<Profile />} />
-              <Route path="/messages" element={<Messages />} />
+              <Route path="/dialogs*" element={<Messages />} />
               <Route path="/news" element={<News />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />

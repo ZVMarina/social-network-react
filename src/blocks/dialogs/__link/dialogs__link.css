@@ -1,0 +1,11 @@
+.dialogs__link {
+    text-decoration: none;
+}
+
+.dialogs__link:hover {
+    opacity: .7;
+}
+
+.dialogs__link.active {
+    text-shadow: #2962ff 1px 0 10px;
+}

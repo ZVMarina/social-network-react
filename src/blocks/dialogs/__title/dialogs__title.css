@@ -1,4 +1,5 @@
 .dialogs__title {
+    margin: 0;
     margin-top: 25px;
     margin-bottom: 25px;
     grid-area: title;

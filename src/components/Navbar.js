@@ -7,7 +7,7 @@ function Navbar() {
                 <NavLink className="navigation__link" to="/profile">Profile</NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink className="navigation__link" to="/messages">Messages</NavLink>
+                <NavLink className="navigation__link" to="/dialogs">Messages</NavLink>
             </li>
             <li className="navigation__item">
                 <NavLink className="navigation__link" to="/news" >News</NavLink>
