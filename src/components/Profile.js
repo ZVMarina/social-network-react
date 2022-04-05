@@ -3,6 +3,12 @@ import Posts from './Posts';
 import ProfileInfo from './ProfileInfo';
 
 function Profile() {
+
+    const postsData = [
+        { post: "Hey, is anybody here?" },
+        { post: "It's my first post" }
+    ]
+
     return (
         <>
             <section className="profile">
@@ -18,8 +24,7 @@ function Profile() {
                 <input className="posts__input" placeholder='your news...' />
                 <button className="posts__button">Send</button>
                 <ul className="posts__item-list">
-                    <Posts post="Hey, is anybody here?" />
-                    <Posts post="It's my first post" />
+                    {postsData.map(postItem => <Posts post={postItem.post} />)}
                 </ul>
             </section>
         </>

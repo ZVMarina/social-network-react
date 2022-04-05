@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import DialogsItem from "./DialogsItem";
 import Messages from "./Messages";
 
