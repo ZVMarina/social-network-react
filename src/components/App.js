@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
-import Messages from './Messages';
+import Dialogs from './Dialogs';
 import Navbar from './Navbar';
 import News from './News';
 import Profile from './Profile';
@@ -18,7 +18,7 @@ function App() {
           <main className="main">
             <Routes>
               <Route path="/profile" element={<Profile />} />
-              <Route path="/dialogs*" element={<Messages />} />
+              <Route path="/dialogs*" element={<Dialogs />} />
               <Route path="/news" element={<News />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
