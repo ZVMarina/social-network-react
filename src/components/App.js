@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
-import Dialogs from './Dialogs';
+import Dialogs from '../components/Dialogs/Dialogs';
 import Navbar from './Navbar';
 import News from './News';
 import Profile from '../components/Profile/Profile';
