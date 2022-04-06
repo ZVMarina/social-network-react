@@ -1,0 +1,11 @@
+.navigation__avatar-container {
+    margin: 0;
+    border-radius: 100%;
+    overflow: hidden;
+    height: 100%;
+    /* display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
+    grid-template-areas: 
+    "img"
+    "name"; */
+}

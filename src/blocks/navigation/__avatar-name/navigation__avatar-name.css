@@ -1,0 +1,6 @@
+.navigation__avatar-name {
+    text-align: center; 
+    margin-top: 5px;
+    font-size: 10px;
+    grid-area: name;
+}

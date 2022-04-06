@@ -1,0 +1,5 @@
+.navigation__friends-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(25px, 1fr));
+    gap: 10px;
+}
