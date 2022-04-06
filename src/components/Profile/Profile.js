@@ -1,9 +1,17 @@
 import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
 import Posts from './Posts'
+import React from 'react';
 
 function Profile(props) {
-    const postsElement = props.state.postsData.map(postItem => <Posts post={postItem.post} />);
+    const postsElements = props.state.postsData.map(postItem => <Posts post={postItem.post} />);
+
+    const newPostElement = React.createRef();
+
+    const addPost = () => {
+        const value = newPostElement.current.value;
+        alert(value);
+    }
 
     return (
         <>
@@ -17,10 +25,10 @@ function Profile(props) {
             </section>
             <section className="posts">
                 <h2 className="posts__title">My posts</h2>
-                <input className="posts__input" placeholder='your news...' />
-                <button className="posts__button">Send</button>
+                <input className="posts__input" placeholder='your news...' ref={newPostElement} />
+                <button className="posts__button" onClick={addPost}>Send</button>
                 <ul className="posts__item-list">
-                    {postsElement}
+                    {postsElements}
                 </ul>
             </section>
         </>
