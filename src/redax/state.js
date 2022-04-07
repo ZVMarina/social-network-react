@@ -1,8 +1,8 @@
 const state = {
     profilePage: {
         postsData: [
-            { post: "Hey, is anybody here?" },
-            { post: "It's my first post" }
+            { id: 1, post: "Hey, is anybody here?" },
+            { id: 2, post: "It's my first post" }
         ],
     },
 
@@ -23,6 +23,15 @@ const state = {
             { message: "When are you coming to the meeting, Yen?" },
         ]
     }
+}
+
+export const addPost = (newPost) => {
+    const post = {
+        id: 3,
+        post: newPost
+    }
+
+    state.profilePage.postsData.push(post);
 }
 
 export default state;

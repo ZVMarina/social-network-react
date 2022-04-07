@@ -9,8 +9,8 @@ function Profile(props) {
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        const value = newPostElement.current.value;
-        alert(value);
+        const postText = newPostElement.current.value;
+        props.addPost(postText);
     }
 
     return (
