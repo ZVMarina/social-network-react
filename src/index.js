@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals'
 import { addPost, updatePostText } from './redax/state'
 import { subscribe } from './redax/state'
 
-let rerenderTree = () => {
+const rerenderTree = () => {
   ReactDOM.render(
     <React.StrictMode>
       <App
