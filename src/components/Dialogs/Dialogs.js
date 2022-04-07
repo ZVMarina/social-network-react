@@ -2,8 +2,8 @@ import DialogsItem from "./DialogsItem";
 import Messages from "./Messages";
 
 function Dialogs(props) {
-    const dialogsElements = props.state.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
-    const messagesElements = props.state.messagesData.map(messageItem => <Messages message={messageItem.message} />);
+    const dialogsElements = props.dialogsPage.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
+    const messagesElements = props.dialogsPage.messagesData.map(messageItem => <Messages message={messageItem.message} />);
 
     return (
         <section className="dialogs">

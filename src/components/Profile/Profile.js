@@ -2,7 +2,6 @@ import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
 import Posts from './Posts'
 import React from 'react';
-import { addPost } from '../../redax/state';
 
 function Profile(props) {
     return (
@@ -15,7 +14,7 @@ function Profile(props) {
                     about="I'm Yennefer of Vengerberg, born on Belleteyn in 1173, a sorceress. I love Geralt of Rivia's and Ciri."
                 />
             </section>
-            <Posts addPost={props.addPost} state={props.state}/>
+            <Posts addPost={props.addPost} profilePage={props.profilePage}/>
         </>
     )
 }

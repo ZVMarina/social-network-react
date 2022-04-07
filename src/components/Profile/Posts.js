@@ -2,14 +2,14 @@ import PostsItem from "./PostsItem";
 import React from "react";
 
 function Posts(props) {
-    const postsElements = props.state.postsData.map(postItem => <PostsItem post={postItem.post} />);
+    const postsElements = props.profilePage.postsData.map(postItem => <PostsItem post={postItem.post} />);
 
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        const postText = newPostElement.current.value;
+        const newPostText = newPostElement.current.value;
 
-        props.addPost(postText);
+        props.addPost(newPostText);
 
         newPostElement.current.value = '';
     }
