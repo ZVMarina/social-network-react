@@ -7,17 +7,25 @@ function Posts(props) {
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        const newPostText = newPostElement.current.value;
+        let newPostText = newPostElement.current.value;
 
         props.addPost(newPostText);
+        props.updatePostText('');
+    }
 
-        newPostElement.current.value = '';
+    const onPostChange = () => {
+        let newPostText = newPostElement.current.value;
+
+        props.updatePostText(newPostText);
     }
 
     return (
         <section className="posts">
             <h2 className="posts__title">My posts</h2>
-            <input className="posts__input" placeholder='your news...' ref={newPostElement} />
+            <input className="posts__input" placeholder='your news...'
+                ref={newPostElement}
+                onChange={onPostChange}
+                value={props.postText} />
             <button className="posts__button" onClick={addPost}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}

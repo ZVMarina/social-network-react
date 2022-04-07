@@ -14,7 +14,11 @@ function Profile(props) {
                     about="I'm Yennefer of Vengerberg, born on Belleteyn in 1173, a sorceress. I love Geralt of Rivia's and Ciri."
                 />
             </section>
-            <Posts addPost={props.addPost} postsData={props.profilePage.postsData} /* newPostText={props.profilePage} *//>
+            <Posts
+                addPost={props.addPost}
+                postsData={props.profilePage.postsData}
+                postText={props.profilePage.postText} 
+                updatePostText={props.updatePostText}/>
         </>
     )
 }
