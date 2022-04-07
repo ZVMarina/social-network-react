@@ -28,13 +28,14 @@ const state = {
     }
 }
 
-export const addPost = (newPost) => {
+export const addPost = () => {
     const post = {
         id: 3,
-        post: newPost
+        post: state.profilePage.postText
     }
 
     state.profilePage.postsData.push(post);
+    state.profilePage.postText = '';
 
     rerenderTree(state);
 }
