@@ -6,6 +6,7 @@ const state = {
             { id: 1, post: "Hey, is anybody here?" },
             { id: 2, post: "It's my first post" }
         ],
+        newPostText: 'Yen'
     },
 
     dialogsPage: {
@@ -37,5 +38,16 @@ export const addPost = (newPost) => {
 
     rerenderTree(state);
 }
+/* 
+export const updateNewPostText = (newPost) => {
+    const post = {
+        id: 3,
+        post: newPost
+    }
+
+    state.profilePage.postsData.push(post);
+
+    rerenderTree(state);
+} */
 
 export default state;

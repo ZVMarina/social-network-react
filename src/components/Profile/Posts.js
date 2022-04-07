@@ -2,7 +2,7 @@ import PostsItem from "./PostsItem";
 import React from "react";
 
 function Posts(props) {
-    const postsElements = props.profilePage.postsData.map(postItem => <PostsItem post={postItem.post} />);
+    const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
 
     const newPostElement = React.createRef();
 
