@@ -1,3 +1,5 @@
+import { rerenderTree } from "../render";
+
 const state = {
     profilePage: {
         postsData: [
@@ -32,6 +34,8 @@ export const addPost = (newPost) => {
     }
 
     state.profilePage.postsData.push(post);
+
+    rerenderTree(state);
 }
 
 export default state;
