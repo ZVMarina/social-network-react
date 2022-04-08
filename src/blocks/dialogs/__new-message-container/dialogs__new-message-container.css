@@ -1,0 +1,10 @@
+.dialogs__new-message-container {
+    grid-area: send;
+    align-self: end;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    min-height: 100%;
+}

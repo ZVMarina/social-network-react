@@ -1,3 +1,5 @@
 .dialogs__list_type_messages {
     grid-area: messages;
+    padding: 0;
+    margin-bottom: 20px;
 }

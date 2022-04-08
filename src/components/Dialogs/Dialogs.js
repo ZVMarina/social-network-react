@@ -14,6 +14,10 @@ function Dialogs(props) {
             <ul className="dialogs__list dialogs__list_type_messages">
                 {messagesElements}
             </ul>
+            <div className="dialogs__new-message-container">
+                <textarea className="dialogs__new-message-content" placeholder="Write your message here..."></textarea>
+                <button className="dialogs__send-button">Send</button>
+            </div>
         </section>
     )
 }

@@ -2,6 +2,7 @@
     display: grid;
     grid-template-areas:
       "title title"
-      "dialogs messages";
+      "dialogs messages"
+      "dialogs send";
       grid-template-columns: 1fr 2fr;
 }
