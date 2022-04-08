@@ -1,5 +1,6 @@
 import PostsItem from "./PostsItem";
 import React from "react";
+import { addPostActionCreator, onPostChangeActionCreator } from "../../redax/state";
 
 function Posts(props) {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
@@ -7,13 +8,13 @@ function Posts(props) {
     const newPostElement = React.createRef();
 
     const addPost = () => {
-        props.dispatch({ type: 'ADD-POST' });
+        props.dispatch(addPostActionCreator());
     }
 
     const onPostChange = () => {
         const newPostText = newPostElement.current.value;
 
-        props.dispatch({ type: 'UPDATE-POST-TEXT', newPostText: newPostText });
+        props.dispatch(onPostChangeActionCreator(newPostText));
     }
 
     return (
