@@ -1,5 +1,5 @@
 const addPostActionType = 'ADD-POST';
-const onPostChangeActionType = 'UPDATE-POST-TEXT';
+const updatePostBodyActionType = 'UPDATE-POST-TEXT';
 
 const store = {
     _state: {
@@ -29,6 +29,7 @@ const store = {
             ]
         }
     },
+    // "менеджер" стейта, нужен, чтобы сообщить внешнему "миру" о том, что стейт изменился
     _callSubscriber() {
     },
 
@@ -51,7 +52,7 @@ const store = {
 
             this._callSubscriber();
         }
-        else if (action.type = onPostChangeActionType) {
+        else if (action.type = updatePostBodyActionType) {
             this._state.profilePage.postText = action.newPostText;
 
             this._callSubscriber();
@@ -65,7 +66,7 @@ export const addPostActionCreator = () => {
     }
 }
 
-export const onPostChangeActionCreator = (newPostText) => {
+export const updatePostBodyActionCreator = (newPostText) => {
     return {
         type: 'UPDATE-POST-TEXT', newPostText: newPostText
     }

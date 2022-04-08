@@ -1,6 +1,6 @@
 import PostsItem from "./PostsItem";
 import React from "react";
-import { addPostActionCreator, onPostChangeActionCreator } from "../../redax/state";
+import { addPostActionCreator, updatePostBodyActionCreator } from "../../redax/state";
 
 function Posts(props) {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
@@ -11,10 +11,10 @@ function Posts(props) {
         props.dispatch(addPostActionCreator());
     }
 
-    const onPostChange = () => {
+    const updatePostBody = () => {
         const newPostText = newPostElement.current.value;
 
-        props.dispatch(onPostChangeActionCreator(newPostText));
+        props.dispatch(updatePostBodyActionCreator(newPostText));
     }
 
     return (
@@ -22,7 +22,7 @@ function Posts(props) {
             <h2 className="posts__title">My posts</h2>
             <input className="posts__input" placeholder='your news...'
                 ref={newPostElement}
-                onChange={onPostChange}
+                onChange={updatePostBody}
                 value={props.postText} />
             <button className="posts__button" onClick={addPost}>Send</button>
             <ul className="posts__item-list">
