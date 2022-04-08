@@ -1,5 +1,7 @@
 const addPostActionType = 'ADD-POST';
+const sendMessage = 'SEND-MESSAGE';
 const updatePostBodyActionType = 'UPDATE-POST-TEXT';
+const updateMessageBodyActionType = 'UPDATE-MESSAGE-TEXT';
 
 const store = {
     _state: {
@@ -23,10 +25,11 @@ const store = {
             ],
 
             messagesData: [
-                { message: "Hey, Yen! Where is our unicorn?" },
-                { message: "Yen, Geralt and I are practicing sword strikes. See you later." },
-                { message: "When are you coming to the meeting, Yen?" },
-            ]
+                { id: 1, message: "Hey, Yen! Where is our unicorn?" },
+                { id: 2, message: "Yen, Geralt and I are practicing sword strikes. See you later." },
+                { id: 3, message: "When are you coming to the meeting, Yen?" },
+            ],
+            messageText: ''
         }
     },
     // "менеджер" стейта, нужен, чтобы сообщить внешнему "миру" о том, что стейт изменился
@@ -50,12 +53,28 @@ const store = {
             this._state.profilePage.postsData.push(post);
             this._state.profilePage.postText = '';
 
-            this._callSubscriber();
+            this._callSubscriber(this._state);
         }
         else if (action.type = updatePostBodyActionType) {
             this._state.profilePage.postText = action.newPostText;
 
-            this._callSubscriber();
+            this._callSubscriber(this._state);
+        }
+        else if (action.type = sendMessage) {
+            const message = {
+                id: 4,
+                message: this._state.dialogsPage.messageText
+            }
+
+            this._state.dialogsPage.messagesData.push(message);
+            this._state.dialogsPage.messageText = '';
+
+            this._callSubscriber(this._state);
+        }
+        else if (action.type = updateMessageBodyActionType) {
+            this._state.dialogsPage.messageText = action.newMessageText;
+
+            this._callSubscriber(this._state);
         }
     }
 }
