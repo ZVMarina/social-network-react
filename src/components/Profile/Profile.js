@@ -15,10 +15,10 @@ function Profile(props) {
                 />
             </section>
             <Posts
-                addPost={props.addPost}
+                dispatch={props.dispatch}
                 postsData={props.profilePage.postsData}
-                postText={props.profilePage.postText} 
-                updatePostText={props.updatePostText}/>
+                postText={props.profilePage.postText}
+            />
         </>
     )
 }
