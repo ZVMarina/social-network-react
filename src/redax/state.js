@@ -81,13 +81,25 @@ const store = {
 
 export const addPostActionCreator = () => {
     return {
-        type: 'ADD-POST'
+        type: addPostActionType,
+    }
+}
+
+export const sendMessageActionCreator = () => {
+    return {
+        type: sendMessage,
     }
 }
 
 export const updatePostBodyActionCreator = (newPostText) => {
     return {
-        type: 'UPDATE-POST-TEXT', newPostText: newPostText
+        type: updatePostBodyActionType, newPostText: newPostText
+    }
+}
+
+export const updateMessageBodyActionCreator = (newMessageText) => {
+    return {
+        type: updateMessageBodyActionType, newMessageText: newMessageText
     }
 }
 
