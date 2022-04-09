@@ -7,11 +7,11 @@ function Posts(props) {
 
     const newPostElement = React.createRef();
 
-    const addPost = () => {
+    const addPostHandler = () => {
         props.dispatch(addPostActionCreator());
     }
 
-    const updatePostBody = () => {
+    const updatePostHandler = () => {
         const newPostText = newPostElement.current.value;
 
         props.dispatch(updatePostBodyActionCreator(newPostText));
@@ -22,9 +22,9 @@ function Posts(props) {
             <h2 className="posts__title">My posts</h2>
             <input className="posts__input" placeholder='your news...'
                 ref={newPostElement}
-                onChange={updatePostBody}
+                onChange={updatePostHandler}
                 value={props.postText} />
-            <button className="posts__button" onClick={addPost}>Send</button>
+            <button className="posts__button" onClick={addPostHandler}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}
             </ul>

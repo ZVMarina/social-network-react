@@ -56,28 +56,28 @@ const store = {
             this._callSubscriber(this._state);
         }
 
-        else if (action.type = updatePostBodyActionType) {
+        else if (action.type === updatePostBodyActionType) {
             this._state.profilePage.postText = action.newPostText;
 
             this._callSubscriber(this._state);
         }
 
-        else if (action.type = sendMessageActionType) {
+        else if (action.type === sendMessageActionType) {
             const message = {
                 id: 4,
                 message: this._state.dialogsPage.messageText
             }
-
+            
             this._state.dialogsPage.messagesData.push(message);
             this._state.dialogsPage.messageText = '';
 
             this._callSubscriber(this._state);
         }
 
-        else if (action.type = updateMessageBodyActionType) {
-            this._state.dialogsPage.messageText = action.newMessageText;
+        else if (action.type === updateMessageBodyActionType) {
+            this._state.dialogsPage.messageText = action.newMessageText; // изменяем стейт
 
-            this._callSubscriber(this._state);
+            this._callSubscriber(this._state); // передаем изменивщийся стейт
         }
     }
 }
