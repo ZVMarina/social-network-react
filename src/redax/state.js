@@ -1,11 +1,6 @@
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 
-const addPostActionType = 'ADD-POST';
-const sendMessageActionType = 'SEND-MESSAGE';
-const updatePostBodyActionType = 'UPDATE-POST-TEXT';
-const updateMessageBodyActionType = 'UPDATE-MESSAGE-TEXT';
-
 const store = {
     _state: {
         profilePage: {
@@ -51,30 +46,6 @@ const store = {
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 
         this._callSubscriber(this._state); // передаем изменивщийся стейт "подписчикам"
-    }
-}
-
-export const addPostActionCreator = () => {
-    return {
-        type: addPostActionType,
-    }
-}
-
-export const sendMessageActionCreator = () => {
-    return {
-        type: sendMessageActionType,
-    }
-}
-
-export const updatePostBodyActionCreator = (newPostText) => {
-    return {
-        type: updatePostBodyActionType, newPostText: newPostText
-    }
-}
-
-export const updateMessageBodyActionCreator = (newMessageText) => {
-    return {
-        type: updateMessageBodyActionType, newMessageText: newMessageText
     }
 }
 
