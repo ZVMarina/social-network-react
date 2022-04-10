@@ -20,10 +20,10 @@ function Posts(props) {
     return (
         <section className="posts">
             <h2 className="posts__title">My posts</h2>
-            <input className="posts__input" placeholder='your news...'
+            <textarea className="posts__input" placeholder='your news...'
                 ref={newPostElement}
                 onChange={updatePostHandler}
-                value={props.postText} />
+                value={props.postText}></textarea>
             <button className="posts__button" onClick={addPostHandler}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}
