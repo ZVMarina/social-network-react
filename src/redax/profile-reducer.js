@@ -3,21 +3,21 @@ const updatePostBodyActionType = 'UPDATE-POST-TEXT';
 
 // сюда уже придёт нужная часть стейта (profilePage)
 const profileReducer = (state, action) => {
-    if (action.type === addPostActionType) {
-        const post = {
-            id: 3,
-            post: state.postText
-        }
-
-        state.postsData.push(post);
-        state.postText = '';
+    switch(action.type) {
+        case addPostActionType:
+            const post = {
+                id: 3,
+                post: state.postText
+            }
+    
+            state.postsData.push(post);
+            state.postText = '';
+            return state;
+        case updatePostBodyActionType:
+            state.postText = action.newPostText;
+            return state;
+        default: return state;
     }
-
-    else if (action.type === updatePostBodyActionType) {
-        state.postText = action.newPostText;
-    }
-
-    return state;
 }
 
 export default profileReducer;
