@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals'
-import store from './redax/store';
+import store from './redax/redux-store';
 
 const rerenderTree = () => {
   ReactDOM.render(
@@ -15,11 +15,13 @@ const rerenderTree = () => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-  
+
   reportWebVitals();
 }
 
 rerenderTree(store.getState());
 
-store.subscribe(rerenderTree);
+store.subscribe(() => {
+  rerenderTree(store.getState())
+});
 

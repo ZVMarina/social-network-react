@@ -1,15 +1,24 @@
 const addPostActionType = 'ADD-POST';
 const updatePostBodyActionType = 'UPDATE-POST-TEXT';
 
+const initialState =
+{
+    postsData: [
+        { id: 1, post: "Hey, is anybody here?" },
+        { id: 2, post: "It's my first post" }
+    ],
+    postText: ''
+}
+
 // сюда уже придёт нужная часть стейта (profilePage)
-const profileReducer = (state, action) => {
-    switch(action.type) {
+const profileReducer = (state = initialState, action) => {
+    switch (action.type) {
         case addPostActionType:
             const post = {
                 id: 3,
                 post: state.postText
             }
-    
+
             state.postsData.push(post);
             state.postText = '';
             return state;
