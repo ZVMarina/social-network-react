@@ -1,7 +1,7 @@
 import image from '../../images/main/people.png';
 import ProfileInfo from './ProfileInfo';
-import Posts from './Posts'
 import React from 'react';
+import PostsContainer from './PostsContainer';
 
 function Profile(props) {
     return (
@@ -14,11 +14,7 @@ function Profile(props) {
                     about="I'm Yennefer of Vengerberg, born on Belleteyn in 1173, a sorceress. I love Geralt of Rivia's and Ciri."
                 />
             </section>
-            <Posts
-                dispatch={props.dispatch}
-                postsData={props.profilePage.postsData}
-                postText={props.profilePage.postText}
-            />
+            <PostsContainer store={props.store} />
         </>
     )
 }

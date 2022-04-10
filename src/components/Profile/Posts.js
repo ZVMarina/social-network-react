@@ -1,18 +1,17 @@
 import PostsItem from "./PostsItem";
 import React from "react";
-import { addPostActionCreator, updatePostBodyActionCreator } from "../../redux/profile-reducer";
 
 function Posts(props) {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
 
     const addPostHandler = () => {
-        props.dispatch(addPostActionCreator());
+        props.addPostCreator();
     }
 
     const updatePostHandler = (evt) => {
         const newPostText = evt.currentTarget.value;
 
-        props.dispatch(updatePostBodyActionCreator(newPostText));
+        props.updatePostBodyCreator(newPostText);
     }
 
     return (
