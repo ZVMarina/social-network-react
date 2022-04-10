@@ -8,6 +8,7 @@ function Dialogs(props) {
 
     const sendMessageHandler = () => {
         props.dispatch(sendMessageActionCreator());
+        console.log(props.dialogsPage.messageText);
     }
 
     const updateMessageHandler = (evt) => {
@@ -28,7 +29,7 @@ function Dialogs(props) {
             <div className="dialogs__new-message-container">
                 <textarea className="dialogs__new-message-content"
                     placeholder="Write your message here..."
-                    value={props.messageText}
+                    value={props.dialogsPage.messageText}
                     onChange={updateMessageHandler}></textarea>
                 <button className="dialogs__send-button" onClick={sendMessageHandler}>Send</button>
             </div>

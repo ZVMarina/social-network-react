@@ -10,7 +10,7 @@ const store = {
                 { id: 1, post: "Hey, is anybody here?" },
                 { id: 2, post: "It's my first post" }
             ],
-            postText: ''
+            postText: 'ddd'
         },
 
         dialogsPage: {
@@ -29,7 +29,7 @@ const store = {
                 { id: 2, message: "Yen, Geralt and I are practicing sword strikes. See you later." },
                 { id: 3, message: "When are you coming to the meeting, Yen?" },
             ],
-            messageText: ''
+            messageText: 'ddd'
         }
     },
     // "менеджер" стейта, нужен, чтобы сообщить внешнему "миру" о том, что стейт изменился
@@ -63,13 +63,21 @@ const store = {
         }
 
         else if (action.type === sendMessageActionType) {
-            const message = {
+            /* const message = {
                 id: 4,
                 message: this._state.dialogsPage.messageText
             }
-            
+
             this._state.dialogsPage.messagesData.push(message);
             this._state.dialogsPage.messageText = '';
+
+            this._callSubscriber(this._state); */
+            let messageText = this._state.dialogsPage.messageText;
+            this._state.dialogsPage.messageText = '';
+            this._state.dialogsPage.messagesData.push({
+                id: 4,
+                message: messageText
+            });
 
             this._callSubscriber(this._state);
         }
