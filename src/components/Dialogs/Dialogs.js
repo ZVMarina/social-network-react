@@ -1,6 +1,6 @@
 import DialogsItem from "./DialogsItem";
 import MessagesItem from "./MessagesItem";
-import MessagesContainer from "./MessagesContainer";
+import MessagesContainer from ".//newMessagesContainer";
 
 function Dialogs(props) {
     const dialogsElements = props.dialogsPage.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);

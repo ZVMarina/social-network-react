@@ -1,5 +1,5 @@
 import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogs-reducer";
-import Messages from "./Messages";
+import Messages from "./newMessages";
 
 function MessagesContainer(props) {
     const state = props.store.getState();
