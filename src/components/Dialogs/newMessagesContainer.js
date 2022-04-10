@@ -19,9 +19,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(newMessages);
+const newMessagesContainer = connect(mapStateToProps, mapDispatchToProps)(newMessages);
 
-export default MessagesContainer;
+export default newMessagesContainer;
 
 /* function MessagesContainer(props) {
     const state = props.store.getState();
