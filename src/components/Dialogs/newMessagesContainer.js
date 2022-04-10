@@ -1,7 +1,29 @@
+import { connect } from "react-redux";
 import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogsReducer";
-import Messages from "./newMessages";
+import newMessages from "./newMessages";
 
-function MessagesContainer(props) {
+const mapStateToProps = (state) => {
+    return {
+        messageText: state.dialogsPage.messageText
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessageCreator: () => {
+            dispatch(sendMessageActionCreator());
+        },
+        updateMessageBodyCreator: (newMessageText) => {
+            dispatch(updateMessageBodyActionCreator(newMessageText))
+        }
+    }
+}
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(newMessages);
+
+export default MessagesContainer;
+
+/* function MessagesContainer(props) {
     const state = props.store.getState();
 
     const sendMessageHandler = () => {
@@ -12,11 +34,9 @@ function MessagesContainer(props) {
         props.store.dispatch(updateMessageBodyActionCreator(newMessageText));
     }
 
-    return ( 
-        <Messages sendMessageCreator={sendMessageHandler} 
-        updateMessageBodyCreator={updateMessageHandler} 
-        messageText={state.dialogsPage.messageText}/>
+    return (
+        <Messages sendMessageCreator={sendMessageHandler}
+            updateMessageBodyCreator={updateMessageHandler}
+            messageText={state.dialogsPage.messageText} />
     )
-}
-
-export default MessagesContainer;
+} */
