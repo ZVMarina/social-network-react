@@ -1,21 +1,10 @@
-import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogs-reducer";
 import DialogsItem from "./DialogsItem";
-import Messages from "./Messages";
+import MessagesItem from "./MessagesItem";
+import MessagesContainer from "./MessagesContainer";
 
 function Dialogs(props) {
     const dialogsElements = props.dialogsPage.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
-    const messagesElements = props.dialogsPage.messagesData.map(messageItem => <Messages message={messageItem.message} />);
-
-    const sendMessageHandler = () => {
-        props.dispatch(sendMessageActionCreator());
-        console.log(props.dialogsPage.messageText);
-    }
-
-    const updateMessageHandler = (evt) => {
-        const newMessageText = evt.currentTarget.value;
-
-        props.dispatch(updateMessageBodyActionCreator(newMessageText));
-    }
+    const messagesElements = props.dialogsPage.messagesData.map(messageItem => <MessagesItem message={messageItem.message} />);
 
     return (
         <section className="dialogs">
@@ -26,13 +15,7 @@ function Dialogs(props) {
             <ul className="dialogs__list dialogs__list_type_messages">
                 {messagesElements}
             </ul>
-            <div className="dialogs__new-message-container">
-                <textarea className="dialogs__new-message-content"
-                    placeholder="Write your message here..."
-                    value={props.dialogsPage.messageText}
-                    onChange={updateMessageHandler}></textarea>
-                <button className="dialogs__send-button" onClick={sendMessageHandler}>Send</button>
-            </div>
+            <MessagesContainer store={props.store}/>
         </section>
     )
 }

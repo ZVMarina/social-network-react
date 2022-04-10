@@ -26,6 +26,7 @@ function App(props) {
               <Route path="/dialogs*" element={<Dialogs
                 dialogsPage={props.state.dialogsPage}
                 dispatch={props.dispatch}
+                store={props.store}
               />}
               />
               <Route path="/news" element={<News />} />

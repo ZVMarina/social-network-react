@@ -1,6 +1,23 @@
 function Messages(props) {
+
+    const sendMessageHandler = () => {
+        props.sendMessageCreator();
+    }
+
+    const updateMessageHandler = (evt) => {
+        const newMessageText = evt.currentTarget.value;
+
+        props.updateMessageBodyCreator(newMessageText);
+    }
+
     return (
-        <li className="dialogs__item dialogs__item_type_messages">{props.message}</li>
+        <div className="dialogs__new-message-container">
+            <textarea className="dialogs__new-message-content"
+                placeholder="Write your message here..."
+                value={props.messageText}
+                onChange={updateMessageHandler}></textarea>
+            <button className="dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+        </div>
     )
 }
 
