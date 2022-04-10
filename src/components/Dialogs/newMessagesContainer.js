@@ -1,4 +1,4 @@
-import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogs-reducer";
+import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogsReducer";
 import Messages from "./newMessages";
 
 function MessagesContainer(props) {
