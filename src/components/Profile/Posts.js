@@ -5,14 +5,12 @@ import { addPostActionCreator, updatePostBodyActionCreator } from "../../redux/p
 function Posts(props) {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
 
-    const newPostElement = React.createRef();
-
     const addPostHandler = () => {
         props.dispatch(addPostActionCreator());
     }
 
-    const updatePostHandler = () => {
-        const newPostText = newPostElement.current.value;
+    const updatePostHandler = (evt) => {
+        const newPostText = evt.currentTarget.value;
 
         props.dispatch(updatePostBodyActionCreator(newPostText));
     }
@@ -21,7 +19,6 @@ function Posts(props) {
         <section className="posts">
             <h2 className="posts__title">My posts</h2>
             <textarea className="posts__input" placeholder='your news...'
-                ref={newPostElement}
                 onChange={updatePostHandler}
                 value={props.postText}></textarea>
             <button className="posts__button" onClick={addPostHandler}>Send</button>
