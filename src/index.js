@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals'
-import store from './redax/state';
+import store from './redax/store';
 
 const rerenderTree = () => {
   ReactDOM.render(
