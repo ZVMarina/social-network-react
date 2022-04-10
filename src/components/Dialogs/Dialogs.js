@@ -1,4 +1,4 @@
-import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redax/dialogs-reducer";
+import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogs-reducer";
 import DialogsItem from "./DialogsItem";
 import Messages from "./Messages";
 

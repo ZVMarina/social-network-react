@@ -1,6 +1,6 @@
 import PostsItem from "./PostsItem";
 import React from "react";
-import { addPostActionCreator, updatePostBodyActionCreator } from "../../redax/profile-reducer";
+import { addPostActionCreator, updatePostBodyActionCreator } from "../../redux/profile-reducer";
 
 function Posts(props) {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} />);
