@@ -46,3 +46,15 @@
 @import url(./blocks/dialogs/__new-message-container/dialogs__new-message-container.css);
 @import url(./blocks/dialogs/__new-message-content/dialogs__new-message-content.css);
 @import url(./blocks/dialogs/__send-button/dialogs__send-button.css);
+
+@import url(./blocks/users/users.css);
+@import url(./blocks/users/__title/users__title.css);
+@import url(./blocks/users/__list/users__list.css);
+@import url(./blocks/users/__item/users__item.css);
+@import url(./blocks/users/__follow-container/users__follow-container.css);
+@import url(./blocks/users/__button/users__button.css);
+@import url(./blocks/users/__avatar/users__avatar.css);
+@import url(./blocks/users/__info-container/users__info-container.css);
+@import url(./blocks/users/__name/users__name.css);
+@import url(./blocks/users/__status/users__status.css);
+@import url(./blocks/users/__country/users__country.css);

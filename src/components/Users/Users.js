@@ -12,9 +12,9 @@ function Users(props) {
                             <button className="users__button">Follow</button>
                         </div>
                         <div className="users__info-container">
-                                <h2>{user.name}</h2>
-                                <p>{user.status}</p>
-                                <p>{user.from}</p>
+                            <h2 className="users__name">{user.name}</h2>
+                            <p className="users__status">{user.status}</p>
+                            <p className="users__country">{user.country}</p>
                         </div>
                     </li>
                 )}
