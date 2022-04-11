@@ -53,3 +53,5 @@ export const followedActionCreator = (userId) => ({ type: followActionType, user
 export const unfollowedActionCreator = (userId) => ({ type: unFollowActionType, userId })
 
 export const setUsersActionCreator = (users) => ({ type: setUsersActionType, users })
+
+export default usersReducer;
