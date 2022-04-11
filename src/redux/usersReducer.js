@@ -40,6 +40,7 @@ const usersReducer = (state = initialState, action) => {
         case setUsersActionType:
             return {
                 ...state,
+                // сначала сделал копию юзеров, затем добавили туда пришедших юзеров
                 users: [...state.users, ...action.users]
             }
 

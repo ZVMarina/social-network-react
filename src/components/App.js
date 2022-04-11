@@ -8,7 +8,7 @@ import Profile from '../components/Profile/Profile';
 import Music from './Music';
 import Settings from './Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
-import Users from './Users';
+import Users from './Users/Users';
 
 function App(props) {
   return (
