@@ -53,6 +53,7 @@
 @import url(./blocks/users/__item/users__item.css);
 @import url(./blocks/users/__follow-container/users__follow-container.css);
 @import url(./blocks/users/__button/users__button.css);
+@import url(./blocks/users/__avatar-container/users__avatar-container.css);
 @import url(./blocks/users/__avatar/users__avatar.css);
 @import url(./blocks/users/__info-container/users__info-container.css);
 @import url(./blocks/users/__name/users__name.css);

@@ -1,0 +1,5 @@
+.users__country {
+    grid-area: country;
+    margin: 0;
+    justify-self: end;
+}

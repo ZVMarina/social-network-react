@@ -1,0 +1,11 @@
+.users__info-container {
+    display: grid;
+    grid-template-areas: 
+    "name country"
+    "status .";
+    border: 4px solid #2962ff;
+    border-radius: 10px;
+    grid-template-columns: repeat(2, minmax(400px, max-content));
+    padding: 10px 10px 0 10px;
+
+}

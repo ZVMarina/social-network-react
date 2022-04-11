@@ -1,0 +1,7 @@
+.users__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    grid-area: content;
+    justify-self: center;
+}

@@ -1,0 +1,6 @@
+.users {
+    display: grid;
+    grid-template-areas: 
+    "title title title"
+    ". content .";
+}

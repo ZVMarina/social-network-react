@@ -8,7 +8,9 @@ function Users(props) {
                 {props.users.map(user =>
                     <li className="users__item">
                         <div className="users__follow-container">
-                            <img className="users__avatar" src={user.photoUrl}></img>
+                            <div className="users__avatar-container">
+                                <img className="users__avatar" src={user.photoUrl}></img>
+                            </div>
                             <button className="users__button">Follow</button>
                         </div>
                         <div className="users__info-container">
