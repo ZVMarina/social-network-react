@@ -29,7 +29,7 @@ function Dialogs(props) {
                     placeholder="Write your message here..."
                     value={props.messageText}
                     onChange={updateMessageHandler}></textarea>
-                <button className="dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+                <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
             </div>
         </section>
     )

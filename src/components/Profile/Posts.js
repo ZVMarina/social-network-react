@@ -20,7 +20,7 @@ function Posts(props) {
             <textarea className="posts__input" placeholder='your news...'
                 onChange={updatePostHandler}
                 value={props.postText}></textarea>
-            <button className="posts__button" onClick={addPostHandler}>Send</button>
+            <button className="button posts__button" onClick={addPostHandler}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}
             </ul>

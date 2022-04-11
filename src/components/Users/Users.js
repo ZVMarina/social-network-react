@@ -11,7 +11,7 @@ function Users(props) {
                             <div className="users__avatar-container">
                                 <img className="users__avatar" src={user.photoUrl}></img>
                             </div>
-                            <button className="users__button">Follow</button>
+                            <button className="button users__button">Follow</button>
                         </div>
                         <div className="users__info-container">
                             <h2 className="users__name">{user.name}</h2>
