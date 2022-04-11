@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -15,6 +16,9 @@ function Navbar() {
                 </li>
                 <li className="navigation__item">
                     <NavLink className="navigation__link" to="/music">Music</NavLink>
+                </li>
+                <li className="navigation__item">
+                    <NavLink className="navigation__link" to="/users">Users</NavLink>
                 </li>
                 <li className="navigation__item">
                     <NavLink className="navigation__link" to="/settings">Settings</NavLink>

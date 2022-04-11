@@ -1,11 +1,11 @@
 import React from "react";
 
-function News() {
+function Users() {
     return (
         <div>
-            News
+            Users
         </div>
     )
 }
 
-export default News;
+export default Users;
