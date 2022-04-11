@@ -12,8 +12,10 @@ function Users(props) {
                                 <img className="users__avatar" src={user.photoUrl}></img>
                             </div>
                             {user.followed
-                                ? <button className="button users__button"><span className="users__button-text">Unfollow</span></button>
-                                : <button className="button users__button"><span className="users__button-text">Follow</span></button>}
+                                ? <button className="button users__button"
+                                    onClick={() => { props.unFollow(user.id) }}>Follow</button>
+                                : <button className="button users__button"
+                                    onClick={() => { props.follow(user.id) }}>Unfollow</button>}
                         </div>
                         <div className="users__info-container">
                             <h2 className="users__name">{user.name}</h2>
