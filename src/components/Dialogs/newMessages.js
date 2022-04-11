@@ -1,4 +1,4 @@
-function Messages(props) {
+function NewMessages(props) {
 
     const sendMessageHandler = () => {
         props.sendMessageCreator();
@@ -21,4 +21,4 @@ function Messages(props) {
     )
 }
 
-export default Messages;
+export default NewMessages;

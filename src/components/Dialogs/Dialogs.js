@@ -1,6 +1,6 @@
 import DialogsItem from "./DialogsItem";
 import MessagesItem from "./MessagesItem";
-import MessagesContainer from ".//newMessagesContainer";
+import NewMessagesContainer from "./NewMessagesContainer";
 
 function Dialogs(props) {
     const dialogsElements = props.dialogsPage.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
@@ -15,7 +15,7 @@ function Dialogs(props) {
             <ul className="dialogs__list dialogs__list_type_messages">
                 {messagesElements}
             </ul>
-            <MessagesContainer store={props.store}/>
+            <NewMessagesContainer store={props.store} />
         </section>
     )
 }

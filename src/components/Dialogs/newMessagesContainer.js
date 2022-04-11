@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { sendMessageActionCreator, updateMessageBodyActionCreator } from "../../redux/dialogsReducer";
-import newMessages from "./newMessages";
+import NewMessages from './NewMessages' 
 
 const mapStateToProps = (state) => {
     return {
@@ -19,9 +19,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const newMessagesContainer = connect(mapStateToProps, mapDispatchToProps)(newMessages);
+const NewMessagesContainer = connect(mapStateToProps, mapDispatchToProps)(NewMessages);
 
-export default newMessagesContainer;
+export default NewMessagesContainer;
 
 /* function MessagesContainer(props) {
     const state = props.store.getState();
