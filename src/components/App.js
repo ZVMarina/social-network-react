@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
 import Dialogs from '../components/Dialogs/Dialogs';
@@ -10,7 +10,6 @@ import Settings from './Settings';
 
 function App(props) {
   return (
-    <BrowserRouter>
       <div className="App">
         <div className="page">
           <Header />
@@ -36,7 +35,6 @@ function App(props) {
           </main>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 
