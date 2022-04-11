@@ -29,13 +29,13 @@ const dialogsReducer = (state = initialState, action) => {
                 message: state.messageText
             }
 
-            let stateCopy = { ...state };
+            const stateCopy = { ...state };
             stateCopy.messagesData = [...state.messagesData]
             stateCopy.messagesData.push(message);
             stateCopy.messageText = '';
             return stateCopy;
         case updateMessageBodyActionType: {
-            let stateCopy = { ...state };
+            const stateCopy = { ...state };
             stateCopy.messageText = action.newMessageText;
             return stateCopy;
         }
