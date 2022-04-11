@@ -1,3 +1,4 @@
 .users__title {
     grid-area: title;
+    margin-bottom: 25px;
 }
