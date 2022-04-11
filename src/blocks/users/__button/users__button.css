@@ -1,5 +1,8 @@
 .users__button {
-    padding: 10px 40px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     align-self: flex-end;
     margin-bottom: 4px;
+    font-size: 14px;
 }
