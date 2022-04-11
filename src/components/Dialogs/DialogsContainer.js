@@ -20,9 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const NewMessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-export default NewMessagesContainer;
+export default DialogsContainer;
 
 /* function MessagesContainer(props) {
     const state = props.store.getState();

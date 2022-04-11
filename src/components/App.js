@@ -7,7 +7,7 @@ import News from './News';
 import Profile from '../components/Profile/Profile';
 import Music from './Music';
 import Settings from './Settings';
-import NewMessagesContainer from './Dialogs/NewMessagesContainer';
+import DialogsContainer from './Dialogs/DialogsContainer';
 
 function App(props) {
   return (
@@ -20,7 +20,7 @@ function App(props) {
             <Route path="/profile" element={<Profile
             />}
             />
-            <Route path="/dialogs*" element={<NewMessagesContainer props={props.store} />}
+            <Route path="/dialogs*" element={<DialogsContainer props={props.store} />}
             />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
