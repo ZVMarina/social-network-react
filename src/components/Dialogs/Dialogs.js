@@ -2,10 +2,8 @@ import DialogsItem from "./DialogsItem";
 import MessagesItem from "./MessagesItem";
 
 function Dialogs(props) {
-    const dialogsPage = props.dialogsPage;
-
-    const dialogsElements = dialogsPage.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
-    const messagesElements = dialogsPage.messagesData.map(messageItem => <MessagesItem message={messageItem.message} />);
+    const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} />);
+    const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} />);
 
     const sendMessageHandler = () => {
         props.sendMessageCreator();
@@ -29,7 +27,7 @@ function Dialogs(props) {
             <div className="dialogs__new-message-container">
                 <textarea className="dialogs__new-message-content"
                     placeholder="Write your message here..."
-                    value={props.dialogsPage.messageText}
+                    value={props.messageText}
                     onChange={updateMessageHandler}></textarea>
                 <button className="dialogs__send-button" onClick={sendMessageHandler}>Send</button>
             </div>
