@@ -1,4 +1,4 @@
-import image from '../../images/main/pdd-removebg-preview-1.png';
+import image from '../../images/main/people-2.png';
 import ProfileInfo from './ProfileInfo';
 import React from 'react';
 import PostsContainer from './PostsContainer';
