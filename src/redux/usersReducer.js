@@ -17,7 +17,7 @@ const initialState = {
             followed: false, name: "Triss Merigold", status: "I want to be Geralt's woman", country: "Temeria"
         },
         {
-            id: 4, photoUrl: 'https://sun1-14.userapi.com/s/v1/if1/4Q2tBt2Vs0D1iR2fdfYyNtK8Y5EKQSpe2FLD5IlPpuzZ9hv26bZRsBr5afcI_1c33OzNS1Yu.jpg?size=400x533&quality=96&crop=0,0,453,604&ava=1',
+            id: 4, photoUrl: 'https://www.xgamers.ru/Handler1.ashx?id=4363',
             followed: false, name: "Zoltan Chivay", status: "It's a dog's life Geralt, I'll tell you that much", country: "Mahakam"
         }, */
     ]
@@ -53,7 +53,7 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 // сначала сделал копию юзеров, затем добавили туда пришедших юзеров
-                users: [/* ...state.users,  */...action.users]
+                users: [...state.users, ...action.users]
             }
 
         default: return state;

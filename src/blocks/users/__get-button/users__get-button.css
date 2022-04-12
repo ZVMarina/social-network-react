@@ -1,0 +1,23 @@
+.users__get-button {
+    grid-area: getUsers;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border: 2px solid #2962ff;
+    color: black;
+    box-shadow: none;
+    transition: background-color .5s ease, color .5s ease;
+}
+
+.users__get-button:hover {
+    cursor: pointer;
+    background-color: #1e54eb;
+    color: white;
+}
+
+.users__get-button:active {
+    box-shadow: none;
+}
