@@ -38,8 +38,8 @@ function Users(props) {
                         </div>
                         <div className="users__info-container">
                             <h2 className="users__name">{user.name}</h2>
-                            <p className="users__status">{user.status}</p>
-                            <p className="users__country">{'user.country'}</p>
+                            <p className="users__status">{user.status != null ? user.status : "There should be a status here"}</p>
+                            <p className="users__country">{user.country ? user.country : "There should be a country here"}</p>
                         </div>
                     </li>
                 )}
