@@ -3,8 +3,7 @@ import React from "react";
 import photo from '../../images/users/no-photo2.png'
 
 class Users extends React.Component {
-
-    getUsers = () => {
+    componentDidMount = () => {
         if (this.props.users.length === 0) {
             axios.get("https://social-network.samuraijs.com/api/1.0/users")
                 .then(response => {
@@ -17,7 +16,6 @@ class Users extends React.Component {
         return (
             <section className="users">
                 <h1 className="users__title">Users</h1>
-                <button className="button users__get-button" onClick={this.getUsers}>Get users</button>
                 <ul className="users__list">
                     {this.props.users.map(user =>
                         <li className="users__item">
