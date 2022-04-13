@@ -23,7 +23,7 @@ const initialState = {
             followed: false, name: "Zoltan Chivay", status: "It's a dog's life Geralt, I'll tell you that much", country: "Mahakam"
         }, */
     ],
-    pageSize: 100,
+    pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
 
