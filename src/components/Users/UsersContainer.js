@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { followedActionCreator, setUsersActionCreator, unfollowedActionCreator } from "../../redux/usersReducer";
+import { followedActionCreator, setPageActionCreator, setUsersActionCreator, unfollowedActionCreator } from "../../redux/usersReducer";
 import Users from "./Users";
 
 const mapStateToProps = (state) => {
@@ -21,6 +21,9 @@ const dispatchStateToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersActionCreator(users))
+        },
+        setPage: (currentPage) => {
+            dispatch(setPageActionCreator(currentPage))
         }
      }
 }

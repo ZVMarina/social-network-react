@@ -1,6 +1,7 @@
 const followActionType = 'follow';
 const unFollowActionType = 'unfollow';
 const setUsersActionType = 'set-users';
+const setPageActionType = 'set-page';
 
 const initialState = {
     users: [
@@ -20,10 +21,10 @@ const initialState = {
             id: 4, photoUrl: 'https://www.xgamers.ru/Handler1.ashx?id=4363',
             followed: false, name: "Zoltan Chivay", status: "It's a dog's life Geralt, I'll tell you that much", country: "Mahakam"
         }, */
-    ], 
+    ],
     pageSize: 5,
     totalUsersCount: 22,
-    currentPage: 3,
+    currentPage: 5,
 
 }
 
@@ -60,6 +61,13 @@ const usersReducer = (state = initialState, action) => {
                 users: [...state.users, ...action.users]
             }
 
+        case setPageActionType:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
+
+
         default: return state;
     }
 }
@@ -70,4 +78,6 @@ export const unfollowedActionCreator = (userId) => ({ type: unFollowActionType, 
 
 export const setUsersActionCreator = (users) => ({ type: setUsersActionType, users })
 
-export default usersReducer;
+export const setPageActionCreator = (currentPage) => ({ type: setPageActionType, currentPage }) // currentPage, так как action.currentPage
+
+export default usersReducer; 

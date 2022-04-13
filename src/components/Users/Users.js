@@ -5,7 +5,7 @@ import photo from '../../images/users/no-photo2.png'
 class Users extends React.Component {
     componentDidMount = () => {
         if (this.props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
                 .then(response => {
                     this.props.setUsers(response.data.items);
                 })
@@ -25,7 +25,9 @@ class Users extends React.Component {
             <section className="users">
                 <ul className="users__pages">
                     {pages.map(page => {
-                        return <li className={this.props.currentPage === page ? "users__page users__page_active" : "users__page"}>{page}</li>
+                        return <li className={this.props.currentPage === page ? "users__page users__page_active" : "users__page"}
+                            onClick={() => {this.props.setPage(page)}}
+                        >{page}</li>
                     })}
                 </ul>
                 <h1 className="users__title">Users</h1>
