@@ -2,6 +2,6 @@
     display: grid;
     grid-template-areas: 
     "title title title"
-    "pages . ."
+    "pages pages pages"
     ". content .";
 }

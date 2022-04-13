@@ -2,6 +2,7 @@ const followActionType = 'follow';
 const unFollowActionType = 'unfollow';
 const setUsersActionType = 'set-users';
 const setPageActionType = 'set-page';
+const setTotalUsersCountActionType = 'set-total-users-count';
 
 const initialState = {
     users: [
@@ -22,9 +23,9 @@ const initialState = {
             followed: false, name: "Zoltan Chivay", status: "It's a dog's life Geralt, I'll tell you that much", country: "Mahakam"
         }, */
     ],
-    pageSize: 5,
-    totalUsersCount: 22,
-    currentPage: 5,
+    pageSize: 100,
+    totalUsersCount: 0,
+    currentPage: 1,
 
 }
 
@@ -67,6 +68,11 @@ const usersReducer = (state = initialState, action) => {
                 currentPage: action.currentPage
             }
 
+        case setTotalUsersCountActionType:
+            return {
+                ...state,
+                totalUsersCount: action.usersCount
+            }
 
         default: return state;
     }
@@ -78,6 +84,9 @@ export const unfollowedActionCreator = (userId) => ({ type: unFollowActionType, 
 
 export const setUsersActionCreator = (users) => ({ type: setUsersActionType, users })
 
-export const setPageActionCreator = (currentPage) => ({ type: setPageActionType, currentPage }) // currentPage, так как action.currentPage
+export const setPageActionCreator = (currentPage) => ({ type: setPageActionType, currentPage })
+// currentPage, так как action.currentPage
+
+export const setTotalUsersCountActionCreator = (usersCount) => ({ type: setTotalUsersCountActionType, usersCount })
 
 export default usersReducer; 
