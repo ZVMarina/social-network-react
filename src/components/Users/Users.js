@@ -12,6 +12,14 @@ class Users extends React.Component {
         }
     }
 
+    pageChangeHandler = (page) => {
+        this.props.setPage(page);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            })
+    }
+
     render = () => {
         const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
@@ -26,7 +34,7 @@ class Users extends React.Component {
                 <ul className="users__pages">
                     {pages.map(page => {
                         return <li className={this.props.currentPage === page ? "users__page users__page_active" : "users__page"}
-                            onClick={() => {this.props.setPage(page)}}
+                            onClick={() => { this.pageChangeHandler(page) }}
                         >{page}</li>
                     })}
                 </ul>
