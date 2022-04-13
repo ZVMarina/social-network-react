@@ -2,6 +2,6 @@
     display: grid;
     grid-template-areas: 
     "title title title"
-    "getUsers . ."
+    "pages . ."
     ". content .";
 }

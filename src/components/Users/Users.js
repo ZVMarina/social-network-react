@@ -13,8 +13,21 @@ class Users extends React.Component {
     }
 
     render = () => {
+        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+        const pages = [];
+
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
             <section className="users">
+                <ul className="users__pages">
+                    {pages.map(page => {
+                        return <li className={this.props.currentPage === page ? "users__page users__page_active" : "users__page"}>{page}</li>
+                    })}
+                </ul>
                 <h1 className="users__title">Users</h1>
                 <ul className="users__list">
                     {this.props.users.map(user =>

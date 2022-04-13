@@ -61,3 +61,6 @@
 @import url(./blocks/users/__status/users__status.css);
 @import url(./blocks/users/__country/users__country.css);
 @import url(./blocks/users/__get-button/users__get-button.css);
+@import url(./blocks/users/__pages/users__pages.css);
+@import url(./blocks/users/__page/users__page.css);
+@import url(./blocks/users/__page/_active/users__page_active.css);

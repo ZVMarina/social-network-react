@@ -20,7 +20,11 @@ const initialState = {
             id: 4, photoUrl: 'https://www.xgamers.ru/Handler1.ashx?id=4363',
             followed: false, name: "Zoltan Chivay", status: "It's a dog's life Geralt, I'll tell you that much", country: "Mahakam"
         }, */
-    ]
+    ], 
+    pageSize: 5,
+    totalUsersCount: 22,
+    currentPage: 3,
+
 }
 
 const usersReducer = (state = initialState, action) => {

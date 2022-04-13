@@ -1,0 +1,7 @@
+.users__page {
+    margin-right: 5px;
+}
+
+.users__page:hover {
+    cursor: pointer;
+}
