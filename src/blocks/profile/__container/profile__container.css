@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas:
         "avatar text";
-    grid-template-columns: 1fr 2fr;
-    column-gap: 25px;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    column-gap: 45px;
     max-width: 80%;
 }
