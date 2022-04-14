@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {
     followedActionCreator, setPageActionCreator,
-    setUsersCountActionCreator, setUsersActionCreator, unfollowedActionCreator
+    setUsersCountActionCreator, setUsersActionCreator, unfollowedActionCreator, setIsFetchingActionCreator
 } from '../../redux/usersReducer';
 import * as axios from 'axios';
 import Users from './Users';
@@ -11,8 +11,10 @@ import preloader from '../../images/users/preloader.svg'
 class UsersContainer extends React.Component {
     componentDidMount = () => {
         if (this.props.users.length === 0) {
+            this.props.setIsFetching(true);
             axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
                 .then(response => {
+                    this.props.setIsFetching(false);
                     this.props.setUsers(response.data.items);
                     this.props.setTotalUsersCount(response.data.totalCount);
                 })
@@ -21,8 +23,10 @@ class UsersContainer extends React.Component {
 
     pageChangeHandler = (page) => {
         this.props.setPage(page);
+        this.props.setIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
             .then(response => {
+                this.props.setIsFetching(false);
                 this.props.setUsers(response.data.items);
             })
     }
@@ -70,6 +74,9 @@ const dispatchStateToProps = (dispatch) => {
         },
         setTotalUsersCount: (usersCount) => {
             dispatch(setUsersCountActionCreator(usersCount))
+        },
+        setIsFetching: (isFetching) => {
+            dispatch(setIsFetchingActionCreator(isFetching))
         }
     }
 }

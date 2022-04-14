@@ -3,6 +3,7 @@ const unFollowActionType = 'unfollow';
 const setUsersActionType = 'set-users';
 const setPageActionType = 'set-page';
 const setUsersCountActionType = 'set-total-users-count';
+const setIsFetchingActionType = 'set-is-fetching';
 
 const initialState = {
     users: [],
@@ -58,6 +59,12 @@ const usersReducer = (state = initialState, action) => {
                 totalUsersCount: action.usersCount
             }
 
+        case setIsFetchingActionType:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+
         default: return state;
     }
 }
@@ -72,5 +79,7 @@ export const setPageActionCreator = (currentPage) => ({ type: setPageActionType,
 // currentPage, так как action.currentPage
 
 export const setUsersCountActionCreator = (usersCount) => ({ type: setUsersCountActionType, usersCount })
+
+export const setIsFetchingActionCreator = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
 
 export default usersReducer; 
