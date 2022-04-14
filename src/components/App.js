@@ -4,11 +4,11 @@ import Header from './Header';
 import Dialogs from '../components/Dialogs/Dialogs';
 import Navbar from './Navbar';
 import News from './News';
-import Profile from '../components/Profile/Profile';
 import Music from './Music';
 import Settings from './Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
+import ProfileContainer from './Profile/ProfileContainer';
 
 function App(props) {
   return (
@@ -18,7 +18,7 @@ function App(props) {
         <Navbar />
         <main className="main">
           <Routes>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfileContainer />} />
             <Route path="/dialogs*" element={<DialogsContainer props={props.store} />}
             />
             <Route path="/news" element={<News />} />
