@@ -7,7 +7,7 @@ function ProfileInfo(props) {
 
     return (
         <div className="profile__container">
-            <picture className="profile__picture">
+            <picture className="profile__avatar-container">
                 <source srcSet={props.profile.photos.small} media="(max-width: 535px)" />
                 <img className="profile__avatar" src={props.profile.photos.large} />
             </picture>

@@ -1,4 +1,4 @@
-.profile__picture {
+.profile__avatar-container {
     grid-area: avatar;
     border-radius: 10px;
     border: solid #2962ff 11px;
