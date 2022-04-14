@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
-import Dialogs from '../components/Dialogs/Dialogs';
 import Navbar from './Navbar';
 import News from './News';
 import Music from './Music';
