@@ -25,7 +25,7 @@ function Users(props) {
                     <li className="users__item">
                         <div className="users__follow-container">
                             <div className="users__avatar-container">
-                                <NavLink className="navigation__link" to={'/profile' + user.id}>
+                                <NavLink className="navigation__link" to={'/profile/' + user.id}>
                                     <img className="users__avatar" src={user.photos.small != null ? user.photos.small : photo}></img>
                                 </NavLink>
                             </div>

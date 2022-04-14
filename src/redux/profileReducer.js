@@ -1,5 +1,6 @@
 const addPostActionType = 'ADD-POST';
 const updatePostBodyActionType = 'UPDATE-POST-TEXT';
+const setProfileInfoActionType = 'set-profile-info';
 
 const initialState =
 {
@@ -7,7 +8,8 @@ const initialState =
         { id: 1, post: "Hey, is anybody here?" },
         { id: 2, post: "It's my first post" }
     ],
-    postText: ''
+    postText: '',
+    profile: null
 }
 
 // сюда уже придёт нужная часть стейта (profilePage)
@@ -31,6 +33,14 @@ const profileReducer = (state = initialState, action) => {
                 postText: action.newPostText
             };
         }
+
+        case setProfileInfoActionType: {
+            return { 
+                ...state,
+                profile: action.profile
+            };
+        }
+
         default: return state;
     }
 }
@@ -45,6 +55,12 @@ export const addPostActionCreator = () => {
 export const updatePostBodyActionCreator = (newPostText) => {
     return {
         type: updatePostBodyActionType, newPostText: newPostText
+    }
+}
+
+export const setProfileInfo = (profile) => {
+    return {
+        type: setProfileInfoActionType, profile
     }
 }
 
