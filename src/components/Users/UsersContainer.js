@@ -58,7 +58,18 @@ const mapStateToProps = (state) => {
     }
 }
 
-const dispatchStateToProps = (dispatch) => {
+export default connect(mapStateToProps,
+    {
+        follow: followedActionCreator,
+        unFollow: unfollowedActionCreator,
+        setUsers: setUsersActionCreator,
+        setPage: setPageActionCreator,
+        setTotalUsersCount: setUsersCountActionCreator,
+        setIsFetching: setIsFetchingActionCreator,
+    }
+)(UsersContainer);
+
+/* const dispatchStateToProps = (dispatch) => {
     return {
         follow: (userId) => {
             dispatch(followedActionCreator(userId))
@@ -79,15 +90,4 @@ const dispatchStateToProps = (dispatch) => {
             dispatch(setIsFetchingActionCreator(isFetching))
         }
     }
-}
-
-export default connect(mapStateToProps,
-    {
-        follow: followedActionCreator,
-        unFollow: unfollowedActionCreator,
-        setUsers: setUsersActionCreator,
-        setPage: setPageActionCreator,
-        setTotalUsersCount: setUsersCountActionCreator,
-        setIsFetching: setIsFetchingActionCreator,
-    }
-)(UsersContainer);
+} */
