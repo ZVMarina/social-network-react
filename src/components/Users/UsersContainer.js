@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {
     followedActionCreator, setPageActionCreator,
-    setTotalUsersCountActionCreator, setUsersActionCreator, unfollowedActionCreator
+    setUsersCountActionCreator, setUsersActionCreator, unfollowedActionCreator
 } from '../../redux/usersReducer';
 import * as axios from 'axios';
 import Users from './Users';
@@ -69,7 +69,7 @@ const dispatchStateToProps = (dispatch) => {
             dispatch(setPageActionCreator(currentPage))
         },
         setTotalUsersCount: (usersCount) => {
-            dispatch(setTotalUsersCountActionCreator(usersCount))
+            dispatch(setUsersCountActionCreator(usersCount))
         }
     }
 }
