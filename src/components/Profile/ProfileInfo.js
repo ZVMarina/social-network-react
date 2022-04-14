@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Preloader from '../Preloader'
 
 function ProfileInfo(props) {
@@ -14,6 +15,9 @@ function ProfileInfo(props) {
             <div className="profile__text">
                 <h1 className="profile__name">{props.profile.fullName}</h1>
                 <p className="profile__about">{props.profile.aboutMe}</p>
+                {/* <a className="" href={props.profile.contacts.vk} target="_blank">
+                    <p className="profile__contacts">{props.profile.contacts.vk}</p>
+                </a> */}
             </div>
         </div>
     )
