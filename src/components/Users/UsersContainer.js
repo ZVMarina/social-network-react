@@ -81,4 +81,13 @@ const dispatchStateToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, dispatchStateToProps)(UsersContainer);
+export default connect(mapStateToProps,
+    {
+        follow: followedActionCreator,
+        unFollow: unfollowedActionCreator,
+        setUsers: setUsersActionCreator,
+        setPage: setPageActionCreator,
+        setTotalUsersCount: setUsersCountActionCreator,
+        setIsFetching: setIsFetchingActionCreator,
+    }
+)(UsersContainer);
