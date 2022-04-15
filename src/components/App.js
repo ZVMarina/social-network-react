@@ -17,7 +17,8 @@ function App(props) {
         <Navbar />
         <main className="main">
           <Routes>
-            <Route path="/profile*" element={<ProfileContainer />} />
+            <Route path="/profile/:userId" element={<ProfileContainer />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path="/dialogs*" element={<DialogsContainer props={props.store} />}
             />
             <Route path="/news" element={<News />} />

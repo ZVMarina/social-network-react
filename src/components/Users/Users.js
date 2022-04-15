@@ -10,6 +10,7 @@ function Users(props) {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+    
     return (
         <section className="users">
             <ul className="users__pages">
@@ -25,7 +26,7 @@ function Users(props) {
                     <li className="users__item">
                         <div className="users__follow-container">
                             <div className="users__avatar-container">
-                                <NavLink className="link" to={'/profile/' + user.id}>
+                                <NavLink className="navigation__link" to={'/profile/' + user.id}>
                                     <img className="users__avatar" src={user.photos.small != null ? user.photos.small : photo}></img>
                                 </NavLink>
                             </div>
