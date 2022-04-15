@@ -2,4 +2,6 @@
     grid-area: header;
     background-color: #2962ff;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
