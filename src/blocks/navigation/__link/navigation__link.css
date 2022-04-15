@@ -1,17 +1,5 @@
 .navigation__link {
     color: #8793a3;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: opacity .3s ease;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    display: inline;
-}
-
-.navigation__link:hover {
-    opacity: .7;
 }
 
 /* Если у ссылки есть класс active, то */

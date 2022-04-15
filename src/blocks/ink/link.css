@@ -1,0 +1,14 @@
+.link {
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .3s ease;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.link:hover {
+    opacity: .7;
+}

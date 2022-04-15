@@ -1,11 +1,5 @@
 .dialogs__link {
-    text-decoration: none;
-    transition: opacity .3s ease, cursor 1s ease;
-}
-
-.dialogs__link:hover {
-    opacity: .7;
-    cursor: pointer;
+    font-weight: normal;
 }
 
 .dialogs__link.active {

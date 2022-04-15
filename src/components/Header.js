@@ -7,7 +7,7 @@ function Header() {
         <header className="header">
             <img className="header__logo" src={logo} />
             <div className="header__login-container">
-                <NavLink className="navigation__link header__login-link" to={'/login '}>Login</NavLink>
+                <NavLink className="link header__login-link" to={'/login '}>Login</NavLink>
             </div>
         </header>
     )

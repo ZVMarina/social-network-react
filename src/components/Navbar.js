@@ -6,22 +6,22 @@ function Navbar() {
         <>
             <nav className="navigation">
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/profile">Profile</NavLink>
+                    <NavLink className="link navigation__link" to="/profile">Profile</NavLink>
                 </li>
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/dialogs">Messages</NavLink>
+                    <NavLink className="link navigation__link" to="/dialogs">Messages</NavLink>
                 </li>
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/news" >News</NavLink>
+                    <NavLink className="link navigation__link" to="/news" >News</NavLink>
                 </li>
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/music">Music</NavLink>
+                    <NavLink className="link navigation__link" to="/music">Music</NavLink>
                 </li>
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/users">Users</NavLink>
+                    <NavLink className="link navigation__link" to="/users">Users</NavLink>
                 </li>
                 <li className="navigation__item">
-                    <NavLink className="navigation__link" to="/settings">Settings</NavLink>
+                    <NavLink className="link navigation__link" to="/settings">Settings</NavLink>
                 </li>
             </nav>
         </>
