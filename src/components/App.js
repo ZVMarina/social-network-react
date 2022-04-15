@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import '../index.css';
-import Header from './Header/Header';
 import Navbar from './Navbar/Navbar';
 import News from './News/News';
 import Music from './Music/Music';
@@ -8,12 +7,13 @@ import Settings from './Settings/Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
+import HeaderContainer from './Header/HeaderContainer';
 
 function App(props) {
   return (
     <div className="App">
       <div className="page">
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <main className="main">
           <Routes>

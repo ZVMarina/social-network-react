@@ -1,27 +1,26 @@
-const setUserDateActionType = 'set-user-date';
+const setAuthUserDataActionType = 'set-user-auth-data';
 
 const initialState = {
     id: null,
     email: null,
     login: null,
+    /* isFetching: false, */
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case setUserDateActionType: {
+        case setAuthUserDataActionType:
             return {
                 ...state,
                 ...action.data
-            };
-        }
+            }
+
         default: return state;
     }
 }
 
-export const setUserDate = (userId, email, login) => (
-    {
-        type: setUserDateActionType, data: { userId, email, login }
-    }
-)
+export const setAuthUserData = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
 
-export default authReducer;
+/* export const setIsFetchingActionCreator = (isFetching) => ({ type: setIsFetchingActionType, isFetching }) */
+
+export default authReducer; 
