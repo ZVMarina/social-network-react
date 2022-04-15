@@ -4,7 +4,7 @@ const initialState = {
     id: null,
     email: null,
     login: null,
-    /* isFetching: false, */
+    isAuth: false,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -12,7 +12,8 @@ const authReducer = (state = initialState, action) => {
         case setAuthUserDataActionType:
             return {
                 ...state,
-                ...action.data
+                ...action.data,
+                isAuth: true
             }
 
         default: return state;
@@ -20,7 +21,5 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setAuthUserData = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
-
-/* export const setIsFetchingActionCreator = (isFetching) => ({ type: setIsFetchingActionType, isFetching }) */
 
 export default authReducer; 
