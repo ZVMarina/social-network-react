@@ -12,7 +12,9 @@ class UsersContainer extends React.Component {
     componentDidMount = () => {
         if (this.props.users.length === 0) {
             this.props.setIsFetching(true);
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+                withCredentials: true
+            })
                 .then(response => {
                     this.props.setIsFetching(false);
                     this.props.setUsers(response.data.items);
@@ -24,7 +26,9 @@ class UsersContainer extends React.Component {
     pageChangeHandler = (page) => {
         this.props.setPage(page);
         this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, {
+            withCredentials: true
+        })
             .then(response => {
                 this.props.setIsFetching(false);
                 this.props.setUsers(response.data.items);
@@ -58,6 +62,8 @@ const mapStateToProps = (state) => {
     }
 }
 
+// connect автоматически создал колюбэк follow, в которой он вызывает followedActionCreator, который в свою очередь возвращает action 
+// и этот action диспатчится
 export default connect(mapStateToProps,
     {
         follow: followedActionCreator,
