@@ -36,15 +36,9 @@ function Users(props) {
                                 user.followed
                                     ? <button className="button users__button" onClick={() => {
 
-                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                                            withCredentials: true,
-                                            headers: {
-                                                'API-KEY': '95642e1c-9641-4cd5-b108-2aa6f711e37c'
-                                            }
-
-                                        })
-                                            .then(response => {
-                                                if (response.data.resultCode === 0) {
+                                        usersApi.deleteFollow(user.id)
+                                            .then(data => {
+                                                if (data.resultCode == 0) {
                                                     props.unFollow(user.id);
                                                 }
                                             })
