@@ -48,6 +48,7 @@ function Users(props) {
 
                                         usersApi.postFollow(user.id)
                                             .then(data => {
+                                                console.log(data);
                                                 if (data.resultCode == 0) {
                                                     props.follow(user.id);
                                                 }
