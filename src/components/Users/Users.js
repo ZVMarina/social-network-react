@@ -33,8 +33,8 @@ function Users(props) {
                                 </div>
                                 {
                                     user.followed
-                                        ? <button className="button users__button" disabled={props.buttonDisabled} onClick={() => {
-                                            props.toggleButtonDisabled(true);
+                                        ? <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)} onClick={() => {
+                                            props.toggleButtonDisabled(true, user.id);
 
                                             usersApi.deleteFollow(user.id)
                                                 .then(data => {
@@ -42,12 +42,12 @@ function Users(props) {
                                                         props.unFollow(user.id);
                                                     }
 
-                                                    props.toggleButtonDisabled(false);
+                                                    props.toggleButtonDisabled(false, user.id);
                                                 })
 
                                         }}>Unfollow</button>
-                                        : <button className="button users__button" disabled={props.buttonDisabled} onClick={() => {
-                                            props.toggleButtonDisabled(true);
+                                        : <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)} onClick={() => {
+                                            props.toggleButtonDisabled(true, user.id);
 
                                             usersApi.postFollow(user.id)
                                                 .then(data => {
@@ -55,7 +55,7 @@ function Users(props) {
                                                         props.follow(user.id);
                                                     }
 
-                                                    props.toggleButtonDisabled(false);
+                                                    props.toggleButtonDisabled(false, user.id);
                                                 })
 
                                         }}>Follow</button>

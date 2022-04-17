@@ -12,7 +12,7 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    buttonDisabled: false,
+    buttonDisabled: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -70,6 +70,8 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 buttonDisabled: action.disabled
+                    ? [...state.buttonDisabled, action.userId]
+                    : state.buttonDisabled.filter(id => id !== action.userId)
             }
 
         default: return state;
@@ -89,6 +91,6 @@ export const setUsersCountAC = (usersCount) => ({ type: setUsersCountActionType,
 
 export const setIsFetchingAC = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
 
-export const toggleButtonDisabledAC = (disabled) => ({ type: toggleButtonDisabledActionType, disabled })
+export const toggleButtonDisabledAC = (disabled, userId) => ({ type: toggleButtonDisabledActionType, disabled, userId })
 
 export default usersReducer; 
