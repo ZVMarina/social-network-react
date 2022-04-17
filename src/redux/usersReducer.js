@@ -4,6 +4,7 @@ const setUsersActionType = 'set-users';
 const setPageActionType = 'set-page';
 const setUsersCountActionType = 'set-total-users-count';
 const setIsFetchingActionType = 'set-is-fetching';
+const toggleButtonDisabledActionType = 'toggle-button-disabled';
 
 const initialState = {
     users: [],
@@ -11,6 +12,7 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    buttonDisabled: false,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -64,21 +66,29 @@ const usersReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
 
+        case toggleButtonDisabledActionType:
+            return {
+                ...state,
+                buttonDisabled: action.disabled
+            }
+
         default: return state;
     }
 }
 
-export const followedActionCreator = (userId) => ({ type: followActionType, userId })
+export const followedAC = (userId) => ({ type: followActionType, userId })
 
-export const unfollowedActionCreator = (userId) => ({ type: unFollowActionType, userId })
+export const unfollowedAC = (userId) => ({ type: unFollowActionType, userId })
 
-export const setUsersActionCreator = (users) => ({ type: setUsersActionType, users })
+export const setUsersAC = (users) => ({ type: setUsersActionType, users })
 
-export const setPageActionCreator = (currentPage) => ({ type: setPageActionType, currentPage })
+export const setPageAC = (currentPage) => ({ type: setPageActionType, currentPage })
 // currentPage, так как action.currentPage
 
-export const setUsersCountActionCreator = (usersCount) => ({ type: setUsersCountActionType, usersCount })
+export const setUsersCountAC = (usersCount) => ({ type: setUsersCountActionType, usersCount })
 
-export const setIsFetchingActionCreator = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
+export const setIsFetchingAC = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
+
+export const toggleButtonDisabledAC = (disabled) => ({ type: toggleButtonDisabledActionType, disabled })
 
 export default usersReducer; 
