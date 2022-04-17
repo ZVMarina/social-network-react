@@ -3,18 +3,17 @@ import {
     followedActionCreator, setPageActionCreator,
     setUsersCountActionCreator, setUsersActionCreator, unfollowedActionCreator, setIsFetchingActionCreator
 } from '../../redux/usersReducer';
-import * as axios from 'axios';
 import Users from './Users';
 import React from 'react';
 import Preloader from '../Preloader';
-import { getUsers } from '../../api/api';
+import { usersApi } from '../../api/api';
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
         if (this.props.users.length === 0) {
             this.props.setIsFetching(true);
 
-            getUsers(this.props.currentPage, this.props.pageSize)
+            usersApi.getUsers(this.props.currentPage, this.props.pageSize)
                 .then(data => {
                     debugger;
                     this.props.setIsFetching(false);
@@ -27,7 +26,7 @@ class UsersContainer extends React.Component {
     pageChangeHandler = (page) => {
         this.props.setPage(page);
         this.props.setIsFetching(true);
-        getUsers(page, this.props.pageSize)
+        usersApi.getUsers(page, this.props.pageSize)
             .then(data => {
                 this.props.setIsFetching(false);
                 this.props.setUsers(data.items);
