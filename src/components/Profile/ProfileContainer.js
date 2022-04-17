@@ -13,7 +13,7 @@ import { profileApi } from '../../api/api';
 class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
-        let userId = this.props.router.params.userId;
+        const userId = this.props.router.params.userId;
 
         profileApi.getProfileInfo(userId)
             .then(data => this.props.setProfileInfo(data))

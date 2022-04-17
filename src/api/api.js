@@ -31,3 +31,10 @@ export const profileApi = {
             .then(response => response.data)
     }
 }
+
+export const headerApi = {
+    getAuthInfo() {
+        return instance.get(`auth/me/`)
+            .then(response => response.data)
+    }
+}
