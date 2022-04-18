@@ -1,3 +1,5 @@
+import { usersApi } from "../api/api";
+
 const followActionType = 'follow';
 const unFollowActionType = 'unfollow';
 const setUsersActionType = 'set-users';
@@ -78,6 +80,7 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
+// userId, так как action.userId
 export const followedAC = (userId) => ({ type: followActionType, userId })
 
 export const unfollowedAC = (userId) => ({ type: unFollowActionType, userId })
@@ -85,12 +88,23 @@ export const unfollowedAC = (userId) => ({ type: unFollowActionType, userId })
 export const setUsersAC = (users) => ({ type: setUsersActionType, users })
 
 export const setPageAC = (currentPage) => ({ type: setPageActionType, currentPage })
-// currentPage, так как action.currentPage
 
 export const setUsersCountAC = (usersCount) => ({ type: setUsersCountActionType, usersCount })
 
 export const setIsFetchingAC = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
 
 export const toggleButtonDisabledAC = (disabled, userId) => ({ type: toggleButtonDisabledActionType, disabled, userId })
+
+export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
+    dispatch(setIsFetchingAC(true));
+
+    usersApi.getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(setIsFetchingAC(false));
+            dispatch(setUsersAC(data.items));
+            dispatch(setUsersCountAC(data.totalCount));
+        })
+
+}
 
 export default usersReducer; 

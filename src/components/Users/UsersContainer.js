@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import {
-    followedAC, 
+    followedAC,
     setPageAC,
-    setUsersCountAC, 
-    setUsersAC, 
-    unfollowedAC, 
+    setUsersCountAC,
+    setUsersAC,
+    unfollowedAC,
     setIsFetchingAC,
     toggleButtonDisabledAC,
+    getUsersThunkCreator
 } from '../../redux/usersReducer';
 import Users from './Users';
 import React from 'react';
@@ -15,16 +16,8 @@ import { usersApi } from '../../api/api';
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
-        if (this.props.users.length === 0) {
-            this.props.setIsFetching(true);
+            this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
 
-            usersApi.getUsers(this.props.currentPage, this.props.pageSize)
-                .then(data => {
-                    this.props.setIsFetching(false);
-                    this.props.setUsers(data.items);
-                    this.props.setTotalUsersCount(data.totalCount);
-                })
-        }
     }
 
     pageChangeHandler = (page) => {
@@ -41,7 +34,7 @@ class UsersContainer extends React.Component {
         return (
             <>
                 {this.props.isFetching ? <Preloader /> : null}
-                <Users 
+                <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}
@@ -78,7 +71,8 @@ export default connect(mapStateToProps,
         setPage: setPageAC,
         setTotalUsersCount: setUsersCountAC,
         setIsFetching: setIsFetchingAC,
-        toggleButtonDisabled: toggleButtonDisabledAC
+        toggleButtonDisabled: toggleButtonDisabledAC,
+        getUsersThunk: getUsersThunkCreator
     }
 )(UsersContainer);
 
