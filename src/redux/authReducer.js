@@ -1,3 +1,5 @@
+import { headerApi } from "../api/api";
+
 const setAuthUserDataActionType = 'set-user-auth-data';
 
 const initialState = {
@@ -20,6 +22,16 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
+export const getAuthInfoThunkCreator = () => (dispatch) => {
+    headerApi.getAuthInfo()
+        .then(data => {
+            if (data.resultCode === 0) {
+                const authInfo = data.data
+                dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login));
+            }
+        })
+}
+
+export const setAuthUserDataAC = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
 
 export default authReducer; 
