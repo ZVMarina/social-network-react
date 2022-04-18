@@ -33,18 +33,10 @@ function Users(props) {
                             </div>
                             {
                                 user.followed
-                                    ? <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)} onClick={() => {
-                                        props.toggleButtonDisabled(true, user.id);
-
-                                        props.unfollowThunk(user.id);
-
-                                    }}>Unfollow</button>
-                                    : <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)} onClick={() => {
-                                        props.toggleButtonDisabled(true, user.id);
-
-                                        props.followThunk(user.id);
-
-                                    }}>Follow</button>
+                                    ? <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
+                                        onClick={() => { props.unfollowThunk(user.id) }}>Unfollow</button>
+                                    : <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
+                                        onClick={() => { props.followThunk(user.id) }}>Follow</button>
                             }
                         </div>
                         <div className="users__info-container">
