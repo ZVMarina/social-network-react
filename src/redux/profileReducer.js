@@ -1,3 +1,5 @@
+import { profileApi } from "../api/api";
+
 const addPostActionType = 'ADD-POST';
 const updatePostBodyActionType = 'UPDATE-POST-TEXT';
 const setProfileInfoActionType = 'set-profile-info';
@@ -58,10 +60,15 @@ export const updatePostBodyActionCreator = (newPostText) => {
     }
 }
 
-export const setProfileInfo = (profile) => {
+export const setProfileInfoAC = (profile) => {
     return {
         type: setProfileInfoActionType, profile
     }
+}
+
+export const getProfileInfoThunkCreator = (userId) => (dispatch) => {
+    profileApi.getProfileInfo(userId)
+        .then(data => dispatch(setProfileInfoAC(data)))
 }
 
 export default profileReducer;

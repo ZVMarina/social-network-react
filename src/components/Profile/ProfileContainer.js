@@ -1,22 +1,19 @@
-import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
-import { setProfileInfo } from '../../redux/profileReducer'
+import { getProfileInfoThunkCreator } from '../../redux/profileReducer'
 import {
     useLocation,
     useNavigate,
     useParams,
 } from "react-router-dom";
-import { profileApi } from '../../api/api';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
         const userId = this.props.router.params.userId;
 
-        profileApi.getProfileInfo(userId)
-            .then(data => this.props.setProfileInfo(data))
+        this.props.getProfileInfo(userId);
     }
 
     render() {
@@ -46,4 +43,4 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, { setProfileInfo })(withRouter(ProfileContainer));
+export default connect(mapStateToProps, { getProfileInfo: getProfileInfoThunkCreator })(withRouter(ProfileContainer));

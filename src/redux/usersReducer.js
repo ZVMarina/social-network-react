@@ -133,4 +133,4 @@ export const unfollowThunkCreator = (userId) => (dispatch) => {
 
 }
 
-export default usersReducer; 
+export default usersReducer;
