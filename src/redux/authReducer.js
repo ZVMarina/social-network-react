@@ -22,6 +22,8 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
+export const setAuthUserDataAC = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
+
 export const getAuthInfoThunkCreator = () => (dispatch) => {
     headerApi.getAuthInfo()
         .then(data => {
@@ -31,7 +33,5 @@ export const getAuthInfoThunkCreator = () => (dispatch) => {
             }
         })
 }
-
-export const setAuthUserDataAC = (id, email, login) => ({ type: setAuthUserDataActionType, data: {id, email, login} })
 
 export default authReducer; 
