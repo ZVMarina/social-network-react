@@ -7,6 +7,7 @@ import {
     useNavigate,
     useParams,
 } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
 
@@ -17,6 +18,10 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        if (!this.props.isAuth) {
+            return <Navigate to={'/login'} />
+        }
+
         return (
             <Profile {...this.props} profile={this.props.profile} />
         )
@@ -24,7 +29,8 @@ class ProfileContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isAuth,
 })
 
 function withRouter(Component) {

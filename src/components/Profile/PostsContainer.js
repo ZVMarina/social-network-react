@@ -5,7 +5,7 @@ import Posts from "./Posts";
 const mapStateToProps = (state) => {
     return {
         postsData: state.profilePage.postsData,
-        postText: state.profilePage.postText
+        postText: state.profilePage.postText,
     }
 }
 

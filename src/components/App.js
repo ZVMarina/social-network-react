@@ -8,6 +8,7 @@ import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
+import Login from './Login/Login';
 
 function App(props) {
   return (
@@ -17,10 +18,10 @@ function App(props) {
         <Navbar />
         <main className="main">
           <Routes>
+            <Route path='/login' element={<Login />} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path='/profile' element={<ProfileContainer />} />
-            <Route path="/dialogs*" element={<DialogsContainer props={props.store} />}
-            />
+            <Route path="/dialogs*" element={<DialogsContainer props={props.store} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/users" element={<UsersContainer />} />

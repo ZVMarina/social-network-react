@@ -1,5 +1,6 @@
-import DialogsItem from "./DialogsItem";
-import MessagesItem from "./MessagesItem";
+import DialogsItem from './DialogsItem';
+import MessagesItem from './MessagesItem';
+import { Navigate } from 'react-router-dom';
 
 function Dialogs(props) {
     const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
@@ -13,6 +14,10 @@ function Dialogs(props) {
         const newMessageText = evt.currentTarget.value;
 
         props.updateMessageBodyCreator(newMessageText);
+    }
+
+    if (!props.isAuth) {
+        return <Navigate to={'/login'} />
     }
 
     return (
