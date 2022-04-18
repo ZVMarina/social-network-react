@@ -2,17 +2,13 @@ import { connect } from 'react-redux';
 import {
     followedAC,
     setPageAC,
-    setUsersCountAC,
-    setUsersAC,
     unfollowedAC,
-    setIsFetchingAC,
     toggleButtonDisabledAC,
     getUsersThunkCreator
 } from '../../redux/usersReducer';
 import Users from './Users';
 import React from 'react';
 import Preloader from '../Preloader';
-import { usersApi } from '../../api/api';
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
@@ -21,13 +17,9 @@ class UsersContainer extends React.Component {
     }
 
     pageChangeHandler = (page) => {
+        this.props.getUsersThunk(page, this.props.pageSize);
+
         this.props.setPage(page);
-        this.props.setIsFetching(true);
-        usersApi.getUsers(page, this.props.pageSize)
-            .then(data => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data.items);
-            })
     }
 
     render = () => {
@@ -67,15 +59,13 @@ export default connect(mapStateToProps,
     {
         follow: followedAC,
         unFollow: unfollowedAC,
-        setUsers: setUsersAC,
         setPage: setPageAC,
-        setTotalUsersCount: setUsersCountAC,
-        setIsFetching: setIsFetchingAC,
         toggleButtonDisabled: toggleButtonDisabledAC,
         getUsersThunk: getUsersThunkCreator
     }
 )(UsersContainer);
 
+// follow - колбэк, который внутри себя вызовет followedActionCreator и задеспатчит результат этого вызова
 /* const dispatchStateToProps = (dispatch) => {
     return {
         follow: (userId) => {
