@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import {
-    followedAC,
+    followAC,
     setPageAC,
-    unfollowedAC,
+    unfollowAC,
     toggleButtonDisabledAC,
-    getUsersThunkCreator
+    getUsersThunkCreator,
+    followThunkCreator,
+    unfollowThunkCreator,
 } from '../../redux/usersReducer';
 import Users from './Users';
 import React from 'react';
@@ -32,10 +34,12 @@ class UsersContainer extends React.Component {
                     currentPage={this.props.currentPage}
                     users={this.props.users}
                     follow={this.props.follow}
-                    unFollow={this.props.unFollow}
+                    unfollow={this.props.unfollow}
                     pageChangeHandler={this.pageChangeHandler}
                     toggleButtonDisabled={this.props.toggleButtonDisabled}
                     buttonDisabled={this.props.buttonDisabled}
+                    followThunk={this.props.followThunk}
+                    unfollowThunk={this.props.unfollowThunk}
                 />
             </>
         )
@@ -57,11 +61,13 @@ const mapStateToProps = (state) => {
 // и этот action диспатчится
 export default connect(mapStateToProps,
     {
-        follow: followedAC,
-        unFollow: unfollowedAC,
+        follow: followAC,
+        unfollow: unfollowAC,
         setPage: setPageAC,
         toggleButtonDisabled: toggleButtonDisabledAC,
-        getUsersThunk: getUsersThunkCreator
+        getUsersThunk: getUsersThunkCreator,
+        followThunk: followThunkCreator,
+        unfollowThunk: unfollowThunkCreator,
     }
 )(UsersContainer);
 

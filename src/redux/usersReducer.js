@@ -81,9 +81,9 @@ const usersReducer = (state = initialState, action) => {
 }
 
 // userId, так как action.userId
-export const followedAC = (userId) => ({ type: followActionType, userId })
+export const followAC = (userId) => ({ type: followActionType, userId })
 
-export const unfollowedAC = (userId) => ({ type: unFollowActionType, userId })
+export const unfollowAC = (userId) => ({ type: unFollowActionType, userId })
 
 export const setUsersAC = (users) => ({ type: setUsersActionType, users })
 
@@ -103,6 +103,30 @@ export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
             dispatch(setIsFetchingAC(false));
             dispatch(setUsersAC(data.items));
             dispatch(setUsersCountAC(data.totalCount));
+        })
+
+}
+
+export const followThunkCreator = (userId) => (dispatch) => {
+    usersApi.postFollow(userId)
+        .then(data => {
+            if (data.resultCode == 0) {
+                dispatch(followAC(userId));
+            }
+
+            dispatch(toggleButtonDisabledAC(false, userId));
+        })
+
+}
+
+export const unfollowThunkCreator = (userId) => (dispatch) => {
+    usersApi.deleteFollow(userId)
+        .then(data => {
+            if (data.resultCode == 0) {
+                dispatch(unfollowAC(userId));
+            }
+
+            dispatch(toggleButtonDisabledAC(false, userId));
         })
 
 }
