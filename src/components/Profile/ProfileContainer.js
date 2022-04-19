@@ -4,6 +4,7 @@ import Profile from './Profile';
 import { getProfileInfoThunkCreator } from '../../redux/profileReducer'
 import {
     useLocation,
+    useMatch,
     useNavigate,
     useParams,
 } from "react-router-dom";
@@ -15,6 +16,7 @@ class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
         const userId = this.props.router.params.userId;
+        /* const userId = this.props.match.params.userId; */
 
         this.props.getProfileInfo(userId);
     }
@@ -49,6 +51,14 @@ function withRouter(Component) {
 
     return ComponentWithRouterProp;
 }
+
+/* const withRouter = (Component) =>{
+    let RouterComponent = (props) => {
+            const match = useMatch('/profile/:userId/');
+            return <Component {...props} match={match}/>;
+    }
+    return RouterComponent;
+} */
 
 export default compose(
     connect(mapStateToProps, { getProfileInfo: getProfileInfoThunkCreator }),
