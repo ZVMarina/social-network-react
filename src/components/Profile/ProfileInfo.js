@@ -1,5 +1,6 @@
 import Preloader from '../Preloader'
 import photo from '../../images/users/no-photo.png'
+import ProfileStatus from './ProfileStatus';
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -15,6 +16,7 @@ function ProfileInfo(props) {
             <div className="profile__text">
                 <h1 className="profile__name">{props.profile.fullName}</h1>
                 <p className="profile__about">{props.profile.aboutMe}</p>
+                <ProfileStatus />
             </div>
         </div>
     )
