@@ -1,9 +1,11 @@
 import React from "react";
+import Preloader from "../../Preloader";
 
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
         status: this.props.status,
+        isLoading: false,
     }
 
     // можно через стрелочные функции
@@ -19,7 +21,16 @@ class ProfileStatus extends React.Component {
             editMode: false,
         });
 
+        this.setState({
+            isLoading: true,
+        })
+
         this.props.updateStatus(this.state.status)
+            .then(() => {
+                this.setState({
+                    isLoading: false,
+                })
+            })
     }
 
     updateStatusHandler = (evt) => {
@@ -42,6 +53,7 @@ class ProfileStatus extends React.Component {
                         autoFocus={true}>
                     </input>
                 }
+                {this.state.isLoading && <Preloader />}
             </div>
         )
     }
