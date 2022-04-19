@@ -29,6 +29,8 @@
 @import url(./blocks/profile/__about/profile__about.css);
 @import url(./blocks/profile/__status/profile__status.css);
 @import url(./blocks/profile/__status-input/profile__status-input.css);
+@import url(./blocks/profile/__status-container/profile__status-container.css);
+@import url(./blocks/profile/__preloader/profile__preloader.css);
 
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);
