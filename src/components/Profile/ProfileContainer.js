@@ -50,3 +50,12 @@ function withRouter(Component) {
 }
 
 export default connect(mapStateToProps, { getProfileInfo: getProfileInfoThunkCreator })(withRouter(ProfileContainer));
+
+/* const ProfileURLMatch = (props) => {
+    const match = useMatch('/profile/:userId/');
+    return <ProfileContainer {...props} match={match} />;
+}
+
+let AuthRedirectContainer = withAuthRedirect(ProfileURLMatch); // AuthRedirectComponent
+
+export default connect(mapStateToProps, { getUserProfile })(AuthRedirectContainer); */
