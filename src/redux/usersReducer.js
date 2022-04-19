@@ -111,7 +111,7 @@ export const followThunkCreator = (userId) => (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
     usersApi.postFollow(userId)
         .then(data => {
-            if (data.resultCode == 0) {
+            if (data.resultCode === 0) {
                 dispatch(followAC(userId));
             }
 
@@ -124,7 +124,7 @@ export const unfollowThunkCreator = (userId) => (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
     usersApi.deleteFollow(userId)
         .then(data => {
-            if (data.resultCode == 0) {
+            if (data.resultCode === 0) {
                 dispatch(unfollowAC(userId));
             }
 

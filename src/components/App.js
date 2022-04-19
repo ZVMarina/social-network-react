@@ -6,7 +6,7 @@ import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
-import ProfileContainer from './Profile/ProfileContainer';
+import ProfileContainer from './Profile/ProfileInfo/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import Login from './Login/Login';
 

@@ -1,5 +1,5 @@
-import Preloader from '../Preloader'
-import photo from '../../images/users/no-photo.png'
+import Preloader from '../../Preloader'
+import photo from '../../../images/users/no-photo.png'
 import ProfileStatus from './ProfileStatus';
 
 function ProfileInfo(props) {

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
-import { getProfileInfoThunkCreator } from '../../redux/profileReducer'
+import { getProfileInfoThunkCreator } from '../../../redux/profileReducer'
 import {
     useLocation,
     useNavigate,
     useParams,
 } from "react-router-dom";
 import { Navigate } from 'react-router-dom';
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {

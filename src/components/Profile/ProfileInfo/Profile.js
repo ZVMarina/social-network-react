@@ -1,7 +1,7 @@
-import image from '../../images/main/people-2.png';
-import ProfileInfo from './ProfileInfo';
+import image from '../../../images/main/people-2.png';
+import ProfileInfo from '../ProfileInfo/ProfileInfo';
 import React from 'react';
-import PostsContainer from './PostsContainer';
+import PostsContainer from '../Posts/PostsContainer';
 
 function Profile(props) {
     return (
