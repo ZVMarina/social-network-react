@@ -23,7 +23,7 @@ class ProfileStatus extends React.Component {
         return (
             <div className="profile__status-container">
                 {!this.state.editMode &&
-                    <p className="profile__status" onDoubleClick={this.activeteEditMode}>{this.props.status}</p>
+                    <p className="profile__status" onClick={this.activeteEditMode}>{this.props.status}</p>
                 }
                 {this.state.editMode &&
                     <input className="profile__status-input" onBlur={this.deactiveteEditMode.bind(this)} value={this.props.status} autoFocus={true}></input>

@@ -8,7 +8,10 @@ function Profile(props) {
         <>
             <section className="profile">
                 <img className="profile__main-image" src={image} />
-                <ProfileInfo profile={props.profile}/>
+                <ProfileInfo
+                    profile={props.profile}
+                    status={props.status}
+                    updateStatus={props.updateStatus} />
             </section>
             <PostsContainer store={props.store} />
         </>

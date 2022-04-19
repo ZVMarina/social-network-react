@@ -3,6 +3,7 @@ import { profileApi } from "../api/api";
 const addPostActionType = 'ADD-POST';
 const updatePostBodyActionType = 'UPDATE-POST-TEXT';
 const setProfileInfoActionType = 'set-profile-info';
+const setStatusActionType = 'set-status';
 
 const initialState =
 {
@@ -11,7 +12,8 @@ const initialState =
         { id: 2, post: "It's my first post" }
     ],
     postText: '',
-    profile: null
+    profile: null,
+    status: '',
 }
 
 // сюда уже придёт нужная часть стейта (profilePage)
@@ -30,16 +32,23 @@ const profileReducer = (state = initialState, action) => {
             };
 
         case updatePostBodyActionType: {
-            return { 
+            return {
                 ...state,
                 postText: action.newPostText
             };
         }
 
         case setProfileInfoActionType: {
-            return { 
+            return {
                 ...state,
                 profile: action.profile
+            };
+        }
+
+        case setStatusActionType: {
+            return {
+                ...state,
+                status: action.status
             };
         }
 
@@ -66,9 +75,29 @@ export const setProfileInfoAC = (profile) => {
     }
 }
 
+export const setStatusAC = (status) => {
+    return {
+        type: setStatusActionType, status
+    }
+}
+
 export const getProfileInfoThunkCreator = (userId) => (dispatch) => {
     profileApi.getProfileInfo(userId)
         .then(data => dispatch(setProfileInfoAC(data)))
+}
+
+export const getStatusThunkCreator = (userId) => (dispatch) => {
+    profileApi.getStatus(userId)
+        .then(response => dispatch(setStatusAC(response.data)))
+}
+
+export const updateStatusThunkCreator = (status) => (dispatch) => {
+    profileApi.updateStatus(status)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setStatusAC(status))
+            }
+        })
 }
 
 export default profileReducer;
