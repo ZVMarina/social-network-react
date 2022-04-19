@@ -16,7 +16,7 @@ function ProfileInfo(props) {
             <div className="profile__text">
                 <h1 className="profile__name">{props.profile.fullName}</h1>
                 <p className="profile__about">{props.profile.aboutMe}</p>
-                <ProfileStatus status={props.status ? props.status : 'Status should be here'} updateStatus={props.updateStatus} />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
         </div>
     )

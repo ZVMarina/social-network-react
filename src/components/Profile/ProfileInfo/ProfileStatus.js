@@ -32,7 +32,7 @@ class ProfileStatus extends React.Component {
         return (
             <div className="profile__status-container">
                 {!this.state.editMode &&
-                    <p className="profile__status" onClick={this.activeteEditMode}>{this.props.status}</p>
+                    <p className="profile__status" onClick={this.activeteEditMode}>{this.props.status || 'Status should be here'}</p>
                 }
                 {this.state.editMode &&
                     <input className="profile__status-input"
