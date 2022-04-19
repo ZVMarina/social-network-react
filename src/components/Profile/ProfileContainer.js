@@ -8,6 +8,7 @@ import {
     useParams,
 } from "react-router-dom";
 import { Navigate } from 'react-router-dom';
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
 
@@ -49,7 +50,9 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, { getProfileInfo: getProfileInfoThunkCreator })(withRouter(ProfileContainer));
+const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
+export default connect(mapStateToProps, { getProfileInfo: getProfileInfoThunkCreator })(withRouter(AuthRedirectComponent));
 
 /* const ProfileURLMatch = (props) => {
     const match = useMatch('/profile/:userId/');
