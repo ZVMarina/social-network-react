@@ -1,12 +1,36 @@
 import React from "react";
 
-function ProfileStatus(props) {
-    return (
-        <div className="profile__status-container">
-            <p className="profile__status">{props.status}</p>
-            <input className="profile__status-input" value={props.status}></input>
-        </div>
-    )
+class ProfileStatus extends React.Component {
+    state = {
+        editMode: false
+    }
+
+    // можно через стрелочные функции
+    activeteEditMode = () => {
+        this.setState({
+            editMode: true,
+        })
+    }
+
+    //можно через bind
+    deactiveteEditMode() {
+        this.setState({
+            editMode: false,
+        })
+    }
+
+    render() {
+        return (
+            <div className="profile__status-container">
+                {!this.state.editMode &&
+                    <p className="profile__status" onDoubleClick={this.activeteEditMode}>{this.props.status}</p>
+                }
+                {this.state.editMode &&
+                    <input className="profile__status-input" onBlur={this.deactiveteEditMode.bind(this)} value={this.props.status} autoFocus={true}></input>
+                }
+            </div>
+        )
+    }
 }
 
 export default ProfileStatus;
