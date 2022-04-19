@@ -3,6 +3,7 @@ import Header from "./Header";
 import * as axios from 'axios';
 import { getAuthInfoThunkCreator } from '../../redux/authReducer';
 import { connect } from 'react-redux';
+import { compose } from "redux";
 
 class HeaderContainer extends React.Component {
 
@@ -20,4 +21,6 @@ const mapStateToProps = (state) => ({
     login: state.auth.login,
 });
 
-export default connect(mapStateToProps, { getAuthInfoThunk: getAuthInfoThunkCreator })(HeaderContainer);
+export default compose(
+    connect(mapStateToProps, { getAuthInfoThunk: getAuthInfoThunkCreator })
+)(HeaderContainer)
