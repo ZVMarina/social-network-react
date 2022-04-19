@@ -16,7 +16,7 @@ function ProfileInfo(props) {
             <div className="profile__text">
                 <h1 className="profile__name">{props.profile.fullName}</h1>
                 <p className="profile__about">{props.profile.aboutMe}</p>
-                <ProfileStatus />
+                <ProfileStatus status={`Hello! My name's Marina`}/>
             </div>
         </div>
     )

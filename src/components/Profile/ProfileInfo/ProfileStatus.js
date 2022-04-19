@@ -1,8 +1,11 @@
 import React from "react";
 
-function ProfileStatus() {
+function ProfileStatus(props) {
     return (
-        <div>Status</div>
+        <div className="profile__status-container">
+            <p className="profile__status">{props.status}</p>
+            <input className="profile__status-input" value={props.status}></input>
+        </div>
     )
 }
 
