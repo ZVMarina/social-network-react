@@ -11,10 +11,11 @@ import {
 import Users from './Users';
 import React from 'react';
 import Preloader from '../Preloader';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
-            this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
 
     }
 
@@ -59,17 +60,20 @@ const mapStateToProps = (state) => {
 
 // connect автоматически создал колюбэк follow, в которой он вызывает followedAC, который в свою очередь возвращает action 
 // и этот action диспатчится
-export default connect(mapStateToProps,
-    {
-        follow: followAC,
-        unfollow: unfollowAC,
-        setPage: setPageAC,
-        toggleButtonDisabled: toggleButtonDisabledAC,
-        getUsersThunk: getUsersThunkCreator,
-        followThunk: followThunkCreator,
-        unfollowThunk: unfollowThunkCreator,
-    }
-)(UsersContainer);
+
+export default compose(
+    connect(mapStateToProps,
+        {
+            follow: followAC,
+            unfollow: unfollowAC,
+            setPage: setPageAC,
+            toggleButtonDisabled: toggleButtonDisabledAC,
+            getUsersThunk: getUsersThunkCreator,
+            followThunk: followThunkCreator,
+            unfollowThunk: unfollowThunkCreator,
+        }
+    )
+)(UsersContainer)
 
 // follow - колбэк, который внутри себя вызовет followedActionCreator и задеспатчит результат этого вызова
 /* const dispatchStateToProps = (dispatch) => {
