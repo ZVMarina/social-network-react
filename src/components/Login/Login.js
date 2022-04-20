@@ -1,6 +1,5 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import loginFormSchema from "../FormValidation/FormValidation";
 
 const validateLoginForm = values => {
     const errors = {};
@@ -12,7 +11,7 @@ const validateLoginForm = values => {
     }
     if (!values.password) {
         errors.password = 'Required';
-    } else if (values.password.length < 6) {
+    } else if (values.password.length <= 6) {
         errors.password = 'Must be longer than 6 characters';
     }
     return errors;

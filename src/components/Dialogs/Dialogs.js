@@ -1,6 +1,7 @@
 import DialogsItem from './DialogsItem';
 import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 function Dialogs(props) {
     const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
@@ -20,6 +21,24 @@ function Dialogs(props) {
         return <Navigate to={'/login'} />
     }
 
+    /* const validateDialogsForm = values => {
+        const errors = {};
+        if (!values.message) {
+            errors.message = 'Required';
+        }
+
+        return errors;
+    };
+ */
+    /* const AddMassageForm = (props) => {
+        let addNewMessage = (values) => {
+
+            props.sendMessageHandler(values);
+        }
+    }
+
+    <AddMassageForm sendMessage={props.sendMessageHandler} />
+ */
     return (
         <section className="dialogs">
             <h1 className="title dialogs__title">Dialogs</h1>
@@ -29,13 +48,33 @@ function Dialogs(props) {
             <ul className="dialogs__list dialogs__list_type_messages">
                 {messagesElements}
             </ul>
-            <div className="dialogs__new-message-container">
-                <textarea className="dialogs__new-message-content"
-                    placeholder="Write your message here..."
-                    value={props.messageText}
-                    onChange={updateMessageHandler}></textarea>
-                <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
-            </div>
+            <Formik className="dialogs__new-message-container"
+                initialValues={{ message: "" }}
+                /* validate={validateDialogsForm}
+                onSubmit={(values, {resetForm}) => {
+                    addNewMessage( values.message );
+                    resetForm( {values: ''} );
+                 }
+                 } */
+            >
+                {() => (
+                    <Form className="dialogs__new-message-container">
+                        <Field 
+                            className="dialogs__new-message-content" 
+                            type={'text'} 
+                            name={'message'} 
+                            as={'textarea'}
+                            placeholder={'Write your message here...'} 
+                            value={props.messageText} 
+                            onChange={updateMessageHandler}
+                        />
+                        <ErrorMessage className="form__error" name="message" component="div" />
+
+                        <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+                    </Form>
+                )}
+            </Formik>
+
         </section>
     )
 }
