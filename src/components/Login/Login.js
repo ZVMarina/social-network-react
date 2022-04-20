@@ -27,10 +27,10 @@ const Login = (props) => {
                     <Form className="form">
 
                         <Field className="form__input" type={'text'} name={'email'} placeholder={'Email'} />
-                        <ErrorMessage name="email" component="div" />
+                        <ErrorMessage className="form__error" name="email" component="div" />
 
                         <Field className="form__input" type={'password'} name={'password'} placeholder={'Password'} />
-                        <ErrorMessage name="password" component="div" />
+                        <ErrorMessage className="form__error" name="password" component="div" />
 
                         <div className="form__checkbox-container">
                             <Field className="form__checkbox" type={'checkbox'} name={'rememberMe'} />
