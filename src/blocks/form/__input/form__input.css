@@ -1,0 +1,13 @@
+.form__input {
+    width: 100%;
+    margin-bottom: 5px;
+    height: 50px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding-left: 10px;
+}

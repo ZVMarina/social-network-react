@@ -3,6 +3,14 @@
 @import url(./blocks/button/button.css);
 @import url(./blocks/ink/link.css);
 
+@import url(./blocks/form/form.css);
+@import url(./blocks/form/__container/form__container.css);
+@import url(./blocks/form/__checkbox-container/form__checkbox-container.css);
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__label/form__label.css);
+@import url(./blocks/form/__button/form__button.css);
+@import url(./blocks/form/__checkbox/form__checkbox.css);
+
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__login-container/header__login-container.css);
 @import url(./blocks/header/__logo/header__logo.css);
