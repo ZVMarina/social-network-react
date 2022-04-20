@@ -22,7 +22,7 @@ function Dialogs(props) {
 
     return (
         <section className="dialogs">
-            <h1 className="dialogs__title">Dialogs</h1>
+            <h1 className="title dialogs__title">Dialogs</h1>
             <ul className="dialogs__list dialogs__list_type_dialog">
                 {dialogsElements}
             </ul>
