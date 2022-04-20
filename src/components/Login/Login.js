@@ -37,7 +37,7 @@ const Login = (props) => {
                             <label className="form__label" htmlFor={'rememberMe'}>Remember me</label>
                         </div>
 
-                        <button className="button form__button">Login</button>
+                        <button className="button form__button" type="submit" >Login</button>
                     </Form>
                 )}
             </Formik>
