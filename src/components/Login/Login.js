@@ -2,27 +2,30 @@ import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import loginFormSchema from "../FormValidation/FormValidation";
 
-const Login = (props) => {
+const validateLoginForm = values => {
+    const errors = {};
+    if (!values.email) {
+        errors.email = 'Required';
+    } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+    ) {
+        errors.email = 'Invalid email address';
+    }
+    return errors;
+};
+
+const Login = () => {
     return (
         <section className="login">
             <h1 className="title">Login</h1>
             <Formik
                 initialValues={{ email: "", password: "", rememberMe: false }}
-                validate={values => {
-                    const errors = {};
-                    if (!values.email) {
-                        errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        errors.email = 'Invalid email address';
-                    }
-                    return errors;
-                }}
+                validate={validateLoginForm}
+                validationSchema={loginFormSchema}
                 onSubmit={(values) => {
-                    console.log(values)
+                    console.log(values);
                 }}
-                validationSchema={loginFormSchema}>
+            >
                 {() => (
                     <Form className="form">
 
@@ -37,7 +40,7 @@ const Login = (props) => {
                             <label className="form__label" htmlFor={'rememberMe'}>Remember me</label>
                         </div>
 
-                        <button className="button form__button" type="submit" >Login</button>
+                        <button className="button form__button" type={'submit'}>Login</button>
                     </Form>
                 )}
             </Formik>
