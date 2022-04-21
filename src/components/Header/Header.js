@@ -6,9 +6,13 @@ function Header(props) {
     return (
         <header className="header">
             <img className="header__logo" src={logo} />
-            <div className="header__login-container">
-                <NavLink className="link header__login-link" to={'/login '}>{props.isAuth ? props.login : 'Login'}</NavLink>
-            </div>
+            {props.isAuth
+                ? <div className="header__login-container">
+                    <NavLink className="link header__login-link" to={'/profile'}>{props.login}</NavLink>
+                    <div className="header__line"></div>
+                    <NavLink className="link header__logout-link" to={'/lofin'}>Logout</NavLink>
+                </div>
+                : <NavLink className="link header__login-link" to={'/login '}>Login</NavLink>}
         </header>
     )
 }
