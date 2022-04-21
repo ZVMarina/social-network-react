@@ -47,7 +47,6 @@ const Login = (props) => {
                         )}
             
                         <Field className="form__input" type={'password'} name={'password'} placeholder={'Password'} />
-
                         {touched.password && errors.password && (
                             <div className="form__error">{errors.password}</div>
                         )}
