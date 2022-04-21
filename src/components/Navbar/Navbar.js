@@ -11,18 +11,18 @@ function Navbar() {
                 <li className="navigation__item">
                     <NavLink className="link navigation__link" to="/dialogs">Messages</NavLink>
                 </li>
-                <li className="navigation__item">
+                {/* <li className="navigation__item">
                     <NavLink className="link navigation__link" to="/news" >News</NavLink>
                 </li>
                 <li className="navigation__item">
                     <NavLink className="link navigation__link" to="/music">Music</NavLink>
-                </li>
+                </li> */}
                 <li className="navigation__item">
                     <NavLink className="link navigation__link" to="/users">Users</NavLink>
                 </li>
-                <li className="navigation__item">
+                {/* <li className="navigation__item">
                     <NavLink className="link navigation__link" to="/settings">Settings</NavLink>
-                </li>
+                </li> */}
             </nav>
         </>
 
