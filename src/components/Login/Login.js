@@ -2,6 +2,7 @@ import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { connect } from "react-redux";
 import { loginThunkCreator } from '../../redux/authReducer'
+import { Navigate } from "react-router-dom";
 
 const validateLoginForm = values => {
     const errors = {};
@@ -20,6 +21,10 @@ const validateLoginForm = values => {
 };
 
 const Login = (props) => {
+    if (props.isAuth) {
+        return <Navigate to={'/profile'} />
+    }
+
     return (
         <section className="login">
             <h1 className="title">Login</h1>
@@ -54,4 +59,10 @@ const Login = (props) => {
     )
 }
 
-export default connect(null, { login: loginThunkCreator })(Login);
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth,
+    }
+}
+
+export default connect(mapStateToProps, { login: loginThunkCreator })(Login);
