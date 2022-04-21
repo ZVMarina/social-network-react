@@ -1,4 +1,7 @@
 .header__logout-link {
     color: white;
     margin-left: 5px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
 }
