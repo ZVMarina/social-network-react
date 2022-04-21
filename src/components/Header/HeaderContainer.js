@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import * as axios from 'axios';
-import { getAuthInfoThunkCreator } from '../../redux/authReducer';
+import { getAuthInfoThunkCreator, logoutThunkCreator } from '../../redux/authReducer';
 import { connect } from 'react-redux';
 import { compose } from "redux";
 
@@ -22,5 +22,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, { getAuthInfoThunk: getAuthInfoThunkCreator })
+    connect(mapStateToProps, { getAuthInfoThunk: getAuthInfoThunkCreator, logout: logoutThunkCreator })
 )(HeaderContainer)

@@ -10,7 +10,7 @@ function Header(props) {
                 ? <div className="header__login-container">
                     <NavLink className="link header__login-link" to={'/profile'}>{props.login}</NavLink>
                     <div className="header__line"> | </div>
-                    <button className="link header__logout-link" /* to={'/login'} */>Logout</button>
+                    <button className="link header__logout-link" onClick={props.logout}>Logout</button>
                 </div>
                 : <NavLink className="link header__login-link" to={'/login '}>Login</NavLink>}
         </header>
