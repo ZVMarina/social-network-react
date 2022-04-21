@@ -1,5 +1,7 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { connect } from "react-redux";
+import { loginThunkCreator } from '../../redux/authReducer'
 
 const validateLoginForm = values => {
     const errors = {};
@@ -17,7 +19,7 @@ const validateLoginForm = values => {
     return errors;
 };
 
-const Login = () => {
+const Login = (props) => {
     return (
         <section className="login">
             <h1 className="title">Login</h1>
@@ -26,6 +28,7 @@ const Login = () => {
                 validate={validateLoginForm}
                 onSubmit={(values) => {
                     console.log(values);
+                    props.login(values.email, values.password, values.rememberMe);
                 }}
             >
                 {() => (
@@ -51,4 +54,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default connect(null, { login: loginThunkCreator })(Login);

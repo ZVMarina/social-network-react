@@ -37,13 +37,22 @@ export const profileApi = {
     },
 
     updateStatus(status) {
-        return instance.put(`profile/status/`, { status: status  });
+        return instance.put(`profile/status/`, { status: status });
     },
 }
 
-export const headerApi = {
+export const authApi = {
     getAuthInfo() {
         return instance.get(`auth/me/`)
             .then(response => response.data)
+    },
+
+    login(email, password, rememberMe = false) {
+        return instance.post(`auth/login/`, { email, password, rememberMe })
+            .then(response => response)
+    }, 
+
+    logout() {
+        return instance.delete(`auth/login/`)
     }
 }

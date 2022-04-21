@@ -28,17 +28,17 @@ function Dialogs(props) {
         }
 
         return errors;
-    };
- */
-    /* const AddMassageForm = (props) => {
+    }; */
+
+   /*  <AddMassageForm sendMessage={props.sendMessage} />
+
+    const AddMassageForm = (props) => {
         let addNewMessage = (values) => {
 
-            props.sendMessageHandler(values);
+            props.sendMessage(values);
         }
-    }
+    } */
 
-    <AddMassageForm sendMessage={props.sendMessageHandler} />
- */
     return (
         <section className="dialogs">
             <h1 className="title dialogs__title">Dialogs</h1>
@@ -59,6 +59,7 @@ function Dialogs(props) {
             >
                 {() => (
                     <Form className="dialogs__new-message-container">
+
                         <Field 
                             className="dialogs__new-message-content" 
                             type={'text'} 
@@ -74,7 +75,13 @@ function Dialogs(props) {
                     </Form>
                 )}
             </Formik>
-
+            {/* <div className="dialogs__new-message-container">
+                <textarea className="dialogs__new-message-content"
+                    placeholder="Write your message here..."
+                    value={props.messageText}
+                    onChange={updateMessageHandler}></textarea>
+                <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+            </div> */}
         </section>
     )
 }
