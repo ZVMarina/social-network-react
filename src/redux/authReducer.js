@@ -24,7 +24,7 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserDataAC = (id, email, login, isAuth) => ({ type: setAuthUserDataActionType, data: { id, email, login, isAuth } })
 
 export const getAuthInfoThunkCreator = () => (dispatch) => {
-    authApi.getAuthInfo()
+    return authApi.getAuthInfo()
         .then(data => {
             if (data.resultCode === 0) {
                 const authInfo = data.data

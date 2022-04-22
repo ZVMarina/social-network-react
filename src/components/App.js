@@ -10,15 +10,21 @@ import ProfileContainer from './Profile/ProfileInfo/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import Login from './Login/Login';
 import React from 'react';
-import { getAuthInfoThunkCreator, logoutThunkCreator } from '../redux/authReducer';
+import { initializedAppTC } from '../redux/appReducer';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import Preloader from './Preloader';
 
 class App extends React.Component {
   componentDidMount = () => {
-    this.props.getAuthInfoThunk();
+    this.props.initializedApp();
   }
 
   render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+
     return (
       <div className="App">
         <div className="page">
@@ -42,4 +48,10 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { getAuthInfoThunk: getAuthInfoThunkCreator, logout: logoutThunkCreator })(App)
+const mapStateToProps = (state) => {
+  return {
+    initialized: state.app.initialized
+  }
+}
+
+export default compose(connect(mapStateToProps , { initializedApp: initializedAppTC }))(App)
