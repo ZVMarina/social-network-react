@@ -13,6 +13,7 @@ function Users(props) {
 
     return (
         <section className="users">
+            <h1 className="title users__title">Users</h1>
             <ul className="users__pages">
                 {pages.map(page => {
                     return <li className={props.currentPage === page ? 'users__page users__page_active' : 'users__page'}
@@ -20,7 +21,6 @@ function Users(props) {
                     >{page}</li>
                 })}
             </ul>
-            <h1 className="title users__title">Users</h1>
             <ul className="users__list">
                 {props.users.map(user =>
                     <li className="users__item" key={user.id}>
