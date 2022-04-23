@@ -14,6 +14,7 @@ import { initializedAppTC } from '../redux/appReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './Preloader';
+import withRouter from '../hoc/withRouter';
 
 class App extends React.Component {
   componentDidMount = () => {
@@ -36,10 +37,7 @@ class App extends React.Component {
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path='/profile/' element={<ProfileContainer />} />
               <Route path="/dialogs*" element={<DialogsContainer props={this.props.store} />} />
-              {/* <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} /> */}
               <Route path="/users" element={<UsersContainer />} />
-              {/* <Route path="/settings" element={<Settings />} /> */}
             </Routes>
           </main>
         </div>
@@ -54,4 +52,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(connect(mapStateToProps , { initializedApp: initializedAppTC }))(App)
+export default compose(
+  connect(mapStateToProps, { initializedApp: initializedAppTC }),
+  withRouter)
+  (App)
