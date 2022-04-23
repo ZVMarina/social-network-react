@@ -1,9 +1,11 @@
 import preloader from '../images/users/preloader.svg'
+import React from 'react';
 
-function Preloader() {
-    return (
-        <img className="users__preloader profile__preloader" src={preloader} />
-    )
+class Preloader extends React.Component {
+    render() {
+        return (
+            <img className={`preloader ${this.props.className}`} src={preloader} />
+        )
+    }
 }
-
 export default Preloader;

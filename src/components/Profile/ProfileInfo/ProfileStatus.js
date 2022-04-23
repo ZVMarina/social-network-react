@@ -61,7 +61,7 @@ class ProfileStatus extends React.Component {
                         autoFocus={true}>
                     </input>
                 }
-                {this.state.isLoading && <Preloader />}
+                {this.state.isLoading && <Preloader className="profile__preloader" />}
             </div>
         )
     }
