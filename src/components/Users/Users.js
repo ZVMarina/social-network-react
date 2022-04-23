@@ -31,11 +31,11 @@ function Users(props) {
                                 </NavLink>
                             </div>
                             {
-                                user.followed
+                                props.isAuth && (user.followed
                                     ? <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
                                         onClick={() => { props.unfollowThunk(user.id) }}>Unfollow</button>
                                     : <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
-                                        onClick={() => { props.followThunk(user.id) }}>Follow</button>
+                                        onClick={() => { props.followThunk(user.id) }}>Follow</button>)
                             }
                         </div>
                         <div className="users__info-container">

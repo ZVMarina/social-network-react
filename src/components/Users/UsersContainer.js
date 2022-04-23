@@ -28,7 +28,7 @@ class UsersContainer extends React.Component {
     render = () => {
         return (
             <>
-                {this.props.isFetching ? <Preloader className="users__preloader"/> : null}
+                {this.props.isFetching ? <Preloader className="users__preloader" /> : null}
                 <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
@@ -41,6 +41,7 @@ class UsersContainer extends React.Component {
                     buttonDisabled={this.props.buttonDisabled}
                     followThunk={this.props.followThunk}
                     unfollowThunk={this.props.unfollowThunk}
+                    isAuth={this.props.isAuth}
                 />
             </>
         )
@@ -55,6 +56,7 @@ const mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         buttonDisabled: state.usersPage.buttonDisabled,
+        isAuth: state.auth.isAuth,
     }
 }
 
