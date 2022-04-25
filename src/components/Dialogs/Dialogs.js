@@ -21,24 +21,6 @@ function Dialogs(props) {
         return <Navigate to={'/login'} />
     }
 
-    /* const validateDialogsForm = values => {
-        const errors = {};
-        if (!values.message) {
-            errors.message = 'Required';
-        }
-
-        return errors;
-    }; */
-
-   /*  <AddMassageForm sendMessage={props.sendMessage} />
-
-    const AddMassageForm = (props) => {
-        let addNewMessage = (values) => {
-
-            props.sendMessage(values);
-        }
-    } */
-
     return (
         <section className="dialogs">
             <h1 className="title dialogs__title">Dialogs</h1>
@@ -50,23 +32,16 @@ function Dialogs(props) {
             </ul>
             <Formik className="dialogs__new-message-container"
                 initialValues={{ message: "" }}
-                /* validate={validateDialogsForm}
-                onSubmit={(values, {resetForm}) => {
-                    addNewMessage( values.message );
-                    resetForm( {values: ''} );
-                 }
-                 } */
             >
                 {() => (
                     <Form className="dialogs__new-message-container">
-
-                        <Field 
-                            className="dialogs__new-message-content" 
-                            type={'text'} 
-                            name={'message'} 
+                        <Field
+                            className="dialogs__new-message-content"
+                            type={'text'}
+                            name={'message'}
                             as={'textarea'}
-                            placeholder={'Write your message here...'} 
-                            value={props.messageText} 
+                            placeholder={'Write your message here...'}
+                            value={props.messageText}
                             onChange={updateMessageHandler}
                         />
                         <ErrorMessage className="form__error" name="message" component="div" />
@@ -75,13 +50,6 @@ function Dialogs(props) {
                     </Form>
                 )}
             </Formik>
-            {/* <div className="dialogs__new-message-container">
-                <textarea className="dialogs__new-message-content"
-                    placeholder="Write your message here..."
-                    value={props.messageText}
-                    onChange={updateMessageHandler}></textarea>
-                <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
-            </div> */}
         </section>
     )
 }
