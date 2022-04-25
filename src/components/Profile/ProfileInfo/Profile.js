@@ -6,6 +6,9 @@ import PostsContainer from '../Posts/PostsContainer';
 function Profile(props) {
     return (
         <>
+        <div>
+            {props.userId}
+        </div>
             <section className="profile">
                 <img className="profile__main-image" src={image} />
                 <ProfileInfo

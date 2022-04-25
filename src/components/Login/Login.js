@@ -27,7 +27,7 @@ const Login = (props) => {
     };
 
     if (props.isAuth) {
-        return <Navigate to={'/profile'} />
+        return <Navigate to={`/profile/${props.myId}`} />
     }
 
     return (
@@ -70,6 +70,7 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
+        myId: state.auth.id,
     }
 }
 

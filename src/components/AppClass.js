@@ -37,7 +37,6 @@ class AppClass extends React.Component {
             <Routes>
               <Route path='/login' element={<Login />} />
               <Route path="/profile/:userId" element={<ProfileContainerHooks />} />
-              <Route path='/profile/' element={<ProfileContainerHooks />} />
               <Route path="/dialogs/*" element={<DialogsContainer props={this.props.store} />} />
               <Route path="/users" element={<UsersContainerHooks />} />
             </Routes>

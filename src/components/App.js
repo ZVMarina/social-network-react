@@ -29,12 +29,11 @@ const App = (props) => {
     <div className="App">
       <div className="page">
         <HeaderContainer />
-        <Navbar />
+        <Navbar myId={props.myId} />
         <main className="main">
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
-            <Route path='/profile/' element={<ProfileContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer props={props.store} />} />
             <Route path="/users" element={<UsersContainer />} />
           </Routes>
@@ -46,7 +45,8 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    myId: state.auth.id,
   }
 }
 

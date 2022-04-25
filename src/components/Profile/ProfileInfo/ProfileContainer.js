@@ -6,18 +6,19 @@ import {
     getStatusThunkCreator,
     updateStatusThunkCreator
 } from '../../../redux/profileReducer'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 import withRouter from '../../../hoc/withRouter';
 
 const ProfileContainer = (props) => {
-    useEffect(() => {
-        const userId = props.router.params.userId ?? props.myId;
+    const params = useParams();
 
-        props.getProfileInfo(userId);
-        props.getUserStatus(userId);
-    }, []);
+    useEffect(() => {
+        props.getProfileInfo(params.userId);
+        props.getUserStatus(params.userId);
+
+    }, [params.userId])
 
     if (!props.isAuth) {
         return <Navigate to={'/login'} />
@@ -34,7 +35,6 @@ const ProfileContainer = (props) => {
 
 const mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    myId: state.auth.id,
     status: state.profilePage.status,
 })
 
