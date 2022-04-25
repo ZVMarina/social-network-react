@@ -1,70 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Preloader from "../../Preloader";
 
-class ProfileStatus extends React.Component {
-    state = {
-        editMode: false,
-        status: this.props.status,
-        isLoading: false,
+const ProfileStatus = (props) => {
+    const [editMode, setEditMode] = useState(false);
+    const [status, setStatus] = useState(props.status);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setStatus(props.status)
+    }, [props.status]);
+
+    const activeteEditMode = () => {
+        setEditMode(true);
     }
 
-    // можно через стрелочные функции
-    activeteEditMode = () => {
-        this.setState({
-            editMode: true,
-        })
-    }
+    const deactiveteEditMode = () => {
+        setEditMode(false);
+        setIsLoading(true);
 
-    //можно через bind
-    deactiveteEditMode() {
-        this.setState({
-            editMode: false,
-        });
-
-        this.setState({
-            isLoading: true,
-        })
-
-        this.props.updateStatus(this.state.status)
+        props.updateStatus(status)
             .then(() => {
-                this.setState({
-                    isLoading: false,
-                })
+                setIsLoading(false);
             })
     }
 
-    updateStatusHandler = (evt) => {
-        this.setState({
-            status: evt.currentTarget.value,
-        })
+    const changeStatusHandler = (evt) => {
+        setStatus(evt.currentTarget.value);
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status,
-            })
-        }
-    }
-
-    render() {
-        return (
-            <div className="profile__status-container">
-                {!this.state.editMode &&
-                    <p className="profile__status" onClick={this.activeteEditMode}>{this.props.status || 'Status should be here'}</p>
-                }
-                {this.state.editMode &&
-                    <input className="profile__status-input"
-                        onBlur={this.deactiveteEditMode.bind(this)}
-                        value={this.state.status}
-                        onChange={this.updateStatusHandler}
-                        autoFocus={true}>
-                    </input>
-                }
-                {this.state.isLoading && <Preloader className="profile__preloader" />}
-            </div>
-        )
-    }
+    return (
+        <div className="profile__status-container">
+            {!editMode &&
+                <p className="profile__status" onClick={activeteEditMode}>{props.status || 'Status should be here'}</p>
+            }
+            {editMode &&
+                <input className="profile__status-input"
+                    onBlur={deactiveteEditMode}
+                    value={status}
+                    onChange={changeStatusHandler}
+                    autoFocus={true}>
+                </input>
+            }
+            {isLoading && <Preloader className="profile__preloader" />}
+        </div>
+    )
 }
 
 export default ProfileStatus;

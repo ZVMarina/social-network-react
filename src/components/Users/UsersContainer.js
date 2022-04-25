@@ -13,39 +13,36 @@ import React, { useEffect } from 'react';
 import Preloader from '../Preloader';
 import { compose } from 'redux';
 
-class UsersContainer extends React.Component {
-    componentDidMount = () => {
-        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize);
+const UsersContainer = (props) => {
+    useEffect(() => {
+        props.getUsersThunk(props.currentPage, props.pageSize);
+    }, [])
 
+    const pageChangeHandler = (page) => {
+        props.getUsersThunk(page, props.pageSize);
+
+        props.setPage(page);
     }
 
-    pageChangeHandler = (page) => {
-        this.props.getUsersThunk(page, this.props.pageSize);
-
-        this.props.setPage(page);
-    }
-
-    render = () => {
-        return (
-            <>
-                {this.props.isFetching ? <Preloader className="users__preloader" /> : null}
-                <Users
-                    totalUsersCount={this.props.totalUsersCount}
-                    pageSize={this.props.pageSize}
-                    currentPage={this.props.currentPage}
-                    users={this.props.users}
-                    follow={this.props.follow}
-                    unfollow={this.props.unfollow}
-                    pageChangeHandler={this.pageChangeHandler}
-                    toggleButtonDisabled={this.props.toggleButtonDisabled}
-                    buttonDisabled={this.props.buttonDisabled}
-                    followThunk={this.props.followThunk}
-                    unfollowThunk={this.props.unfollowThunk}
-                    isAuth={this.props.isAuth}
-                />
-            </>
-        )
-    }
+    return (
+        <>
+            {props.isFetching ? <Preloader className="users__preloader" /> : null}
+            <Users
+                totalUsersCount={props.totalUsersCount}
+                pageSize={props.pageSize}
+                currentPage={props.currentPage}
+                users={props.users}
+                follow={props.follow}
+                unfollow={props.unfollow}
+                pageChangeHandler={pageChangeHandler}
+                toggleButtonDisabled={props.toggleButtonDisabled}
+                buttonDisabled={props.buttonDisabled}
+                followThunk={props.followThunk}
+                unfollowThunk={props.unfollowThunk}
+                isAuth={props.isAuth}
+            />
+        </>
+    )
 }
 
 const mapStateToProps = (state) => {
@@ -60,9 +57,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-// connect автоматически создал колюбэк follow, в которой он вызывает followedAC, который в свою очередь возвращает action 
-// и этот action диспатчится
-
 export default compose(
     connect(mapStateToProps,
         {
@@ -76,27 +70,3 @@ export default compose(
         }
     )
 )(UsersContainer)
-
-// follow - колбэк, который внутри себя вызовет followedActionCreator и задеспатчит результат этого вызова
-/* const dispatchStateToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followedActionCreator(userId))
-        },
-        unFollow: (userId) => {
-            dispatch(unfollowedActionCreator(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersActionCreator(users))
-        },
-        setPage: (currentPage) => {
-            dispatch(setPageActionCreator(currentPage))
-        },
-        setTotalUsersCount: (usersCount) => {
-            dispatch(setUsersCountActionCreator(usersCount))
-        },
-        setIsFetching: (isFetching) => {
-            dispatch(setIsFetchingActionCreator(isFetching))
-        }
-    }
-} */

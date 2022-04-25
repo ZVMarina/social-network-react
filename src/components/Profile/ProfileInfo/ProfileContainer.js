@@ -11,27 +11,25 @@ import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 import withRouter from '../../../hoc/withRouter';
 
-class ProfileContainer extends React.Component {
-    componentDidMount = () => {
-        const userId = this.props.router.params.userId ?? this.props.myId;
+const ProfileContainer = (props) => {
+    useEffect(() => {
+        const userId = props.router.params.userId ?? props.myId;
 
-        this.props.getProfileInfo(userId);
-        this.props.getUserStatus(userId);
+        props.getProfileInfo(userId);
+        props.getUserStatus(userId);
+    }, []);
+
+    if (!props.isAuth) {
+        return <Navigate to={'/login'} />
     }
 
-    render() {
-        if (!this.props.isAuth) {
-            return <Navigate to={'/login'} />
-        }
-
-        return (
-            <Profile {...this.props}
-                profile={this.props.profile}
-                status={this.props.status}
-                updateStatus={this.props.updateStatus} 
-                />
-        )
-    }
+    return (
+        <Profile {...props}
+            profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
+        />
+    )
 }
 
 const mapStateToProps = (state) => ({
