@@ -16,7 +16,7 @@ function Users(props) {
             <h1 className="title users__title">Users</h1>
             <ul className="users__pages">
                 {pages.map(page => {
-                    return <li className={props.currentPage === page ? 'users__page users__page_active' : 'users__page'}
+                    return <li key={page} className={props.currentPage === page ? 'users__page users__page_active' : 'users__page'}
                         onClick={() => { props.pageChangeHandler(page) }}
                     >{page}</li>
                 })}

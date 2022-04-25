@@ -6,18 +6,12 @@ import {
     getStatusThunkCreator,
     updateStatusThunkCreator
 } from '../../../redux/profileReducer'
-import {
-    useLocation,
-    useNavigate,
-    useParams,
-} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 import withRouter from '../../../hoc/withRouter';
 
 class ProfileContainer extends React.Component {
-
     componentDidMount = () => {
         const userId = this.props.router.params.userId ?? this.props.myId;
 
@@ -34,7 +28,8 @@ class ProfileContainer extends React.Component {
             <Profile {...this.props}
                 profile={this.props.profile}
                 status={this.props.status}
-                updateStatus={this.props.updateStatus} />
+                updateStatus={this.props.updateStatus} 
+                />
         )
     }
 }
