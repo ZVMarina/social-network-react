@@ -16,6 +16,7 @@ import { compose } from 'redux';
 import Preloader from './Preloader';
 import withRouter from '../hoc/withRouter';
 import ProfileContainerHooks from './Profile/ProfileInfo/ProfileContainerHooks';
+import UsersContainerHooks from './Users/UsersContainerHooks';
 
 class App extends React.Component {
   componentDidMount = () => {
@@ -38,7 +39,7 @@ class App extends React.Component {
               <Route path="/profile/:userId" element={<ProfileContainerHooks />} />
               <Route path='/profile/' element={<ProfileContainerHooks />} />
               <Route path="/dialogs/*" element={<DialogsContainer props={this.props.store} />} />
-              <Route path="/users" element={<UsersContainer />} />
+              <Route path="/users" element={<UsersContainerHooks />} />
             </Routes>
           </main>
         </div>

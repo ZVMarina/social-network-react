@@ -9,7 +9,7 @@ import {
     unfollowThunkCreator,
 } from '../../redux/usersReducer';
 import Users from './Users';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Preloader from '../Preloader';
 import { compose } from 'redux';
 
