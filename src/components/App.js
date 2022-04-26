@@ -4,7 +4,7 @@ import '../index.css';
 import Navbar from './Navbar/Navbar';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
-import ProfileContainer from './Profile/ProfileInfo/ProfileContainer';
+import ProfileContainer from './Profile/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import Login from './Login/Login';
 import { initializedAppTC } from '../redux/appReducer';
