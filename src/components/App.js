@@ -11,7 +11,6 @@ import { initializedAppTC } from '../redux/appReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './Preloader';
-import withRouter from '../hoc/withRouter';
 
 const App = (props) => {
   useEffect(() => {
@@ -48,6 +47,5 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-  /* withRouter, */
   connect(mapStateToProps, { initializedApp: initializedAppTC }))
   (App)
