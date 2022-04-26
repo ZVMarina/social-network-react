@@ -1,4 +1,4 @@
-import profileReducer, { addPostActionCreator } from './profileReducer';
+import profileReducer, { addPostActionCreator, deletePostActionCreator } from './profileReducer';
 
 const state = {
     postsData: [
@@ -25,11 +25,11 @@ it('post of new post should be correct', () => {
     expect(newState.postsData[2].post).toBe('How are you?')
 })
 
-/* it('after deleting length of post should be decrement', () => {
+it('after deleting length of post should be decrement', () => {
     // 1. стартовые данные
-    const action = deletePost(1);
+    const action = deletePostActionCreator(1);
     // 2. действия
     const newState = profileReducer(state, action)
     // 3. ожидаемый результат
     expect(newState.postsData.length).toBe(1)
-}) */
+})

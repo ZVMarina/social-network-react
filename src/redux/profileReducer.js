@@ -1,8 +1,9 @@
 import { profileApi } from "../api/api";
 
-const addPostActionType = 'add-post';
-const setProfileInfoActionType = 'set-profile-info';
-const setStatusActionType = 'set-status';
+const ADD_POST_ACTION_TYPE = 'add-post';
+const DELETE_POST_ACTION_TYPE = 'delete-post';
+const SET_PROFILE_INFO_ACTION_TYPE = 'set-profile-info';
+const SET_STATUS_ACTION_TYPE = 'set-status';
 
 const initialState =
 {
@@ -17,7 +18,7 @@ const initialState =
 // сюда уже придёт нужная часть стейта (profilePage)
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case addPostActionType:
+        case ADD_POST_ACTION_TYPE:
             const post = {
                 id: state.postsData.length + 1,
                 post: action.postText,
@@ -28,14 +29,24 @@ const profileReducer = (state = initialState, action) => {
                 postsData: [...state.postsData, post],
             };
 
-        case setProfileInfoActionType: {
+        case DELETE_POST_ACTION_TYPE:
+            return {
+                ...state,
+                postsData: state.postsData.filter(post => {
+                    if (post.id !== action.postId) {
+                        return post
+                    }
+                }),
+            };
+
+        case SET_PROFILE_INFO_ACTION_TYPE: {
             return {
                 ...state,
                 profile: action.profile
             };
         }
 
-        case setStatusActionType: {
+        case SET_STATUS_ACTION_TYPE: {
             return {
                 ...state,
                 status: action.status
@@ -49,19 +60,25 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = (newPostText) => {
     return {
-        type: addPostActionType, postText: newPostText
+        type: ADD_POST_ACTION_TYPE, postText: newPostText
+    }
+}
+
+export const deletePostActionCreator = (postId) => {
+    return {
+        type: DELETE_POST_ACTION_TYPE, postId: postId
     }
 }
 
 export const setProfileInfoAC = (profile) => {
     return {
-        type: setProfileInfoActionType, profile
+        type: SET_PROFILE_INFO_ACTION_TYPE, profile
     }
 }
 
 export const setStatusAC = (status) => {
     return {
-        type: setStatusActionType, status
+        type: SET_STATUS_ACTION_TYPE, status
     }
 }
 
