@@ -1,8 +1,9 @@
+import React from 'react';
 import Preloader from '../../Preloader'
 import photo from '../../../images/users/no-photo.png'
 import ProfileStatus from './ProfileStatus';
 
-function ProfileInfo(props) {
+const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }

@@ -1,7 +1,7 @@
 import PostsItem from "./PostsItem";
 import React from "react";
 
-function Posts(props) {
+const Posts = (props) => {
     const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} key={postItem.id}/>);
 
     const addPostHandler = () => {

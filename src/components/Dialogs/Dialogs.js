@@ -1,9 +1,10 @@
+import React from 'react';
 import DialogsItem from './DialogsItem';
 import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-function Dialogs(props) {
+const Dialogs = (props) => {
     const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
     const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
 

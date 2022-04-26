@@ -1,15 +1,12 @@
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../index.css';
 import Navbar from './Navbar/Navbar';
-import News from './News/News';
-import Music from './Music/Music';
-import Settings from './Settings/Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileInfo/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import Login from './Login/Login';
-import React, { useEffect } from 'react';
 import { initializedAppTC } from '../redux/appReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
