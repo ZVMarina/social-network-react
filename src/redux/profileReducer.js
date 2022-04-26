@@ -1,9 +1,9 @@
 import { profileApi } from "../api/api";
 
-const ADD_POST_ACTION_TYPE = 'add-post';
-const DELETE_POST_ACTION_TYPE = 'delete-post';
-const SET_PROFILE_INFO_ACTION_TYPE = 'set-profile-info';
-const SET_STATUS_ACTION_TYPE = 'set-status';
+const ADD_POST_ACTION_TYPE = 'profile/add-post';
+const DELETE_POST_ACTION_TYPE = 'profile/delete-post';
+const SET_PROFILE_INFO_ACTION_TYPE = 'profile/set-profile-info';
+const SET_STATUS_ACTION_TYPE = 'profile/set-status';
 
 const initialState =
 {

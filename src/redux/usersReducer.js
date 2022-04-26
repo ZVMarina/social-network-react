@@ -1,12 +1,12 @@
 import { usersApi } from "../api/api";
 
-const FOLLOW_ACTION_TYPE = 'follow';
-const UNFOLLOW_ACTION_TYPE = 'unfollow';
-const SET_USERS_ACTION_TYPE = 'set-users';
-const SET_PAGE_ACTION_TYPE = 'set-page';
-const SET_USERS_COUNT_ACTION_TYPE = 'set-total-users-count';
-const SET_IS_FETCHING_ACTION_TYPE = 'set-is-fetching';
-const TOGGLE_BUTTON_DISABLED_ACTION_TYPE = 'toggle-button-disabled';
+const FOLLOW_ACTION_TYPE = 'users/follow';
+const UNFOLLOW_ACTION_TYPE = 'users/unfollow';
+const SET_USERS_ACTION_TYPE = 'users/set-users';
+const SET_PAGE_ACTION_TYPE = 'users/set-page';
+const SET_USERS_COUNT_ACTION_TYPE = 'users/set-total-users-count';
+const SET_IS_FETCHING_ACTION_TYPE = 'users/set-is-fetching';
+const TOGGLE_BUTTON_DISABLED_ACTION_TYPE = 'users/toggle-button-disabled';
 
 const initialState = {
     users: [],

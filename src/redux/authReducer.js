@@ -1,6 +1,6 @@
 import { authApi } from "../api/api";
 
-const SET_AUTH_DATA_ACTION_TYPE = 'set-user-auth-data';
+const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data';
 
 const initialState = {
     id: null,

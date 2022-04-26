@@ -1,6 +1,6 @@
 import { getAuthInfoThunkCreator } from "./authReducer";
 
-const INITIALIZED_SUCCESS_ACTION_TYPE = 'initialized-success';
+const INITIALIZED_SUCCESS_ACTION_TYPE = 'app/initialized-success';
 
 const initialState = {
     initialized: false // проиницилиазированно приложение или нет
