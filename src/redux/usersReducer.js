@@ -1,12 +1,12 @@
 import { usersApi } from "../api/api";
 
-const followActionType = 'follow';
-const unFollowActionType = 'unfollow';
-const setUsersActionType = 'set-users';
-const setPageActionType = 'set-page';
-const setUsersCountActionType = 'set-total-users-count';
-const setIsFetchingActionType = 'set-is-fetching';
-const toggleButtonDisabledActionType = 'toggle-button-disabled';
+const FOLLOW_ACTION_TYPE = 'follow';
+const UNFOLLOW_ACTION_TYPE = 'unfollow';
+const SET_USERS_ACTION_TYPE = 'set-users';
+const SET_PAGE_ACTION_TYPE = 'set-page';
+const SET_USERS_COUNT_ACTION_TYPE = 'set-total-users-count';
+const SET_IS_FETCHING_ACTION_TYPE = 'set-is-fetching';
+const TOGGLE_BUTTON_DISABLED_ACTION_TYPE = 'toggle-button-disabled';
 
 const initialState = {
     users: [],
@@ -19,7 +19,7 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case followActionType:
+        case FOLLOW_ACTION_TYPE:
             return {
                 ...state,
                 users: state.users.map(user => {
@@ -31,7 +31,7 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
 
-        case unFollowActionType:
+        case UNFOLLOW_ACTION_TYPE:
             return {
                 ...state,
                 users: state.users.map(user => {
@@ -43,32 +43,32 @@ const usersReducer = (state = initialState, action) => {
                 })
             }
 
-        case setUsersActionType:
+        case SET_USERS_ACTION_TYPE:
             return {
                 ...state,
                 // сначала сделал копию юзеров, затем добавили туда пришедших юзеров
                 users: [...action.users]
             }
 
-        case setPageActionType:
+        case SET_PAGE_ACTION_TYPE:
             return {
                 ...state,
                 currentPage: action.currentPage
             }
 
-        case setUsersCountActionType:
+        case SET_USERS_COUNT_ACTION_TYPE:
             return {
                 ...state,
                 totalUsersCount: action.usersCount
             }
 
-        case setIsFetchingActionType:
+        case SET_IS_FETCHING_ACTION_TYPE:
             return {
                 ...state,
                 isFetching: action.isFetching
             }
 
-        case toggleButtonDisabledActionType:
+        case TOGGLE_BUTTON_DISABLED_ACTION_TYPE:
             return {
                 ...state,
                 buttonDisabled: action.disabled
@@ -81,19 +81,19 @@ const usersReducer = (state = initialState, action) => {
 }
 
 // userId, так как action.userId
-export const followAC = (userId) => ({ type: followActionType, userId })
+export const followAC = (userId) => ({ type: FOLLOW_ACTION_TYPE, userId })
 
-export const unfollowAC = (userId) => ({ type: unFollowActionType, userId })
+export const unfollowAC = (userId) => ({ type: UNFOLLOW_ACTION_TYPE, userId })
 
-export const setUsersAC = (users) => ({ type: setUsersActionType, users })
+export const setUsersAC = (users) => ({ type: SET_USERS_ACTION_TYPE, users })
 
-export const setPageAC = (currentPage) => ({ type: setPageActionType, currentPage })
+export const setPageAC = (currentPage) => ({ type: SET_PAGE_ACTION_TYPE, currentPage })
 
-export const setUsersCountAC = (usersCount) => ({ type: setUsersCountActionType, usersCount })
+export const setUsersCountAC = (usersCount) => ({ type: SET_USERS_COUNT_ACTION_TYPE, usersCount })
 
-export const setIsFetchingAC = (isFetching) => ({ type: setIsFetchingActionType, isFetching })
+export const setIsFetchingAC = (isFetching) => ({ type: SET_IS_FETCHING_ACTION_TYPE, isFetching })
 
-export const toggleButtonDisabledAC = (disabled, userId) => ({ type: toggleButtonDisabledActionType, disabled, userId })
+export const toggleButtonDisabledAC = (disabled, userId) => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
 
 export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
     dispatch(setIsFetchingAC(true));
@@ -134,24 +134,3 @@ export const unfollowThunkCreator = (userId) => (dispatch) => {
 }
 
 export default usersReducer;
-
-/* case DELETE_POST_ACTION_TYPE:
-            return {
-                ...state,
-                postsData: state.postsData.filter(post => {
-                    if (!post.id === action.id) {
-                        return post
-                    }
-                }),
-            };
-
-            export const deletePostActionCreator = (newPostText) => {
-                return {
-                    type: DELETE_POST_ACTION_TYPE, postText: newPostText
-                }
-            } */
-
-            const ADD_POST_ACTION_TYPE = 'add-post';
-const DELETE_POST_ACTION_TYPE = 'delete-post';
-const SET_PROFILE_INFO_ACTION_TYPE = 'set-profile-info';
-const SET_STATUS_ACTION_TYPE = 'set-status';

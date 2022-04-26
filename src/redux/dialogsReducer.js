@@ -1,5 +1,5 @@
-const sendMessageActionType = 'SEND-MESSAGE';
-const updateMessageBodyActionType = 'UPDATE-MESSAGE-TEXT';
+const SEND_MESSAGE_ACTION_TYPE = 'SEND-MESSAGE';
+const UPDATE_MESSAGE_BODY_ACTION_TYPE = 'UPDATE-MESSAGE-TEXT';
 
 const initialState = {
     dialogsData: [
@@ -23,7 +23,7 @@ const initialState = {
 // сюда уже придёт нужная часть стейта (dialogsPage)
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case sendMessageActionType:
+        case SEND_MESSAGE_ACTION_TYPE:
             const message = {
                 id: 4,
                 message: state.messageText
@@ -35,7 +35,7 @@ const dialogsReducer = (state = initialState, action) => {
                 messageText: ''
             };
 
-        case updateMessageBodyActionType: {
+        case UPDATE_MESSAGE_BODY_ACTION_TYPE: {
             return { 
                 ...state,
                 messageText: action.newMessageText
@@ -47,13 +47,13 @@ const dialogsReducer = (state = initialState, action) => {
 
 export const sendMessageActionCreator = () => {
     return {
-        type: sendMessageActionType,
+        type: SEND_MESSAGE_ACTION_TYPE,
     }
 }
 
 export const updateMessageBodyActionCreator = (newMessageText) => {
     return {
-        type: updateMessageBodyActionType, newMessageText: newMessageText
+        type: UPDATE_MESSAGE_BODY_ACTION_TYPE, newMessageText: newMessageText
     }
 }
 

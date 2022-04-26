@@ -1,6 +1,6 @@
 import { authApi } from "../api/api";
 
-const setAuthUserDataActionType = 'set-user-auth-data';
+const SET_AUTH_DATA_ACTION_TYPE = 'set-user-auth-data';
 
 const initialState = {
     id: null,
@@ -11,7 +11,7 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case setAuthUserDataActionType:
+        case SET_AUTH_DATA_ACTION_TYPE:
             return {
                 ...state,
                 ...action.data,
@@ -21,7 +21,7 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserDataAC = (id, email, login, isAuth) => ({ type: setAuthUserDataActionType, data: { id, email, login, isAuth } })
+export const setAuthUserDataAC = (id, email, login, isAuth) => ({ type: SET_AUTH_DATA_ACTION_TYPE, data: { id, email, login, isAuth } })
 
 export const getAuthInfoThunkCreator = () => (dispatch) => {
     return authApi.getAuthInfo()

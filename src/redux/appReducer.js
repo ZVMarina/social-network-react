@@ -1,6 +1,6 @@
 import { getAuthInfoThunkCreator } from "./authReducer";
 
-const initializedSuccessActionType = 'initialized-success';
+const INITIALIZED_SUCCESS_ACTION_TYPE = 'initialized-success';
 
 const initialState = {
     initialized: false // проиницилиазированно приложение или нет
@@ -8,7 +8,7 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case initializedSuccessActionType:
+        case INITIALIZED_SUCCESS_ACTION_TYPE:
             return {
                 ...state,
                 initialized: true,
@@ -18,7 +18,7 @@ const appReducer = (state = initialState, action) => {
     }
 }
 
-export const initializedSuccessAC = () => ({ type: initializedSuccessActionType })
+export const initializedSuccessAC = () => ({ type: INITIALIZED_SUCCESS_ACTION_TYPE })
 
 export const initializedAppTC = () => (dispatch) => {
    const promis = dispatch(getAuthInfoThunkCreator());
