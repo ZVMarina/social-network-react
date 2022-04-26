@@ -1,7 +1,7 @@
 import React from 'react';
-import image from '../../../images/main/people-2.png';
-import ProfileInfo from '../ProfileInfo/ProfileInfo';
-import PostsContainer from '../Posts/PostsContainer';
+import image from '../../images/main/people-2.png';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import PostsContainer from './Posts/PostsContainer';
 
 const Profile = (props) => {
     return (

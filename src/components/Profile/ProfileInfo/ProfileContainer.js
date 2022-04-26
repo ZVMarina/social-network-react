@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import Profile from './Profile';
+import Profile from '../Profile';
 import {
     getProfileInfoThunkCreator,
     getStatusThunkCreator,
@@ -9,7 +9,6 @@ import {
 import { Navigate, useParams } from 'react-router-dom';
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from 'redux';
-import withRouter from '../../../hoc/withRouter';
 
 const ProfileContainer = (props) => {
     const params = useParams();
