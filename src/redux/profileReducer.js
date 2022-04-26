@@ -1,7 +1,6 @@
 import { profileApi } from "../api/api";
 
-const addPostActionType = 'ADD-POST';
-const updatePostBodyActionType = 'UPDATE-POST-TEXT';
+const addPostActionType = 'add-post';
 const setProfileInfoActionType = 'set-profile-info';
 const setStatusActionType = 'set-status';
 
@@ -11,7 +10,6 @@ const initialState =
         { id: 1, post: "Hey, is anybody here?" },
         { id: 2, post: "It's my first post" }
     ],
-    postText: '',
     profile: null,
     status: '',
 }
@@ -21,8 +19,8 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case addPostActionType:
             const post = {
-                id: 3,
-                post: state.postText
+                id: state.postsData.length + 1,
+                post: action.postText,
             }
 
             return {
@@ -30,13 +28,6 @@ const profileReducer = (state = initialState, action) => {
                 postsData: [...state.postsData, post],
                 postText: ''
             };
-
-        case updatePostBodyActionType: {
-            return {
-                ...state,
-                postText: action.newPostText
-            };
-        }
 
         case setProfileInfoActionType: {
             return {
@@ -57,15 +48,9 @@ const profileReducer = (state = initialState, action) => {
 }
 
 
-export const addPostActionCreator = () => {
+export const addPostActionCreator = (newPostText) => {
     return {
-        type: addPostActionType,
-    }
-}
-
-export const updatePostBodyActionCreator = (newPostText) => {
-    return {
-        type: updatePostBodyActionType, newPostText: newPostText
+        type: addPostActionType, postText: newPostText
     }
 }
 
