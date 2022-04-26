@@ -46,6 +46,6 @@ export default compose(
         getUserStatus: getStatusThunkCreator,
         updateStatus: updateStatusThunkCreator
     }),
-    withRouter,
+    /* withRouter, */
     withAuthRedirect
 )(ProfileContainer)
