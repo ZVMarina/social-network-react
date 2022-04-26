@@ -26,31 +26,29 @@ export const setAuthUserDataAC = (id, email, login, isAuth) => ({ type: SET_AUTH
 export const getAuthInfoThunkCreator = () => async (dispatch) => {
     const data = await authApi.getAuthInfo()
 
-            if (data.resultCode === 0) {
-                const authInfo = data.data
-                dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login, true));
-            }
-        
+    if (data.resultCode === 0) {
+        const authInfo = data.data
+        dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login, true));
+    }
+
 }
 
-export const loginThunkCreator = (email, password, rememberMe, setStatus) => (dispatch) => {
-    authApi.login(email, password, rememberMe)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(getAuthInfoThunkCreator());
-            } else {
-                setStatus(response.data.messages);
-            }
-        })
+export const loginThunkCreator = (email, password, rememberMe, setStatus) => async (dispatch) => {
+    const response = await authApi.login(email, password, rememberMe)
+
+    if (response.data.resultCode === 0) {
+        dispatch(getAuthInfoThunkCreator());
+    } else {
+        setStatus(response.data.messages);
+    }
 }
 
-export const logoutThunkCreator = () => (dispatch) => {
-    authApi.logout()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserDataAC(null, null, null, false));
-            }
-        })
+export const logoutThunkCreator = () => async (dispatch) => {
+    const response = await authApi.logout()
+
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserDataAC(null, null, null, false));
+    }
 }
 
 
