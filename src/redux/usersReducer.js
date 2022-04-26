@@ -95,16 +95,14 @@ export const setIsFetchingAC = (isFetching) => ({ type: SET_IS_FETCHING_ACTION_T
 
 export const toggleButtonDisabledAC = (disabled, userId) => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
 
-export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
+export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => {
     dispatch(setIsFetchingAC(true));
 
-    usersApi.getUsers(currentPage, pageSize)
-        .then(data => {
-            dispatch(setIsFetchingAC(false));
-            dispatch(setUsersAC(data.items));
-            dispatch(setUsersCountAC(data.totalCount));
-        })
+    const data = await usersApi.getUsers(currentPage, pageSize)
 
+    dispatch(setIsFetchingAC(false));
+    dispatch(setUsersAC(data.items));
+    dispatch(setUsersCountAC(data.totalCount));
 }
 
 export const followThunkCreator = (userId) => async (dispatch) => {
