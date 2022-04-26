@@ -6,7 +6,6 @@
     grid-template-rows: 92px 1fr;
     grid-template-columns: 1fr 5fr;
     column-gap: 20px;
-    row-gap: 25px;
     margin: auto;
     min-width: 320px;
     min-height: 100vh;
