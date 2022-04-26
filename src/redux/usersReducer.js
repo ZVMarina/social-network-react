@@ -134,3 +134,24 @@ export const unfollowThunkCreator = (userId) => (dispatch) => {
 }
 
 export default usersReducer;
+
+/* case DELETE_POST_ACTION_TYPE:
+            return {
+                ...state,
+                postsData: state.postsData.filter(post => {
+                    if (!post.id === action.id) {
+                        return post
+                    }
+                }),
+            };
+
+            export const deletePostActionCreator = (newPostText) => {
+                return {
+                    type: DELETE_POST_ACTION_TYPE, postText: newPostText
+                }
+            } */
+
+            const ADD_POST_ACTION_TYPE = 'add-post';
+const DELETE_POST_ACTION_TYPE = 'delete-post';
+const SET_PROFILE_INFO_ACTION_TYPE = 'set-profile-info';
+const SET_STATUS_ACTION_TYPE = 'set-status';

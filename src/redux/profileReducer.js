@@ -26,7 +26,6 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 postsData: [...state.postsData, post],
-                postText: ''
             };
 
         case setProfileInfoActionType: {
