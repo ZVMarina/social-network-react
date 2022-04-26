@@ -94,10 +94,10 @@ export const getStatusThunkCreator = (userId) => async (dispatch) => {
 
 export const updateStatusThunkCreator = (status) => async (dispatch) => {
     const response = await profileApi.updateStatus(status);
-    
-            if (response.data.resultCode === 0) {
-                dispatch(setStatusAC(status))
-            }
+
+    if (response.data.resultCode === 0) {
+        dispatch(setStatusAC(status))
+    }
 }
 
 export default profileReducer;

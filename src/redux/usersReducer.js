@@ -107,30 +107,28 @@ export const getUsersThunkCreator = (currentPage, pageSize) => (dispatch) => {
 
 }
 
-export const followThunkCreator = (userId) => (dispatch) => {
+export const followThunkCreator = (userId) => async (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
-    usersApi.postFollow(userId)
-        .then(data => {
-            if (data.resultCode === 0) {
-                dispatch(followAC(userId));
-            }
 
-            dispatch(toggleButtonDisabledAC(false, userId));
-        })
+    const data = await usersApi.postFollow(userId)
 
+    if (data.resultCode === 0) {
+        dispatch(followAC(userId));
+    }
+
+    dispatch(toggleButtonDisabledAC(false, userId));
 }
 
-export const unfollowThunkCreator = (userId) => (dispatch) => {
+export const unfollowThunkCreator = (userId) => async (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
-    usersApi.deleteFollow(userId)
-        .then(data => {
-            if (data.resultCode === 0) {
-                dispatch(unfollowAC(userId));
-            }
 
-            dispatch(toggleButtonDisabledAC(false, userId));
-        })
+    const data = await usersApi.deleteFollow(userId)
 
+    if (data.resultCode === 0) {
+        dispatch(unfollowAC(userId));
+    }
+
+    dispatch(toggleButtonDisabledAC(false, userId));
 }
 
 export default usersReducer;
