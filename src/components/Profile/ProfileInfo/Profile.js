@@ -6,15 +6,14 @@ import PostsContainer from '../Posts/PostsContainer';
 function Profile(props) {
     return (
         <>
-        <div>
-            {props.userId}
-        </div>
             <section className="profile">
                 <img className="profile__main-image" src={image} />
                 <ProfileInfo
                     profile={props.profile}
                     status={props.status}
-                    updateStatus={props.updateStatus} />
+                    updateStatus={props.updateStatus}
+                    myId={props.myId}
+                />
             </section>
             <PostsContainer store={props.store} />
         </>

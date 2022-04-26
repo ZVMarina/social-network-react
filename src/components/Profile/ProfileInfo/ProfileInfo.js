@@ -15,7 +15,7 @@ function ProfileInfo(props) {
             </picture>
             <div className="profile__text">
                 <h1 className="profile__name">{props.profile.fullName}</h1>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} myId={props.myId} />
             </div>
         </div>
     )

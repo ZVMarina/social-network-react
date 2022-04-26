@@ -29,6 +29,7 @@ const ProfileContainer = (props) => {
             profile={props.profile}
             status={props.status}
             updateStatus={props.updateStatus}
+            myId={props.myId}
         />
     )
 }
@@ -36,6 +37,7 @@ const ProfileContainer = (props) => {
 const mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
+    myId: state.auth.id,
 })
 
 export default compose(
