@@ -16,7 +16,7 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
 
     return (
         <ul className="users__pages">
-            {portionNumber > 1 && <button onClick={() => { setPortionNumber(portionNumber - 1) }}>Back</button>}
+            {portionNumber > 1 && <button className='button button_place_paginator' onClick={() => { setPortionNumber(portionNumber - 1) }}>Back</button>}
             {pages
                 .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
                 .map(page => {
@@ -30,7 +30,7 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                         </li>
                     )
                 })}
-            {portionCount > portionNumber && <button onClick={() => { setPortionNumber(portionNumber + 1) }}>Next</button>}
+            {portionCount > portionNumber && <button className='button button_place_paginator' onClick={() => { setPortionNumber(portionNumber + 1) }}>Next</button>}
         </ul>
     )
 }
