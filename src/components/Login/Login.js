@@ -20,14 +20,14 @@ const validateLoginForm = values => {
     return errors;
 };
 
-const Login = (props) => {
+const Login = ({ login, isAuth, myId }) => {
     const onSubmit = (values, { setSubmitting, setStatus }) => {
-        props.login(values.email, values.password, values.rememberMe, setStatus);  // setStatus - метод формика
+        login(values.email, values.password, values.rememberMe, setStatus);  // setStatus - метод формика
         setSubmitting(false);
     };
 
-    if (props.isAuth) {
-        return <Navigate to={`/profile/${props.myId}`} />
+    if (isAuth) {
+        return <Navigate to={`/profile/${myId}`} />
     }
 
     return (
@@ -45,12 +45,12 @@ const Login = (props) => {
                         {touched.email && errors.email && (
                             <div className="form__error">{errors.email}</div>
                         )}
-            
+
                         <Field className="form__input" type={'password'} name={'password'} placeholder={'Password'} />
                         {touched.password && errors.password && (
                             <div className="form__error">{errors.password}</div>
                         )}
-                        
+
                         <div className="form__error">{status}</div>
 
                         <div className="form__checkbox-container">
