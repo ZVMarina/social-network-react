@@ -1,12 +1,12 @@
 .users__pages {
     grid-area: pages;
     display: flex;
+    justify-self: center;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
     margin-bottom: 20px;
+    margin-left: 120px;
     max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }

@@ -1,7 +1,7 @@
 .users {
     display: grid;
-    grid-template-areas: 
-    "title title title"
-    "pages pages pages"
-    ". content .";
+    grid-template-areas:
+        "title title title "
+        ". pages ."
+        ". content .";
 }
