@@ -13,7 +13,7 @@ import React, { useEffect } from 'react';
 import Preloader from '../Preloader';
 import { compose } from 'redux';
 
-const UsersContainer = ({props}) => {
+const UsersContainer = (props) => {
     useEffect(() => {
         props.getUsersThunk(props.currentPage, props.pageSize);
     }, [])

@@ -4,21 +4,21 @@ import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Dialogs = ({ dialogsData, messagesData, sendMessageCreator, updateMessageBodyCreator, isAuth, messageText }) => {
-    const dialogsElements = dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
-    const messagesElements = messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
+const Dialogs = (props) => {
+    const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
+    const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
 
     const sendMessageHandler = () => {
-        sendMessageCreator();
+        props.sendMessageCreator();
     }
 
     const updateMessageHandler = (evt) => {
         const newMessageText = evt.currentTarget.value;
 
-        updateMessageBodyCreator(newMessageText);
+        props.updateMessageBodyCreator(newMessageText);
     }
 
-    if (!isAuth) {
+    if (!props.isAuth) {
         return <Navigate to={'/login'} />
     }
 
@@ -42,12 +42,12 @@ const Dialogs = ({ dialogsData, messagesData, sendMessageCreator, updateMessageB
                             name={'message'}
                             as={'textarea'}
                             placeholder={'Write your message here...'}
-                            value={messageText}
+                            value={props.messageText}
                             onChange={updateMessageHandler}
                         />
                         <ErrorMessage className="form__error" name="message" component="div" />
 
-                        <button className="button dialogs__send-button" onClick={sendMessageHandler} type="submit">Send</button>
+                        <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
                     </Form>
                 )}
             </Formik>

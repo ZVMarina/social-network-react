@@ -1,9 +1,9 @@
 import preloader from '../images/users/preloader.svg'
 import React from 'react';
 
-const Preloader = (props) => {
+const Preloader = ({ className }) => {
     return (
-        <img className={`preloader ${props.className}`} src={preloader} />
+        <img className={`preloader ${className}`} src={preloader} />
     )
 }
 

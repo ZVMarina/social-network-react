@@ -12,12 +12,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './Preloader';
 
-const App = (props) => {
+const App = ({ initializedApp, initialized, myId, store }) => {
   useEffect(() => {
-    props.initializedApp();
+    initializedApp();
   })
 
-  if (!props.initialized) {
+  if (!initialized) {
     return <Preloader />
   }
 
@@ -25,12 +25,12 @@ const App = (props) => {
     <div className="App">
       <div className="page">
         <HeaderContainer />
-        <Navbar myId={props.myId} />
+        <Navbar myId={myId} />
         <main className="main">
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
-            <Route path="/dialogs/*" element={<DialogsContainer props={props.store} />} />
+            <Route path="/dialogs/*" element={<DialogsContainer props={store} />} />
             <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </main>
