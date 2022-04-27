@@ -10,25 +10,25 @@ import { Navigate, useParams } from 'react-router-dom';
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 
-const ProfileContainer = (props) => {
+const ProfileContainer = ({ getProfileInfo, getUserStatus, isAuth, profile, status, updateStatus, myId }) => {
     const params = useParams();
 
     useEffect(() => {
-        props.getProfileInfo(params.userId);
-        props.getUserStatus(params.userId);
+        getProfileInfo(params.userId);
+        getUserStatus(params.userId);
 
     }, [params.userId])
 
-    if (!props.isAuth) {
+    if (!isAuth) {
         return <Navigate to={'/login'} />
     }
 
     return (
-        <Profile {...props}
-            profile={props.profile}
-            status={props.status}
-            updateStatus={props.updateStatus}
-            myId={props.myId}
+        <Profile
+            profile={profile}
+            status={status}
+            updateStatus={updateStatus}
+            myId={myId}
         />
     )
 }

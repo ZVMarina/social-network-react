@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Preloader from "../../Preloader";
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({ status, myId, updateStatus }) => {
     const userId = useParams().userId;
 
     const [editMode, setEditMode] = useState(false);
-    const [status, setStatus] = useState(props.status);
+    const [statusText, setStatus] = useState(status);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setStatus(props.status);
-    }, [props.status]);
+        setStatus(status);
+    }, [status]);
 
     const activeteEditMode = () => {
-        if (props.myId === Number(userId)) {
+        if (myId === Number(userId)) {
             setEditMode(true);
         }
     }
@@ -23,7 +23,7 @@ const ProfileStatus = (props) => {
         setEditMode(false);
         setIsLoading(true);
 
-        props.updateStatus(status)
+        updateStatus(statusText)
             .then(() => {
                 setIsLoading(false);
             })
@@ -36,12 +36,12 @@ const ProfileStatus = (props) => {
     return (
         <div className="profile__status-container">
             {!editMode &&
-                <p className="profile__status" onClick={activeteEditMode}>{props.status || 'Status should be here'}</p>
+                <p className="profile__status" onClick={activeteEditMode}>{status || 'Status should be here'}</p>
             }
             {editMode &&
                 <input className="profile__status-input"
                     onBlur={deactiveteEditMode}
-                    value={status}
+                    value={statusText}
                     onChange={changeStatusHandler}
                     autoFocus={true}>
                 </input>

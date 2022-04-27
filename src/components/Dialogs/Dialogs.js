@@ -4,21 +4,21 @@ import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const Dialogs = (props) => {
-    const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
-    const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
+const Dialogs = ({ dialogsData, messagesData, sendMessageCreator, updateMessageBodyCreator, isAuth, messageText }) => {
+    const dialogsElements = dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
+    const messagesElements = messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
 
     const sendMessageHandler = () => {
-        props.sendMessageCreator();
+        sendMessageCreator();
     }
 
     const updateMessageHandler = (evt) => {
         const newMessageText = evt.currentTarget.value;
 
-        props.updateMessageBodyCreator(newMessageText);
+        updateMessageBodyCreator(newMessageText);
     }
 
-    if (!props.isAuth) {
+    if (!isAuth) {
         return <Navigate to={'/login'} />
     }
 
@@ -42,12 +42,12 @@ const Dialogs = (props) => {
                             name={'message'}
                             as={'textarea'}
                             placeholder={'Write your message here...'}
-                            value={props.messageText}
+                            value={messageText}
                             onChange={updateMessageHandler}
                         />
                         <ErrorMessage className="form__error" name="message" component="div" />
 
-                        <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+                        <button className="button dialogs__send-button" onClick={sendMessageHandler} type="submit">Send</button>
                     </Form>
                 )}
             </Formik>

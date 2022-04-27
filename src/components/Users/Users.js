@@ -2,25 +2,25 @@ import React from 'react';
 import Paginator from './Paginator';
 import User from './User';
 
-const Users = (props) => {
+const Users = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, users, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
     return (
         <section className="users">
             <h1 className="title users__title">Users</h1>
             <Paginator
-                totalUsersCount={props.totalUsersCount}
-                pageSize={props.pageSize}
-                currentPage={props.currentPage}
-                pageChangeHandler={props.pageChangeHandler}
+                totalUsersCount={totalUsersCount}
+                pageSize={pageSize}
+                currentPage={currentPage}
+                pageChangeHandler={pageChangeHandler}
             />
             <ul className="users__list">
-                {props.users.map(user =>
+                {users.map(user =>
                     <User
                         key={user.id}
                         user={user}
-                        isAuth={props.isAuth}
-                        followThunk={props.followThunk}
-                        unfollowThunk={props.unfollowThunk}
-                        buttonDisabled={props.buttonDisabled}
+                        isAuth={isAuth}
+                        followThunk={followThunk}
+                        unfollowThunk={unfollowThunk}
+                        buttonDisabled={buttonDisabled}
                     />
 
                 )}

@@ -1,13 +1,13 @@
 import PostsItem from "./PostsItem";
 import React, { useState } from "react";
 
-const Posts = (props) => {
-    const postsElements = props.postsData.map(postItem => <PostsItem post={postItem.post} key={postItem.id}/>);
+const Posts = ({ postsData, addPostCreator }) => {
+    const postsElements = postsData.map(postItem => <PostsItem post={postItem.post} key={postItem.id} />);
 
     const [postText, setPostText] = useState('');
 
     const addPostHandler = () => {
-        props.addPostCreator(postText);
+        addPostCreator(postText);
 
         setPostText('');
     }
@@ -21,12 +21,12 @@ const Posts = (props) => {
     return (
         <section className="posts">
             <h2 className="posts__title">My posts</h2>
-            <textarea 
-                className="posts__input" 
+            <textarea
+                className="posts__input"
                 placeholder='your news...'
                 onChange={updatePostHandler}
                 value={postText}
-                ></textarea>
+            ></textarea>
             <button className="button posts__button" onClick={addPostHandler}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}

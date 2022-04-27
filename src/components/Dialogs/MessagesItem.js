@@ -1,6 +1,6 @@
-function MessagesItem(props) {
+function MessagesItem({ message }) {
     return (
-        <li className="dialogs__item dialogs__item_type_messages">{props.message}</li>
+        <li className="dialogs__item dialogs__item_type_messages">{message}</li>
     )
 }
 

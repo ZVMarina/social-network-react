@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PostsItem = (props) => {
+const PostsItem = ({ post }) => {
     return (
         <li className="posts__item">
-            <span className="posts__text">{props.post}</span>
+            <span className="posts__text">{post}</span>
         </li>
     )
 }
