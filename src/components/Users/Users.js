@@ -1,26 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import photo from '../../images/users/no-photo.png';
+import Paginator from './Paginator';
 
 const Users = (props) => {
-    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    const pages = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-
     return (
         <section className="users">
             <h1 className="title users__title">Users</h1>
-            <ul className="users__pages">
-                {pages.map(page => {
-                    return <li key={page} className={props.currentPage === page ? 'users__page users__page_active' : 'users__page'}
-                        onClick={() => { props.pageChangeHandler(page) }}
-                    >{page}</li>
-                })}
-            </ul>
+            <Paginator
+                totalUsersCount={props.totalUsersCount}
+                pageSize={props.pageSize}
+                currentPage={props.currentPage}
+                pageChangeHandler={props.pageChangeHandler}
+            />
             <ul className="users__list">
                 {props.users.map(user =>
                     <li className="users__item" key={user.id}>
@@ -32,9 +24,11 @@ const Users = (props) => {
                             </div>
                             {
                                 props.isAuth && (user.followed
-                                    ? <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
+                                    ? <button className="button users__button"
+                                        disabled={props.buttonDisabled.some(id => id === user.id)}
                                         onClick={() => { props.unfollowThunk(user.id) }}>Unfollow</button>
-                                    : <button className="button users__button" disabled={props.buttonDisabled.some(id => id === user.id)}
+                                    : <button className="button users__button"
+                                        disabled={props.buttonDisabled.some(id => id === user.id)}
                                         onClick={() => { props.followThunk(user.id) }}>Follow</button>)
                             }
                         </div>
