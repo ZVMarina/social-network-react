@@ -14,9 +14,30 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1; // левая граница порции (какой номер левой границы порции)
     const rightPortionPageNumber = portionNumber * portionSize;
 
+    const setLastPage = () => {
+        setPortionNumber(Math.ceil(pagesCount / portionSize));
+        pageChangeHandler(pagesCount);
+    }
+
+    const setFirstPage = () => {
+        setPortionNumber(1);
+        pageChangeHandler(1);
+    }
+
     return (
         <ul className="users__pages">
-            {portionNumber > 1 && <button className='button button_place_paginator' onClick={() => { setPortionNumber(portionNumber - 1) }}>Back</button>}
+            {portionNumber > 1 &&
+                <button
+                    className='button'
+                    onClick={setFirstPage}
+                >1
+                </button>}
+            {portionNumber > 1 &&
+                <button
+                    className='button button_place_paginator'
+                    onClick={() => { setPortionNumber(portionNumber - 1) }}
+                >Back
+                </button>}
             {pages
                 .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
                 .map(page => {
@@ -30,7 +51,18 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                         </li>
                     )
                 })}
-            {portionCount > portionNumber && <button className='button button_place_paginator' onClick={() => { setPortionNumber(portionNumber + 1) }}>Next</button>}
+            {portionCount > portionNumber &&
+                <button
+                    className='button button_place_paginator'
+                    onClick={() => { setPortionNumber(portionNumber + 1) }}
+                >Next
+                </button>}
+            {portionCount > portionNumber &&
+                <button
+                    className='button'
+                    onClick={setLastPage}
+                >{pagesCount}
+                </button>}
         </ul>
     )
 }
