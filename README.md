@@ -2,7 +2,7 @@
 
 ## Description
 
-This is SPA. The file structure is organized according to the BEM methodology. The Grid Layout module is used. Added pagination on the user page. Added pagination on the user page. Also added the ability to subscribe / unsubscribe. You can change the status and go to user profiles. You can add posts and send messages (without connecting to the server up to date).
+This is SPA. The file structure is organized according to the BEM methodology. The Grid Layout module is used. Added pagination on the user page. Also added the ability to subscribe / unsubscribe. You can change the status and go to user profiles. You can add posts and send messages (without connecting to the server up to date).
 
 ### Stack
 
