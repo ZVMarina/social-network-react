@@ -8,7 +8,7 @@ import * as ReactDOMClient from 'react-dom/client';
 
 const root = ReactDOMClient.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <React.StrictMode>
       <Provider store={store}>
         <App />
