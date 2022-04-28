@@ -55,7 +55,7 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                 })}
             {portionCount > portionNumber &&
                 <button
-                    className={currentPage === rightPortionPageNumber ? 'button paginator__button_type_next-back paginator__page_without-indent ' : 'button paginator__button_type_next-back'}
+                    className={currentPage === rightPortionPageNumber ? 'button paginator__button_type_next-back paginator__button_without-indent' : 'button paginator__button_type_next-back'}
                     onClick={() => { setPortionNumber(portionNumber + 1) }}
                 >Next
                 </button>}
