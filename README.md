@@ -16,4 +16,4 @@ Optimize the site for viewing on screens from 320 pixels to infinity
 
 ### Link to GitHub Pages
 
-[Social Network (React)](https://zvmarina.github.io/social-network-react/)
+[Social Network (React)](https://zvmarina.github.io/social-network-react/#/users)
