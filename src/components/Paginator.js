@@ -47,9 +47,9 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                             className={currentPage === page ? 'paginator__page_active' : 'paginator__page'}
                             onClick={() => { pageChangeHandler(page) }}
                         >
-                            <div /* className={currentPage === page ? 'paginator__page_active' : 'paginator__page'} */>
+                            {/* <div > */}
                                 {page}
-                            </div>
+                            {/* </div> */}
                         </li>
                     )
                 })}
