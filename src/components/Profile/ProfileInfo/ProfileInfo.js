@@ -5,7 +5,7 @@ import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = ({ profile, status, updateStatus, myId }) => {
     if (!profile) {
-        return <Preloader />
+        return <Preloader className="preloader_place_profile"/>
     }
 
     return (

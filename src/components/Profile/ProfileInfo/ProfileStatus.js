@@ -46,7 +46,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
                     autoFocus={true}>
                 </input>
             }
-            {isLoading && <Preloader className="profile__preloader" />}
+            {isLoading && <Preloader className="preloader_place_status" />}
         </div>
     )
 }
