@@ -12,7 +12,8 @@ This is SPA. The file structure is organized according to the BEM methodology. T
 
 ### Improvement plans
 
-Optimize the site for viewing on screens from 320 pixels to infinity
+1. Optimize the site for viewing on screens from 320 pixels to infinity. 
+2. Refine the page of dialogues and posts.
 
 ### Link to GitHub Pages
 
