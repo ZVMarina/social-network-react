@@ -13,10 +13,10 @@ const User = ({ user, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
                 </div>
                 {
                     isAuth && (user.followed
-                        ? <button className="button users__button"
+                        ? <button className="button button_place_users"
                             disabled={buttonDisabled.some(id => id === user.id)}
                             onClick={() => { unfollowThunk(user.id) }}>Unfollow</button>
-                        : <button className="button users__button"
+                        : <button className="button button_place_users"
                             disabled={buttonDisabled.some(id => id === user.id)}
                             onClick={() => { followThunk(user.id) }}>Follow</button>)
                 }

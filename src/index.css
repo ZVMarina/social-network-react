@@ -1,8 +1,13 @@
 @import url(./vendor/normalize.css);
 @import url(./blocks/page/page.css);
-@import url(./blocks/button/button.css);
 @import url(./blocks/link/link.css);
 @import url(./blocks/title/title.css);
+@import url(./blocks/main/main.css);
+
+@import url(./blocks/button/button.css);
+@import url(./blocks/button/_place/button_place_users.css);
+@import url(./blocks/button/_place/button_place_posts.css);
+@import url(./blocks/button/_place/button_place_dialogs.css);
 
 @import url(./blocks/paginator/paginator.css);
 @import url(./blocks/paginator/__page/paginator__page.css);
@@ -38,8 +43,6 @@
 @import url(./blocks/navigation/__avatar-name/navigation__avatar-name.css);
 @import url(./blocks/navigation/__friends-container/navigation__friends-container.css);
 
-@import url(./blocks/main/main.css);
-
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__container/profile__container.css);
 @import url(./blocks/profile/__main-image/profile__main-image.css);
@@ -55,7 +58,6 @@
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);
 @import url(./blocks/posts/__input/posts__input.css);
-@import url(./blocks/posts/__button/posts__button.css);
 @import url(./blocks/posts/__item/posts__item.css);
 @import url(./blocks/posts/__item-list/posts__item-list.css);
 @import url(./blocks/posts/__text/posts__text.css);
@@ -73,14 +75,12 @@
 @import url(./blocks/dialogs/__container/dialogs__container.css);
 @import url(./blocks/dialogs/__new-message-container/dialogs__new-message-container.css);
 @import url(./blocks/dialogs/__new-message-content/dialogs__new-message-content.css);
-@import url(./blocks/dialogs/__send-button/dialogs__send-button.css);
 
 @import url(./blocks/users/users.css);
 @import url(./blocks/users/__title/users__title.css);
 @import url(./blocks/users/__list/users__list.css);
 @import url(./blocks/users/__item/users__item.css);
 @import url(./blocks/users/__follow-container/users__follow-container.css);
-@import url(./blocks/users/__button/users__button.css);
 @import url(./blocks/users/__avatar-container/users__avatar-container.css);
 @import url(./blocks/users/__avatar/users__avatar.css);
 @import url(./blocks/users/__info-container/users__info-container.css);

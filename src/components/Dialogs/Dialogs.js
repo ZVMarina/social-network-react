@@ -47,7 +47,7 @@ const Dialogs = (props) => {
                         />
                         <ErrorMessage className="form__error" name="message" component="div" />
 
-                        <button className="button dialogs__send-button" onClick={sendMessageHandler}>Send</button>
+                        <button className="button button_place_dialogs" onClick={sendMessageHandler}>Send</button>
                     </Form>
                 )}
             </Formik>

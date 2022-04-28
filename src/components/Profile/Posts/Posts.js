@@ -27,7 +27,7 @@ const Posts = ({ postsData, addPostCreator }) => {
                 onChange={updatePostHandler}
                 value={postText}
             ></textarea>
-            <button className="button posts__button" onClick={addPostHandler}>Send</button>
+            <button className="button button_place_posts" onClick={addPostHandler}>Send</button>
             <ul className="posts__item-list">
                 {postsElements}
             </ul>
