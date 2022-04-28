@@ -14,6 +14,8 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1; // левая граница порции (какой номер левой границы порции)
     const rightPortionPageNumber = portionNumber * portionSize;
 
+    console.log(rightPortionPageNumber);
+
     const setLastPage = () => {
         setPortionNumber(Math.ceil(pagesCount / portionSize));
         pageChangeHandler(pagesCount);
@@ -44,18 +46,16 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                     return (
                         <li
                             key={page}
-                            className={currentPage === page ? 'paginator__page_active' : 'paginator__page'}
+                            className={currentPage === page ? 'paginator__page_active' : 'paginator__page' || currentPage === rightPortionPageNumber && 'paginator__page_without-indent'}
                             onClick={() => { pageChangeHandler(page) }}
                         >
-                            {/* <div > */}
-                                {page}
-                            {/* </div> */}
+                            {page}
                         </li>
                     )
                 })}
             {portionCount > portionNumber &&
                 <button
-                    className='button paginator__button_type_next-back'
+                    className={currentPage === rightPortionPageNumber ? 'button paginator__button_type_next-back paginator__page_without-indent ' : 'button paginator__button_type_next-back'}
                     onClick={() => { setPortionNumber(portionNumber + 1) }}
                 >Next
                 </button>}
