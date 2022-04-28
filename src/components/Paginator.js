@@ -25,16 +25,16 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
     }
 
     return (
-        <ul className="users__pages">
+        <ul className="paginator">
             {portionNumber > 1 &&
                 <button
-                    className='button'
+                    className='button paginator__button_type_first-last-page'
                     onClick={setFirstPage}
                 >1
                 </button>}
             {portionNumber > 1 &&
                 <button
-                    className='button button_place_paginator'
+                    className='button paginator__button_type_next-back'
                     onClick={() => { setPortionNumber(portionNumber - 1) }}
                 >Back
                 </button>}
@@ -44,22 +44,24 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                     return (
                         <li
                             key={page}
-                            className={currentPage === page ? 'users__page users__page_active' : 'users__page'}
+                            className={currentPage === page ? 'paginator__page_active' : 'paginator__page'}
                             onClick={() => { pageChangeHandler(page) }}
                         >
-                            {page}
+                            <div /* className={currentPage === page ? 'paginator__page_active' : 'paginator__page'} */>
+                                {page}
+                            </div>
                         </li>
                     )
                 })}
             {portionCount > portionNumber &&
                 <button
-                    className='button button_place_paginator'
+                    className='button paginator__button_type_next-back'
                     onClick={() => { setPortionNumber(portionNumber + 1) }}
                 >Next
                 </button>}
             {portionCount > portionNumber &&
                 <button
-                    className='button'
+                    className='button paginator__button_type_first-last-page'
                     onClick={setLastPage}
                 >{pagesCount}
                 </button>}

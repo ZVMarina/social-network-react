@@ -1,0 +1,5 @@
+.paginator__page_active {
+    font-weight: 700;
+    color: black;
+    border: 2px solid #2962ff;
+}

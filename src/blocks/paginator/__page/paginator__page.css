@@ -1,0 +1,11 @@
+.paginator__page {
+    margin-right: 5px;
+}
+
+.paginator__page:last-of-type {
+    margin-right: 0;
+}
+
+.paginator__page:hover {
+    cursor: pointer;
+}
