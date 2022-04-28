@@ -17,4 +17,6 @@ This is SPA. The file structure is organized according to the BEM methodology. T
 
 ### Link to GitHub Pages
 
+Important: you need login information - ask by phone or in messages.
+
 [Social Network (React)](https://zvmarina.github.io/social-network-react/#/users)
