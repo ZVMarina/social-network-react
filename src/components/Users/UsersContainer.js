@@ -26,7 +26,7 @@ const UsersContainer = (props) => {
 
     return (
         <>
-            {props.isFetching ? <Preloader className="preloader_place_users" /> : null}
+            {props.isFetching ? <Preloader className={'preloader_place_users'} /> : null}
             <Users
                 totalUsersCount={props.totalUsersCount}
                 pageSize={props.pageSize}
