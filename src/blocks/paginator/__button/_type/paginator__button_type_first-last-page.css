@@ -11,6 +11,7 @@
     cursor: pointer;
     background-color: transparent;
     border: 2px solid #2962ff;
+    border-radius: 0px;
 }
 
 .paginator__button_type_first-last-page:active {

@@ -14,8 +14,6 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1; // левая граница порции (какой номер левой границы порции)
     const rightPortionPageNumber = portionNumber * portionSize;
 
-    console.log(rightPortionPageNumber);
-
     const setLastPage = () => {
         setPortionNumber(Math.ceil(pagesCount / portionSize));
         pageChangeHandler(pagesCount);
