@@ -39,6 +39,17 @@ export const profileApi = {
     updateStatus(status) {
         return instance.put(`profile/status/`, { status: status });
     },
+
+    saveAvatar(avatarFile) {
+        const formData = new FormData();
+        formData.append('image', avatarFile);
+
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
 }
 
 export const authApi = {
@@ -50,7 +61,7 @@ export const authApi = {
     login(email, password, rememberMe = false) {
         return instance.post(`auth/login/`, { email, password, rememberMe })
             .then(response => response)
-    }, 
+    },
 
     logout() {
         return instance.delete(`auth/login/`)

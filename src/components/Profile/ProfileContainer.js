@@ -4,13 +4,14 @@ import Profile from './Profile';
 import {
     getProfileInfoThunkCreator,
     getStatusThunkCreator,
+    saveAvatarThunkCreator,
     updateStatusThunkCreator
 } from '../../redux/profileReducer'
 import { Navigate, useParams } from 'react-router-dom';
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from 'redux';
 
-const ProfileContainer = ({ getProfileInfo, getUserStatus, isAuth, profile, status, updateStatus, myId }) => {
+const ProfileContainer = ({ getProfileInfo, getUserStatus, isAuth, profile, status, updateStatus, myId, saveAvatar }) => {
     const params = useParams();
 
     useEffect(() => {
@@ -29,6 +30,7 @@ const ProfileContainer = ({ getProfileInfo, getUserStatus, isAuth, profile, stat
             status={status}
             updateStatus={updateStatus}
             myId={myId}
+            saveAvatar={saveAvatar}
         />
     )
 }
@@ -43,7 +45,8 @@ export default compose(
     connect(mapStateToProps, {
         getProfileInfo: getProfileInfoThunkCreator,
         getUserStatus: getStatusThunkCreator,
-        updateStatus: updateStatusThunkCreator
+        updateStatus: updateStatusThunkCreator,
+        saveAvatar: saveAvatarThunkCreator,
     }),
     withAuthRedirect
 )(ProfileContainer)
