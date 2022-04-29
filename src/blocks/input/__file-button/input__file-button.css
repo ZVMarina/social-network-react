@@ -2,7 +2,6 @@
     width: 100%;
     max-width: 290px;
     height: 60px;
-    background: #2962ff;
     color: #fff;
     font-size: 1.125rem;
     font-weight: 700;
@@ -14,8 +13,4 @@
     align-items: center;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
-    justify-content: flex-start;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto;
 }
