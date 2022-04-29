@@ -1,8 +1,10 @@
 .profile__container {
     display: grid;
     grid-template-areas:
-        "avatar text";
+        "avatar text"
+        "file .";
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     column-gap: 45px;
+    row-gap: 15px;
     max-width: 80%;
 }

@@ -9,7 +9,7 @@ Added validation of input fields (login and password).
 
 ### Stack
 
-* React, JavaScript
+* React (Hooks, Class)
 * HTML
 * CSS
 
