@@ -3,19 +3,15 @@ const UPDATE_MESSAGE_BODY_ACTION_TYPE = 'dialogs/UPDATE-MESSAGE-TEXT';
 
 const initialState = {
     dialogsData: [
-        { id: 1, name: "Geralt of Rivia" },
-        { id: 2, name: "Cirilla" },
-        { id: 3, name: "Triss Merigold" },
-        { id: 4, name: "Keira Metz" },
-        { id: 5, name: "Philippa Eilhart" },
-        { id: 6, name: "Sheala de Tancarville" },
-        { id: 7, name: "Lodge of Sorceresse" },
+        { id: 1, name: "My boyfriend" },
+        { id: 2, name: "My cat" },
+        { id: 3, name: "My friend" },
     ],
 
     messagesData: [
-        { id: 1, message: "Hey, Yen! Where is our unicorn?" },
-        { id: 2, message: "Yen, Geralt and I are practicing sword strikes. See you later." },
-        { id: 3, message: "When are you coming to the meeting, Yen?" },
+        { id: 1, message: "Hey, Marina! Where is our avocado?" },
+        { id: 2, message: "Meow! I miss you!" },
+        { id: 3, message: "Hi! When are we going to the cinema, Marina?" },
     ],
     messageText: ''
 }
@@ -25,7 +21,7 @@ const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE_ACTION_TYPE:
             const message = {
-                id: 4,
+                id: state.dialogsData.length + 1,
                 message: state.messageText
             }
 
