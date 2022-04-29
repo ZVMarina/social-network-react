@@ -14,7 +14,6 @@ This is SPA. The file structure is organized according to the BEM methodology. T
 
 1. Optimize the site for viewing on screens from 320 pixels to infinity. 
 2. Refine the page of dialogues and posts.
-3. Add the ability to upload an avatar.
 
 ### Link to GitHub Pages
 

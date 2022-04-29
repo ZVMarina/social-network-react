@@ -1,23 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Preloader from '../../Preloader'
 import photo from '../../../images/users/no-photo.png'
 import iconDownload from '../../../images/icon-download-white.svg'
 import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
+    const [isLoading, setIsLoading] = useState(false);
+
     if (!profile) {
         return <Preloader className="preloader_place_profile" />
     }
 
     const chooseAvatarHandler = (evt) => {
         if (evt.target.files.length) {
-            saveAvatar(evt.target.files[0]);
+            setIsLoading(true);
+
+            saveAvatar(evt.target.files[0])
+                .then(() => {
+                    setIsLoading(false);
+                })
         }
     }
 
     return (
         <div className="profile__container">
             <picture className="profile__avatar-container">
+                {isLoading && <Preloader className="preloader_place_avatar" />}
                 <source srcSet={profile.photos.small || photo} media="(max-width: 535px)" />
                 <img className="profile__avatar" src={profile.photos.large || photo} />
             </picture>
