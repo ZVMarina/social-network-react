@@ -14,6 +14,7 @@
 @import url(./blocks/preloader/_place/preloader_place_profile.css);
 @import url(./blocks/preloader/_place/preloader_place_status.css);
 @import url(./blocks/preloader/_place/preloader_place_app.css);
+@import url(./blocks/preloader/_place/preloader_place_avatar.css);
 
 @import url(./blocks/input/input.css);
 @import url(./blocks/input/__file-wrapper/input__file-wrapper.css);

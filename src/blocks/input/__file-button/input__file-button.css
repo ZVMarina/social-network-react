@@ -1,7 +1,7 @@
 .input__file-button {
     width: 100%;
     max-width: 290px;
-    height: 60px;
+    max-height: 46px;
     color: #fff;
     font-size: 1.125rem;
     font-weight: 700;

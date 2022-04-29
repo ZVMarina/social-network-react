@@ -40,7 +40,7 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                     />
                     <label htmlFor="input__file" className="button input__file-button">
                         <span className="input__file-icon-wrapper"><img className="input__file-icon" src={iconDownload} alt="Выбрать файл" width="25" /></span>
-                        <span className="input__file-button-text">Выберите файл</span>
+                        <span className="input__file-button-text">Select a file</span>
                     </label>
                 </div>
             }
