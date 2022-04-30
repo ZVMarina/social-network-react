@@ -35,20 +35,20 @@ const ProfileDataForm = ({ profile }) => {
                         <Form className="form form_place_edit-info">
 
                             <div className="form__input-wrapper form__input-wrapper_theme_name">
+                                <h3 className="title title_place_job">{'My name'}</h3>
                                 <Field
-                                    className="form__input form__input_theme_name"
+                                    className="form__input form__input_theme_name form__input_place_edit-info"
                                     type={'text'}
                                     name={'fullName'}
-                                    placeholder={'full name'}
                                 />
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_about">
+                                <h3 className="title title_place_job">{'About me'}</h3>
                                 <Field
-                                    className="form__input"
+                                    className="form__input form__input_theme_about"
                                     type={'text'}
                                     name={'aboutMe'}
-                                    placeholder={'about me'}
                                     as={'textarea'}
                                 />
                             </div>
@@ -60,7 +60,6 @@ const ProfileDataForm = ({ profile }) => {
                                         className="form__label"
                                         htmlFor={'yes'}>Yes</label>
                                     <Field
-                                        /* className="form__checkbox" */
                                         type={'radio'}
                                         name={'choice'}
                                         id={'yes'}
@@ -70,7 +69,6 @@ const ProfileDataForm = ({ profile }) => {
                                         className="form__label"
                                         htmlFor={'no'}>No</label>
                                     <Field
-                                        /* className="form__checkbox" */
                                         type={'radio'}
                                         name={'choice'}
                                         id={'no'}
@@ -80,11 +78,11 @@ const ProfileDataForm = ({ profile }) => {
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_skills">
+                                <h3 className="title title_place_skills">{'My skills'}</h3>
                                 <Field
                                     className="form__input"
                                     type={'text'}
                                     name={'lookingForAJobDescription'}
-                                    placeholder={'your skills...'}
                                 />
                             </div>
 
