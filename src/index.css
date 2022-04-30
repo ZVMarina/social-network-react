@@ -47,6 +47,7 @@
 @import url(./blocks/header/__logout-link/header__logout-link.css);
 @import url(./blocks/header/__line/header__line.css);
 
+
 @import url(./blocks/navigation/navigation.css);
 @import url(./blocks/navigation/__item/navigation__item.css);
 @import url(./blocks/navigation/__link/navigation__link.css);
@@ -58,7 +59,7 @@
 @import url(./blocks/navigation/__friends-container/navigation__friends-container.css);
 
 @import url(./blocks/profile/profile.css);
-@import url(./blocks/profile/__content/profile__content.css);
+@import url(./blocks/profile/__data/profile__data.css);
 @import url(./blocks/profile/__container/profile__container.css);
 @import url(./blocks/profile/__main-image/profile__main-image.css);
 @import url(./blocks/profile/__name/profile__name.css);
@@ -72,6 +73,9 @@
 @import url(./blocks/profile/__job-container/profile__job-container.css);
 @import url(./blocks/profile/__skills-container/profile__skills-container.css);
 @import url(./blocks/profile/__contacts-container/profile__contacts-container.css);
+
+@import url(./blocks/edit-profile-data/edit-profile-data.css);
+@import url(./blocks/title/_place/title_place_edit-info.css);
 
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);

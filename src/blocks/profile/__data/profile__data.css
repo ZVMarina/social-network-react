@@ -1,4 +1,4 @@
-.profile__content {
+.profile__data {
     grid-area: content;
     display: grid;
     grid-template-areas: 

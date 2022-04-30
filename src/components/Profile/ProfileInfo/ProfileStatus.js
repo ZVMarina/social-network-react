@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Preloader from "../../Preloader";
 
 const ProfileStatus = ({ status, myId, updateStatus }) => {
-    const userId = useParams().userId;
+    const userId = Number(useParams().userId);
 
     const [editMode, setEditMode] = useState(false);
     const [statusText, setStatus] = useState(status);
@@ -14,7 +14,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
     }, [status]);
 
     const activeteEditMode = () => {
-        if (myId === Number(userId)) {
+        if (myId === userId) {
             setEditMode(true);
         }
     }
