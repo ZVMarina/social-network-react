@@ -4,14 +4,16 @@ import photo from '../../../images/users/no-photo.png'
 import iconDownload from '../../../images/icon-download-white.svg'
 import ProfileStatus from './ProfileStatus';
 
-const Contacts = (contactsTitle, contactsValue) => {
-    return <p className=" profile__info profile__contacts"><span>{contactsTitle}</span>: {contactsValue}</p>
+const Contacts = ({ contactsTitle, contactsValue }) => {
+    return (
+        <div className="profile__info profile__contacts">
+            <span>{contactsTitle}</span>: {contactsValue}
+        </div>
+    )
 }
 
 const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
     const [isLoading, setIsLoading] = useState(false);
-
-    console.log(/* Object.keys */(profile.aboutMe));
 
     if (!profile) {
         return <Preloader className="preloader_place_profile" />
@@ -55,7 +57,7 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                 <ProfileStatus className="profile__status" status={status} updateStatus={updateStatus} myId={myId} />
                 <div className="profile__about-container">
                     <b className="profile__subtitle">About me: </b>
-                    <p className="profile__info profile__about">{profile.aboutMe}</p>
+                    <p className="profile__info profile__about">{profile.aboutMe ? profile.aboutMe : 'no data'}</p>
                 </div>
                 <div className="profile__job-container">
                     <b className="profile__subtitle">Looking for a job: </b>
@@ -64,12 +66,21 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                 {profile.lookingForAJob &&
                     <div className="profile__skills-container">
                         <b className="profile__subtitle">My skills: </b>
-                        <p className=" profile__info profile__skills">Git, React (Hooks), Redux, JavaScript, REST API</p>
+                        <p className=" profile__info profile__skills">
+                            {profile.lookingForAJobDescription ? profile.lookingForAJobDescription : 'no data'}</p>
                     </div>
                 }
                 <div className="profile__contacts-container">
                     <b className="profile__subtitle">Contacts: </b>
-                    {/* {Object.keys(profile.contacts)} */}
+                    {profile && Object.keys(profile.contacts)
+                        .map(contactKey =>
+                            <Contacts
+                                key={contactKey}
+                                contactsTitle={contactKey}
+                                contactsValue={profile.contacts[contactKey] ? profile.contacts[contactKey] : 'no data'}
+                            />
+                        )
+                    }
                 </div>
             </div>
         </div>
