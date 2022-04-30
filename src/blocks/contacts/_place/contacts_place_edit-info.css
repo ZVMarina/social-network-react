@@ -1,0 +1,5 @@
+.contacts_place_edit-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}

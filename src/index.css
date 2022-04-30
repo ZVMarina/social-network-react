@@ -1,13 +1,18 @@
 @import url(./vendor/normalize.css);
 @import url(./blocks/page/page.css);
 @import url(./blocks/link/link.css);
-@import url(./blocks/title/title.css);
 @import url(./blocks/main/main.css);
+
+@import url(./blocks/title/title.css);
+@import url(./blocks/title/_place/title_place_edit-info.css);
+@import url(./blocks/title/_place/title_place_contacts.css);
+@import url(./blocks/title/_place/title_place_job.css);
 
 @import url(./blocks/button/button.css);
 @import url(./blocks/button/_place/button_place_users.css);
 @import url(./blocks/button/_place/button_place_posts.css);
 @import url(./blocks/button/_place/button_place_dialogs.css);
+@import url(./blocks/button/_place/button_place_edit-info.css);
 
 @import url(./blocks/preloader/preloader.css);
 @import url(./blocks/preloader/_place/preloader_place_users.css);
@@ -30,14 +35,28 @@
 @import url(./blocks/paginator/__button/_type/paginator__button_type_next-back.css);
 @import url(./blocks/paginator/__button/_without-indent/paginator__button_without-indent.css);
 
+@import url(./blocks/contacts/contacts.css);
+@import url(./blocks/contacts/_place/contacts_place_edit-info.css);
+@import url(./blocks/contacts/__heading/contact__heading.css);
+@import url(./blocks/contacts/__item/contacts__item.css);
+
 @import url(./blocks/form/form.css);
+@import url(./blocks/form/_place/_edit-info/form_place_edit-info.css);
 @import url(./blocks/form/__container/form__container.css);
 @import url(./blocks/form/__checkbox-container/form__checkbox-container.css);
 @import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__input/_place/form__input_place_edit-info.css);
+@import url(./blocks/form/__label-container/form__label-container.css);
 @import url(./blocks/form/__label/form__label.css);
 @import url(./blocks/form/__button/form__button.css);
 @import url(./blocks/form/__checkbox/form__checkbox.css);
 @import url(./blocks/form/__error/form__error.css);
+@import url(./blocks/form/__input-wrapper/form__input-wrapper.css);
+@import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_about.css);
+@import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_name.css);
+@import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_job.css);
+@import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_skills.css);
+@import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_contacts.css);
 
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__login-container/header__login-container.css);
@@ -75,7 +94,6 @@
 @import url(./blocks/profile/__contacts-container/profile__contacts-container.css);
 
 @import url(./blocks/edit-profile-data/edit-profile-data.css);
-@import url(./blocks/title/_place/title_place_edit-info.css);
 
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);

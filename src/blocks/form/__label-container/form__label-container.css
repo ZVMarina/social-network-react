@@ -1,0 +1,6 @@
+.form__label-container {
+    display: flex;
+    column-gap: 10px;
+    color: white;
+    margin: 0;
+}
