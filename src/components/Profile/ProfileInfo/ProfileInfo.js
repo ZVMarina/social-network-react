@@ -4,8 +4,14 @@ import photo from '../../../images/users/no-photo.png'
 import iconDownload from '../../../images/icon-download-white.svg'
 import ProfileStatus from './ProfileStatus';
 
+const Contacts = (contactsTitle, contactsValue) => {
+    return <p className=" profile__info profile__contacts"><span>{contactsTitle}</span>: {contactsValue}</p>
+}
+
 const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
     const [isLoading, setIsLoading] = useState(false);
+
+    console.log(/* Object.keys */(profile.aboutMe));
 
     if (!profile) {
         return <Preloader className="preloader_place_profile" />
@@ -49,19 +55,21 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                 <ProfileStatus className="profile__status" status={status} updateStatus={updateStatus} myId={myId} />
                 <div className="profile__about-container">
                     <b className="profile__subtitle">About me: </b>
-                    <p className="profile__info profile__about">I like cats</p>
+                    <p className="profile__info profile__about">{profile.aboutMe}</p>
                 </div>
                 <div className="profile__job-container">
                     <b className="profile__subtitle">Looking for a job: </b>
-                    <p className=" profile__info profile__job">Yes</p>
+                    <p className=" profile__info profile__job">{profile.lookingForAJob ? 'Yes' : 'No'}</p>
                 </div>
-                <div className="profile__skills-container">
-                    <b className="profile__subtitle">My skills: </b>
-                    <p className=" profile__info profile__skills">Git, React (Hooks), Redux, JavaScript, REST API</p>
-                </div>
+                {profile.lookingForAJob &&
+                    <div className="profile__skills-container">
+                        <b className="profile__subtitle">My skills: </b>
+                        <p className=" profile__info profile__skills">Git, React (Hooks), Redux, JavaScript, REST API</p>
+                    </div>
+                }
                 <div className="profile__contacts-container">
                     <b className="profile__subtitle">Contacts: </b>
-                    <p className=" profile__info profile__contacts">Git: https://github.com/ZVMarina</p>
+                    {/* {Object.keys(profile.contacts)} */}
                 </div>
             </div>
         </div>
