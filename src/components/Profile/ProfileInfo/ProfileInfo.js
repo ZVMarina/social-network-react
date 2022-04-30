@@ -7,7 +7,7 @@ import ProfileStatus from './ProfileStatus';
 const Contacts = ({ contactsTitle, contactsValue }) => {
     return (
         <div className="profile__info profile__contacts">
-            <span>{contactsTitle}</span>: {contactsValue}
+            <b>{contactsTitle}</b>: {contactsValue}
         </div>
     )
 }
