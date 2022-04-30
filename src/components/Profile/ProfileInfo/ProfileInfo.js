@@ -44,9 +44,25 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                     </label>
                 </div>
             }
-            <div className="profile__text">
+            <div className="profile__content">
                 <h1 className="profile__name">{profile.fullName}</h1>
-                <ProfileStatus status={status} updateStatus={updateStatus} myId={myId} />
+                <ProfileStatus className="profile__status" status={status} updateStatus={updateStatus} myId={myId} />
+                <div className="profile__about-container">
+                    <b className="profile__subtitle">About me: </b>
+                    <p className="profile__info profile__about">I like cats</p>
+                </div>
+                <div className="profile__job-container">
+                    <b className="profile__subtitle">Looking for a job: </b>
+                    <p className=" profile__info profile__job">Yes</p>
+                </div>
+                <div className="profile__skills-container">
+                    <b className="profile__subtitle">My skills: </b>
+                    <p className=" profile__info profile__skills">Git, React (Hooks), Redux, JavaScript, REST API</p>
+                </div>
+                <div className="profile__contacts-container">
+                    <b className="profile__subtitle">Contacts: </b>
+                    <p className=" profile__info profile__contacts">Git: https://github.com/ZVMarina</p>
+                </div>
             </div>
         </div>
     )

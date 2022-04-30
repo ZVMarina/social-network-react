@@ -1,0 +1,9 @@
+.profile__content {
+    grid-area: content;
+    display: grid;
+    grid-template-areas: 
+    "name name name"
+    "status job contacts"
+    "about skills contacts";
+    column-gap: 45px;
+}

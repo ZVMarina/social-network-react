@@ -58,15 +58,19 @@
 @import url(./blocks/navigation/__friends-container/navigation__friends-container.css);
 
 @import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__content/profile__content.css);
 @import url(./blocks/profile/__container/profile__container.css);
 @import url(./blocks/profile/__main-image/profile__main-image.css);
 @import url(./blocks/profile/__name/profile__name.css);
 @import url(./blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
-@import url(./blocks/profile/__about/profile__about.css);
+@import url(./blocks/profile/__subtitle/profile__subtitle.css);
 @import url(./blocks/profile/__status/profile__status.css);
 @import url(./blocks/profile/__status-input/profile__status-input.css);
 @import url(./blocks/profile/__status-container/profile__status-container.css);
+@import url(./blocks/profile/__about-container/profile__about-container.css);
+@import url(./blocks/profile/__job-container/profile__job-container.css);
+@import url(./blocks/profile/__skills-container/profile__skills-container.css);
 
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);

@@ -34,7 +34,8 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
     }
 
     return (
-        <div className="profile__status-container">
+        <div className="profile__status-wrapper">
+            <b className="profile__subtitle">Status:</b>
             {!editMode &&
                 <p className="profile__status" onClick={activeteEditMode}>{status || 'Status should be here'}</p>
             }
