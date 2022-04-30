@@ -1,6 +1,7 @@
 .form_place_edit-info {
-    min-width: 50%;
-    max-height: 80vh;
+    min-width: 80%;
+    max-height: max-content;
+    min-height: min-content;
     display: grid;
     grid-template-areas: 
     "name contacts"

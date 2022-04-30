@@ -93,7 +93,8 @@
 @import url(./blocks/profile/__skills-container/profile__skills-container.css);
 @import url(./blocks/profile/__contacts-container/profile__contacts-container.css);
 
-@import url(./blocks/edit-profile-data/edit-profile-data.css);
+@import url(./blocks/edit-profile/edit-profile.css);
+@import url(./blocks/edit-profile/__popup/edit-profile__popup.css);
 
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__title/posts__title.css);

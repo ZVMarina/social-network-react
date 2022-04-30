@@ -1,6 +1,6 @@
 .form__label-container {
     display: flex;
     column-gap: 10px;
-    color: white;
+    color: black;
     margin: 0;
 }

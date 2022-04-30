@@ -45,6 +45,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
             </div>
             {myId === userId && <button onClick={activeteEditMode}>Edit</button>}
         </div>
+
     )
 }
 
