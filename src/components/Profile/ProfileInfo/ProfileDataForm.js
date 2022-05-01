@@ -11,10 +11,11 @@ const Contacts = ({ contactsTitle, contactsValue }) => {
 const ProfileDataForm = ({ profile }) => {
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         /* setProfileInfo(values.email, values.password, values.rememberMe, setStatus);  */ // setStatus - метод формика
+        console.log(values);
         setSubmitting(false);
     };
 
-    console.log(Object.values(profile.contacts));
+    // console.log(Object.values(profile.contacts));
     // console.log(Object.entries(profile.contacts));
 
     return (
@@ -50,41 +51,30 @@ const ProfileDataForm = ({ profile }) => {
                                     type={'text'}
                                     name={'aboutMe'}
                                     as={'textarea'}
+                                    placeholder='write here...'
                                 />
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_job">
                                 <h3 className="title title_place_job">{'Are you looking for a job?'}</h3>
-                                <div className="form__label-container">
-                                    <label
-                                        className="form__label"
-                                        htmlFor={'yes'}>Yes</label>
-                                    <Field
-                                        type={'radio'}
-                                        name={'choice'}
-                                        id={'yes'}
-                                        value={'yes'}
-                                    />
-                                    <label
-                                        className="form__label"
-                                        htmlFor={'no'}>No</label>
-                                    <Field
-                                        type={'radio'}
-                                        name={'choice'}
-                                        id={'no'}
-                                        value={'no'}
-                                    />
+                                <div className="form__checkbox-container">
+                                    <Field className="form__checkbox" type={'checkbox'} name={'lookingForAJob'} />
+                                    <label className="form__label" htmlFor={'rememberMe'}>Yes</label>
                                 </div>
                             </div>
 
-                            <div className="form__input-wrapper form__input-wrapper_theme_skills">
-                                <h3 className="title title_place_skills">{'My skills'}</h3>
-                                <Field
-                                    className="form__input"
-                                    type={'text'}
-                                    name={'lookingForAJobDescription'}
-                                />
-                            </div>
+                            {profile.lookingForAJob &&
+                                <div className="form__input-wrapper form__input-wrapper_theme_skills">
+                                    <h3 className="title title_place_skills">{'My skills'}</h3>
+                                    <Field
+                                        className="form__input"
+                                        type={'text'}
+                                        name={'lookingForAJobDescription'}
+                                        as={'textarea'}
+                                        placeholder='write here...'
+                                    />
+                                </div>
+                            }
 
                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
