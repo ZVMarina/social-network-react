@@ -5,6 +5,7 @@ const DELETE_POST_ACTION_TYPE = 'profile/delete-post';
 const SET_PROFILE_INFO_ACTION_TYPE = 'profile/set-profile-info';
 const SET_STATUS_ACTION_TYPE = 'profile/set-status';
 const SET_AVATAR_ACTION_TYPE = 'profile/set-avatar';
+const SET_PROFILE_ACTION_TYPE = ' profile/set-profile';
 
 const initialState =
 {
@@ -57,7 +58,14 @@ const profileReducer = (state = initialState, action) => {
         case SET_AVATAR_ACTION_TYPE: {
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: { ...state.profile, photos: action.photos }
+            };
+        }
+
+        case SET_PROFILE_ACTION_TYPE: {
+            return {
+                ...state,
+                profile: action.profile
             };
         }
 
@@ -96,9 +104,16 @@ export const setAvatarAC = (photos) => {
     }
 }
 
+export const setProfileAC = (profile) => {
+    return {
+        type: SET_PROFILE_ACTION_TYPE, profile
+    }
+}
+
 export const getProfileInfoThunkCreator = (userId) => async (dispatch) => {
     const data = await profileApi.getProfileInfo(userId);
     dispatch(setProfileInfoAC(data));
+    console.log(data);
 }
 
 export const getStatusThunkCreator = (userId) => async (dispatch) => {
@@ -121,5 +136,16 @@ export const saveAvatarThunkCreator = (avatarFile) => async (dispatch) => {
         dispatch(setAvatarAC(response.data.data.photos))
     }
 }
+
+export const saveProfileThunkCreator = (profile) =>
+    async (dispatch) => {
+        const response = await profileApi.saveProfile(profile);
+
+        if (response.data.resultCode === 0) {
+            dispatch(setProfileAC(response.data.data))
+        }
+
+        debugger;
+    }
 
 export default profileReducer;

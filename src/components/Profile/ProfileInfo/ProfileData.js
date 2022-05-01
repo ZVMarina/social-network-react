@@ -1,13 +1,6 @@
 import { useParams } from "react-router-dom";
+import Contacts from "./Contacts";
 import ProfileStatus from "./ProfileStatus";
-
-const Contacts = ({ contactsTitle, contactsValue }) => {
-    return (
-        <div className="profile__info profile__contacts">
-            <b>{contactsTitle}</b>: {contactsValue}
-        </div>
-    )
-}
 
 const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) => {
     const userId = Number(useParams().userId);

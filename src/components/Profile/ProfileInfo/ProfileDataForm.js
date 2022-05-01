@@ -1,22 +1,20 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Contacts from "./Contacts";
 
-const Contacts = ({ contactsTitle, contactsValue }) => {
-    return (
-        <div className="profile__info profile__contacts">
-            <b>{contactsTitle}</b>: {contactsValue}
-        </div>
-    )
-}
-
-const ProfileDataForm = ({ profile }) => {
+const ProfileDataForm = ({ profile, saveProfile }) => {
     const onSubmit = (values, { setSubmitting, setStatus }) => {
-        /* setProfileInfo(values.email, values.password, values.rememberMe, setStatus);  */ // setStatus - метод формика
+        saveProfile(
+            {
+                fullName: values.fullName,
+                aboutMe: values.aboutMe,
+                lookingForAJob: values.lookingForAJob,
+                lookingForAJobDescription: values.lookingForAJobDescription,
+                contacts: values.contacts,
+            },
+            setStatus); // setStatus - метод формика
         console.log(values);
         setSubmitting(false);
     };
-
-    // console.log(Object.values(profile.contacts));
-    // console.log(Object.entries(profile.contacts));
 
     return (
         <section className="edit-profile">
@@ -76,7 +74,7 @@ const ProfileDataForm = ({ profile }) => {
                                 </div>
                             }
 
-                            <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
+                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
                                 {profile && Object.entries(profile.contacts)
                                     .map(contact =>

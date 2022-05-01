@@ -37,7 +37,7 @@ export const profileApi = {
     },
 
     updateStatus(status) {
-        return instance.put(`profile/status/`, { status: status });
+        return instance.put(`profile/status`, { status: status });
     },
 
     saveAvatar(avatarFile) {
@@ -49,6 +49,10 @@ export const profileApi = {
                 'Content-Type': 'multipart/form-data'
             }
         });
+    },
+
+    saveProfile(fullName, aboutMe, lookingForAJob, lookingForAJobDescription, contacts) {
+        return instance.put(`profile`, {fullName: fullName, aboutMe: aboutMe, lookingForAJob: lookingForAJob, lookingForAJobDescription: lookingForAJobDescription, contacts: contacts});
     }
 }
 

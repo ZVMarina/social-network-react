@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import PostsContainer from './Posts/PostsContainer';
 
-const Profile = ({ profile, status, updateStatus, myId, store, saveAvatar }) => {
+const Profile = ({ profile, status, updateStatus, myId, store, saveAvatar, saveProfile }) => {
     return (
         <>
             <section className="profile">
@@ -13,6 +13,7 @@ const Profile = ({ profile, status, updateStatus, myId, store, saveAvatar }) => 
                     updateStatus={updateStatus}
                     myId={myId}
                     saveAvatar = {saveAvatar}
+                    saveProfile = {saveProfile}
                 />
             </section>
             <PostsContainer store={store} />

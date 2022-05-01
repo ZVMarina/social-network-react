@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import ProfileData from './ProfileData';
 import ProfileDataForm from './ProfileDataForm';
 
-const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
+const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProfile }) => {
     const userId = Number(useParams().userId);
 
     const [editMode, setEditMode] = useState(false);
@@ -55,7 +55,7 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar }) => {
                     </label>
                 </div>
             }
-            {editMode ? <ProfileDataForm profile={profile} /> : <ProfileData
+            {editMode ? <ProfileDataForm profile={profile} saveProfile={saveProfile} /> : <ProfileData
                 profile={profile}
                 status={status}
                 updateStatus={updateStatus}
