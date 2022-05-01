@@ -1,0 +1,9 @@
+.button_place_info-button {
+    grid-area: button;
+    background-image: url('../../../images/edit-profile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0;
+    padding: 10px 10px;
+    font-size: 14px;
+}

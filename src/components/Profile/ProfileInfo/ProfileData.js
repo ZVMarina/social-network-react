@@ -14,7 +14,14 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
 
     return (
         <div className="profile__data">
-            <h1 className="profile__name">{profile.fullName}</h1>
+            <div className="profile__name-container">
+                <h1 className="profile__name">{profile.fullName}</h1>
+                {myId === userId &&
+                    <button
+                        className="button button_place_info-button"
+                        onClick={activeteEditMode}>
+                    </button>}
+            </div>
             <ProfileStatus className="profile__status" status={status} updateStatus={updateStatus} myId={myId} />
             <div className="profile__about-container">
                 <b className="profile__subtitle">About me: </b>
@@ -43,7 +50,6 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                     )
                 }
             </div>
-            {myId === userId && <button onClick={activeteEditMode}>Edit</button>}
         </div>
 
     )

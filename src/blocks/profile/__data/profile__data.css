@@ -5,6 +5,6 @@
     "name name name"
     "status job contacts"
     "about skills contacts";
-    column-gap: 45px;
+    column-gap: 30px;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
 }
