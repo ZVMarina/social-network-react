@@ -65,7 +65,7 @@ const profileReducer = (state = initialState, action) => {
         case SET_PROFILE_ACTION_TYPE: {
             return {
                 ...state,
-                profile: action.profile
+                profile: { ...state.profile, profile: action.profile }
             };
         }
 

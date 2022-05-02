@@ -51,8 +51,8 @@ export const profileApi = {
         });
     },
 
-    saveProfile(fullName, aboutMe, lookingForAJob, lookingForAJobDescription, contacts) {
-        return instance.put(`profile`, {fullName: fullName, aboutMe: aboutMe, lookingForAJob: lookingForAJob, lookingForAJobDescription: lookingForAJobDescription, contacts: contacts});
+    saveProfile(profile) {
+        return instance.put(`profile`, profile);
     }
 }
 

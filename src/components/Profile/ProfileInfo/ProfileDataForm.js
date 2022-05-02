@@ -8,11 +8,11 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                 fullName: values.fullName,
                 aboutMe: values.aboutMe,
                 lookingForAJob: values.lookingForAJob,
-                lookingForAJobDescription: values.lookingForAJobDescription,
+                lookingForAJobDescription: 'values.lookingForAJobDescription',
                 contacts: values.contacts,
             },
             setStatus); // setStatus - метод формика
-        // console.log(values);
+        console.log(values);
         setSubmitting(false);
 
         // console.log(Object.values(profile.contacts))
@@ -21,9 +21,11 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
         .map((contact, index) =>
             console.log(contact, contact[1])) */
 
-            Object.keys(profile.contacts)
-        .map((contactKey) =>
-            console.log(contactKey, profile.contacts[contactKey]))
+        /* Object.keys(profile.contacts)
+            .map((contactKey) =>
+                console.log(contactKey, profile.contacts[contactKey])) */
+
+        // console.log(profile.contacts);
     };
 
     return (
@@ -36,7 +38,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                         aboutMe: profile.aboutMe,
                         lookingForAJob: profile.lookingForAJob,
                         lookingForAJobDescription: profile.lookingForAJobDescription,
-                        contacts: Object.keys(profile.contacts),
+                        contacts: profile.contacts,
                     }}
                     onSubmit={onSubmit}
                 >
@@ -87,14 +89,13 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
                                 {profile && Object.keys(profile.contacts)
-                                    .map((contactKey) =>
-                                        <div className="contacts__item">
+                                    .map((contactKey, index) =>
+                                        <div key={contactKey} className="contacts__item">
                                             <h3 className="contact__heading">{contactKey}</h3>
                                             <Field
-                                                key={contactKey}
                                                 className="form__input form__input_place_edit-info"
                                                 type={'text'}
-                                                name={'contacts'+ [contactKey]}
+                                                name={`contacts.${contactKey}`}
                                                 placeholder={'Your contacts'}
                                             />
                                         </div>
