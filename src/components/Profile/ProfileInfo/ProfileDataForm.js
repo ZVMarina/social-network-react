@@ -43,7 +43,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                         <Form className="form form_place_edit-info">
 
                             <div className="form__input-wrapper form__input-wrapper_theme_name">
-                                <h3 className="title title_place_job">{'My name'}</h3>
+                                <h3 className="form__heading">{'My name'}</h3>
                                 <Field
                                     className="input input_place_profile-data-form"
                                     type={'text'}
@@ -55,7 +55,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_about">
-                                <h3 className="title title_place_job">{'About me'}</h3>
+                                <h3 className="form__heading">{'About me'}</h3>
                                 <Field
                                     className="input"
                                     type={'text'}
@@ -66,7 +66,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_job">
-                                <h3 className="title title_place_job">{'Are you looking for a job?'}</h3>
+                                <h3 className="form__heading">{'Are you looking for a job?'}</h3>
                                 <div className="form__checkbox-container">
                                     <Field className="form__checkbox" type={'checkbox'} name={'lookingForAJob'} />
                                     <label className="form__label" htmlFor={'rememberMe'}>Yes</label>
@@ -75,7 +75,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
 
                             {profile.lookingForAJob &&
                                 <div className="form__input-wrapper form__input-wrapper_theme_skills">
-                                    <h3 className="title title_place_skills">{'My skills'}</h3>
+                                    <h3 className="form__heading">{'My skills'}</h3>
                                     <Field
                                         className="input"
                                         type={'text'}
@@ -87,7 +87,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             }
 
                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
-                                <h2 className="title title_place_contacts">Contacts: </h2>
+                                <h2 className="form__heading">Contacts: </h2>
                                 {profile && Object.keys(profile.contacts)
                                     .map((contactKey) =>
                                         <div key={contactKey} className="contacts__item">
