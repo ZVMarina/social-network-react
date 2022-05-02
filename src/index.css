@@ -4,6 +4,7 @@
 @import url(./blocks/main/main.css);
 
 @import url(./blocks/title/title.css);
+@import url(./blocks/title/_place/title_place_profile.css);
 @import url(./blocks/title/_place/title_place_edit-info.css);
 @import url(./blocks/title/_place/title_place_contacts.css);
 @import url(./blocks/title/_place/title_place_job.css);
@@ -24,12 +25,10 @@
 @import url(./blocks/preloader/_place/preloader_place_app.css);
 @import url(./blocks/preloader/_place/preloader_place_avatar.css);
 
-@import url(./blocks/input/input.css);
-@import url(./blocks/input/__file-wrapper/input__file-wrapper.css);
-@import url(./blocks/input/__file/input__file.css);
-@import url(./blocks/input/__file-button/input__file-button.css);
-@import url(./blocks/input/__file-icon-wrapper/input__file-icon-wrapper.css);
-@import url(./blocks/input/__file-button-text/input__file-button-text.css);
+@import url(./blocks/avatar-file/__input/avatar-file__input.css);
+@import url(./blocks/avatar-file/__icon-wrapper/avatar-file__icon-wrapper.css);
+@import url(./blocks/avatar-file/__button/avatar-file__button.css);
+@import url(./blocks/avatar-file/__button-text/avatar-file__button-text.css);
 
 @import url(./blocks/paginator/paginator.css);
 @import url(./blocks/paginator/__page/paginator__page.css);
@@ -84,7 +83,6 @@
 @import url(./blocks/profile/__data/profile__data.css);
 @import url(./blocks/profile/__container/profile__container.css);
 @import url(./blocks/profile/__main-image/profile__main-image.css);
-@import url(./blocks/profile/__name/profile__name.css);
 @import url(./blocks/profile/__name-container/profile__name-container.css);
 @import url(./blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);

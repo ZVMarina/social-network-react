@@ -45,17 +45,17 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
                 <img className="profile__avatar" src={profile.photos.large || photo} />
             </picture>
             {myId === profile.userId &&
-                <div className="input__file-wrapper" >
+                <div className="avatar-file" >
                     <input
                         name="file"
-                        type="file" id="input__file"
-                        className="input input__file"
+                        type="file" id="file"
+                        className="avatar-file__input"
                         onChange={chooseAvatarHandler}
                         multiple
                     />
-                    <label htmlFor="input__file" className="button input__file-button">
-                        <span className="input__file-icon-wrapper"><img className="input__file-icon" src={iconDownload} alt="Выбрать файл" width="25" /></span>
-                        <span className="input__file-button-text">Select a file</span>
+                    <label htmlFor="file" className="button avatar-file__button">
+                        <span className="avatar-file__icon-wrapper"><img className="avatar-file__icon" src={iconDownload} alt="Выбрать файл" width="25" /></span>
+                        <span className="avatar-file__button-text">Select a file</span>
                     </label>
                 </div>
             }

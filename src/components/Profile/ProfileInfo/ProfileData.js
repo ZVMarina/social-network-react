@@ -8,7 +8,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
     return (
         <div className="profile__data">
             <div className="profile__name-container">
-                <h1 className="profile__name">{profile.fullName}</h1>
+                <h1 className="title title_place_profile profile__name">{profile.fullName}</h1>
                 {myId === userId &&
                     <button
                         className="button button_place_profile-data-edit"
