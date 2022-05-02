@@ -57,7 +57,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             <div className="form__input-wrapper form__input-wrapper_theme_about">
                                 <h3 className="form__heading">{'About me'}</h3>
                                 <Field
-                                    className="input"
+                                    className="input input_place_theme_about-and-skills"
                                     type={'text'}
                                     name={'aboutMe'}
                                     as={'textarea'}
@@ -77,7 +77,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                 <div className="form__input-wrapper form__input-wrapper_theme_skills">
                                     <h3 className="form__heading">{'My skills'}</h3>
                                     <Field
-                                        className="input"
+                                        className="input input_place_theme_about-and-skills"
                                         type={'text'}
                                         name={'lookingForAJobDescription'}
                                         as={'textarea'}
@@ -86,12 +86,12 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                 </div>
                             }
 
-                            <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
-                                <h2 className="form__heading">Contacts: </h2>
+                            <div className="contacts">
+                                <h3 className="form__heading">Contacts: </h3>
                                 {profile && Object.keys(profile.contacts)
                                     .map((contactKey) =>
-                                        <div key={contactKey} className="contacts__item">
-                                            <h3 className="contact__heading">{contactKey}</h3>
+                                        <div key={contactKey} className="form__input-wrapper form__input-wrapper_theme_contacts">
+                                            <p className="contacts__heading">{contactKey}</p>
                                             <Field
                                                 className="input input_place_profile-data-form"
                                                 type={'text'}

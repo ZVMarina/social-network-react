@@ -1,6 +1,3 @@
 .form__input-wrapper_theme_name {
     grid-area: name;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
 }

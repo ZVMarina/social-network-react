@@ -1,9 +1,8 @@
 .input_place_profile-data-form {
-    padding-top: 5px;
+    padding-bottom: 5px;
     margin: 0;
     border-radius: 0;
     border: 1px solid transparent;
     border-bottom: 1px solid #1a4cd4;
-    padding-bottom: 11px;
-    max-height: 20px;
+    max-height: 30px;
 }

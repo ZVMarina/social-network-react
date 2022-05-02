@@ -1,4 +1,5 @@
 .input_place_dialogs {
     min-height: 30vh;
+    padding-left: 10px;
     border-radius: 5px;
 }

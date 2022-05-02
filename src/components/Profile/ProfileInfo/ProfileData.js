@@ -31,7 +31,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                         {profile.lookingForAJobDescription ? profile.lookingForAJobDescription : 'no data'}</p>
                 </div>
             }
-            <div className="profile__contacts-container">
+            <div className="contacts">
                 <b className="profile__subtitle">Contacts: </b>
                 {profile && Object.keys(profile.contacts)
                     .map(contactKey =>
@@ -39,6 +39,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                             key={contactKey}
                             contactsTitle={contactKey}
                             contactsValue={profile.contacts[contactKey] ? profile.contacts[contactKey] : 'no data'}
+                            className="contacts__url"
                         />
                     )
                 }

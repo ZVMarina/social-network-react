@@ -1,7 +1,4 @@
 .form__input-wrapper_theme_job {
     grid-area: job;
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
     align-items: flex-start;
 }
