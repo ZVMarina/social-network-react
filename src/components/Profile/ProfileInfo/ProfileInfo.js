@@ -34,7 +34,6 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
     }
 
     const deactiveteEditMode = () => {
-        console.log('On Click');
         setEditMode(false);
     }
 

@@ -2,7 +2,6 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
-    console.log(deactiveteEditMode);
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         saveProfile(
             {
@@ -13,8 +12,18 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                 contacts: values.contacts,
             },
             setStatus); // setStatus - метод формика
-       // console.log(values);
+        // console.log(values);
         setSubmitting(false);
+
+        // console.log(Object.values(profile.contacts))
+
+        /* Object.entries(profile.contacts)
+        .map((contact, index) =>
+            console.log(contact, contact[1])) */
+
+            Object.keys(profile.contacts)
+        .map((contactKey) =>
+            console.log(contactKey, profile.contacts[contactKey]))
     };
 
     return (
@@ -27,7 +36,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                         aboutMe: profile.aboutMe,
                         lookingForAJob: profile.lookingForAJob,
                         lookingForAJobDescription: profile.lookingForAJobDescription,
-                        contacts: Object.values(profile.contacts)
+                        contacts: Object.keys(profile.contacts),
                     }}
                     onSubmit={onSubmit}
                 >
@@ -78,19 +87,20 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
                                 {profile && Object.keys(profile.contacts)
-                                    .map(contactkey =>
+                                    .map((contactKey) =>
                                         <div className="contacts__item">
-                                            <h3 className="contact__heading">{contactkey}</h3>
+                                            <h3 className="contact__heading">{contactKey}</h3>
                                             <Field
-                                                key={contactkey}
+                                                key={contactKey}
                                                 className="form__input form__input_place_edit-info"
                                                 type={'text'}
-                                                name={'contacts'}
+                                                name={'contacts'+ [contactKey]}
                                                 placeholder={'Your contacts'}
                                             />
                                         </div>
                                     )
                                 }
+
                             </div>
 
                             <button className="button form__button button_place_edit-info" type={'submit'}>Save</button>
