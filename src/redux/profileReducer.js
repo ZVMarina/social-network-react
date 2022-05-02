@@ -145,7 +145,6 @@ export const saveProfileThunkCreator = (profile) =>
             dispatch(setProfileAC(response.data.data))
         }
 
-        debugger;
     }
 
 export default profileReducer;

@@ -1,7 +1,8 @@
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import Contacts from "./Contacts";
 
-const ProfileDataForm = ({ profile, saveProfile }) => {
+const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
+    console.log(deactiveteEditMode);
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         saveProfile(
             {
@@ -12,7 +13,7 @@ const ProfileDataForm = ({ profile, saveProfile }) => {
                 contacts: values.contacts,
             },
             setStatus); // setStatus - метод формика
-        console.log(values);
+       // console.log(values);
         setSubmitting(false);
     };
 
@@ -74,14 +75,14 @@ const ProfileDataForm = ({ profile, saveProfile }) => {
                                 </div>
                             }
 
-                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
+                            <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
-                                {profile && Object.entries(profile.contacts)
-                                    .map(contact =>
+                                {profile && Object.keys(profile.contacts)
+                                    .map(contactkey =>
                                         <div className="contacts__item">
-                                            <h3 className="contact__heading">{contact[0]}</h3>
+                                            <h3 className="contact__heading">{contactkey}</h3>
                                             <Field
-                                                key={contact}
+                                                key={contactkey}
                                                 className="form__input form__input_place_edit-info"
                                                 type={'text'}
                                                 name={'contacts'}
@@ -94,8 +95,10 @@ const ProfileDataForm = ({ profile, saveProfile }) => {
 
                             <button className="button form__button button_place_edit-info" type={'submit'}>Save</button>
                         </Form>
+
                     )}
                 </Formik>
+                <button onClick={deactiveteEditMode} className="button_place_profile-data-close" type="button" aria-label="Close"></button>
             </div>
         </section>
 

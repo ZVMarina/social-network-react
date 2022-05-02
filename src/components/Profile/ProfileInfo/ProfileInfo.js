@@ -33,6 +33,11 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
         }
     }
 
+    const deactiveteEditMode = () => {
+        console.log('On Click');
+        setEditMode(false);
+    }
+
     return (
         <div className="profile__container">
             <picture className="profile__avatar-container">
@@ -55,13 +60,20 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
                     </label>
                 </div>
             }
-            {editMode ? <ProfileDataForm profile={profile} saveProfile={saveProfile} /> : <ProfileData
+            <ProfileData
                 profile={profile}
                 status={status}
                 updateStatus={updateStatus}
                 myId={myId}
                 activeteEditMode={activeteEditMode}
-            />}
+            />
+            {editMode &&
+                <ProfileDataForm
+                    profile={profile}
+                    saveProfile={saveProfile}
+                    deactiveteEditMode={deactiveteEditMode}
+                />
+            }
         </div>
     )
 }
