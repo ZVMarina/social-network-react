@@ -9,20 +9,19 @@ const Dialogs = (props) => {
 
     const [disabled, setDisabled] = useState(true);
 
-    useEffect = () => {
-        if (props.messageText) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }
-
-    const sendMessageHandler = (evt) => {
+    const sendMessageHandler = () => {
         props.sendMessageCreator();
+        setDisabled(true)
     }
 
     const updateMessageHandler = (evt) => {
         const newMessageText = evt.currentTarget.value;
+
+        if (newMessageText) {
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
 
         props.updateMessageBodyCreator(newMessageText);
     }
