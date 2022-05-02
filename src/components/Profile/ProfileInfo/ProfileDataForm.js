@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
-    const onSubmit = (values, { setSubmitting, setStatus }) => {
+    const onSubmit = (values, { setSubmitting }) => {
         saveProfile(
             {
                 fullName: values.fullName,
@@ -10,22 +10,10 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                 lookingForAJob: values.lookingForAJob,
                 lookingForAJobDescription: 'values.lookingForAJobDescription',
                 contacts: values.contacts,
-            },
-            setStatus); // setStatus - метод формика
-        console.log(values);
+            });
+
         setSubmitting(false);
-
-        // console.log(Object.values(profile.contacts))
-
-        /* Object.entries(profile.contacts)
-        .map((contact, index) =>
-            console.log(contact, contact[1])) */
-
-        /* Object.keys(profile.contacts)
-            .map((contactKey) =>
-                console.log(contactKey, profile.contacts[contactKey])) */
-
-        // console.log(profile.contacts);
+        deactiveteEditMode();
     };
 
     return (
@@ -89,7 +77,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                             <div className="contacts contacts_place_edit-info form__input-wrapper_theme_contacts">
                                 <h2 className="title title_place_contacts">Contacts: </h2>
                                 {profile && Object.keys(profile.contacts)
-                                    .map((contactKey, index) =>
+                                    .map((contactKey) =>
                                         <div key={contactKey} className="contacts__item">
                                             <h3 className="contact__heading">{contactKey}</h3>
                                             <Field
@@ -104,7 +92,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
 
                             </div>
 
-                            <button className="button form__button button_place_edit-info" type={'submit'}>Save</button>
+                            <button /* onClick={deactiveteEditMode}  */className="button form__button button_place_edit-info" type={'submit'}>Save</button>
                         </Form>
 
                     )}
