@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DialogsItem from './DialogsItem';
 import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
@@ -7,10 +7,18 @@ const Dialogs = (props) => {
     const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
     const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
 
-    const sendMessageHandler = (evt) => {
+    const [disabled, setDisabled] = useState(true);
+
+    useEffect = () => {
         if (props.messageText) {
-            props.sendMessageCreator();
+            setDisabled(false)
+        } else {
+            setDisabled(true)
         }
+    }
+
+    const sendMessageHandler = (evt) => {
+        props.sendMessageCreator();
     }
 
     const updateMessageHandler = (evt) => {
@@ -37,7 +45,7 @@ const Dialogs = (props) => {
                     placeholder="Write your message here..."
                     value={props.messageText}
                     onChange={updateMessageHandler}></textarea>
-                <button className="button button_place_dialogs" onClick={sendMessageHandler}>Send</button>
+                <button className="button button_place_dialogs" onClick={sendMessageHandler} disabled={disabled}>Send</button>
             </div>
         </section>
     )
