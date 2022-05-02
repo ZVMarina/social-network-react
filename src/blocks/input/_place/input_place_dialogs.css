@@ -1,12 +1,4 @@
 .input_place_dialogs {
-    box-sizing: border-box;
-    font-family: inherit;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 2;
+    min-height: 30vh;
     border-radius: 5px;
-    max-width: 50vw;
-    min-height: 11vh;
-    border: 1px solid white;
-    padding-left: 10px;
 }

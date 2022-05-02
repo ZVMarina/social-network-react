@@ -41,12 +41,12 @@ const Login = ({ login, isAuth, myId }) => {
                 {({ errors, touched, isValid, dirty, status }) => (
                     <Form className="form">
 
-                        <Field className="form__input" type={'text'} name={'email'} placeholder={'Email'} />
+                        <Field className="input input_place_login" type={'text'} name={'email'} placeholder={'Email'} />
                         {touched.email && errors.email && (
                             <div className="form__error">{errors.email}</div>
                         )}
 
-                        <Field className="form__input" type={'password'} name={'password'} placeholder={'Password'} />
+                        <Field className="input input_place_login" type={'password'} name={'password'} placeholder={'Password'} />
                         {touched.password && errors.password && (
                             <div className="form__error">{errors.password}</div>
                         )}

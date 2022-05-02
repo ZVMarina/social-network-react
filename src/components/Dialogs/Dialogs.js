@@ -40,7 +40,7 @@ const Dialogs = (props) => {
                 {messagesElements}
             </ul>
             <div className="dialogs__new-message-container">
-                <textarea className="input_place_dialogs"
+                <textarea className="input input_place_dialogs"
                     placeholder="Write your message here..."
                     value={props.messageText}
                     onChange={updateMessageHandler}></textarea>
