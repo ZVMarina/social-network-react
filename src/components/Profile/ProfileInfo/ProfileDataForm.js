@@ -45,7 +45,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             <div className="form__input-wrapper form__input-wrapper_theme_name">
                                 <h3 className="title title_place_job">{'My name'}</h3>
                                 <Field
-                                    className="form__input form__input_theme_name form__input_place_edit-info"
+                                    className="input input_place_profile-data-form"
                                     type={'text'}
                                     name={'fullName'}
                                 />
@@ -57,7 +57,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                             <div className="form__input-wrapper form__input-wrapper_theme_about">
                                 <h3 className="title title_place_job">{'About me'}</h3>
                                 <Field
-                                    className="form__input form__input_theme_about"
+                                    className="input"
                                     type={'text'}
                                     name={'aboutMe'}
                                     as={'textarea'}
@@ -77,7 +77,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                 <div className="form__input-wrapper form__input-wrapper_theme_skills">
                                     <h3 className="title title_place_skills">{'My skills'}</h3>
                                     <Field
-                                        className="form__input"
+                                        className="input"
                                         type={'text'}
                                         name={'lookingForAJobDescription'}
                                         as={'textarea'}
@@ -93,7 +93,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                         <div key={contactKey} className="contacts__item">
                                             <h3 className="contact__heading">{contactKey}</h3>
                                             <Field
-                                                className="form__input form__input_place_edit-info"
+                                                className="input input_place_profile-data-form"
                                                 type={'text'}
                                                 name={`contacts.${contactKey}`}
                                                 placeholder={'Your contacts'}
