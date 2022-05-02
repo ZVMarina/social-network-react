@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
+const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) => {
     const onSubmit = (values, { setSubmitting }) => {
         saveProfile(
             {
@@ -10,7 +10,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                 lookingForAJob: values.lookingForAJob,
                 lookingForAJobDescription: values.lookingForAJobDescription,
                 contacts: values.contacts,
-            });
+            }, userId);
 
         setSubmitting(false);
         deactiveteEditMode();

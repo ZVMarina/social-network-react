@@ -137,14 +137,16 @@ export const saveAvatarThunkCreator = (avatarFile) => async (dispatch) => {
     }
 }
 
-export const saveProfileThunkCreator = (profile) =>
+export const saveProfileThunkCreator = (profile, userId) =>
     async (dispatch) => {
-        /* const userId = getState().auth.id; */
-        
         const response = await profileApi.saveProfile(profile);
 
         if (response.data.resultCode === 0) {
-            dispatch(setProfileAC(response.data.data));
+            const data = await profileApi.getProfileInfo(userId);
+
+            delete data[userId];
+
+            dispatch(setProfileInfoAC(data));
         }
 
     }

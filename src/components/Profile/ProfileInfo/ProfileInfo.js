@@ -68,6 +68,7 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
             />
             {editMode &&
                 <ProfileDataForm
+                    userId={userId}
                     profile={profile}
                     saveProfile={saveProfile}
                     deactiveteEditMode={deactiveteEditMode}
