@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { profileApi } from "../api/api";
 
 const ADD_POST_ACTION_TYPE = 'profile/add-post';
@@ -113,7 +114,6 @@ export const setProfileAC = (profile) => {
 export const getProfileInfoThunkCreator = (userId) => async (dispatch) => {
     const data = await profileApi.getProfileInfo(userId);
     dispatch(setProfileInfoAC(data));
-    console.log(data);
 }
 
 export const getStatusThunkCreator = (userId) => async (dispatch) => {
@@ -139,10 +139,12 @@ export const saveAvatarThunkCreator = (avatarFile) => async (dispatch) => {
 
 export const saveProfileThunkCreator = (profile) =>
     async (dispatch) => {
+        /* const userId = getState().auth.id; */
+        
         const response = await profileApi.saveProfile(profile);
 
         if (response.data.resultCode === 0) {
-            dispatch(setProfileAC(response.data.data))
+            dispatch(setProfileAC(response.data.data));
         }
 
     }
