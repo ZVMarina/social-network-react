@@ -25,8 +25,8 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
     };
 
     return (
-        <section className="edit-profile">
-            <div className="edit-profile__popup">
+        <section className="popup popup_type_edit-info">
+            <div className="popup__container">
                 <h1 className="title title_place_edit-info">Edit profile info</h1>
                 <Formik
                     initialValues={{
