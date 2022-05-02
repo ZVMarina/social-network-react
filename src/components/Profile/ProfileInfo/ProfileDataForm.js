@@ -8,7 +8,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode }) => {
                 fullName: values.fullName,
                 aboutMe: values.aboutMe,
                 lookingForAJob: values.lookingForAJob,
-                lookingForAJobDescription: 'values.lookingForAJobDescription',
+                lookingForAJobDescription: values.lookingForAJobDescription,
                 contacts: values.contacts,
             });
 
