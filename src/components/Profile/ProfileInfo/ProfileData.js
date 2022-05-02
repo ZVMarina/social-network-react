@@ -11,7 +11,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                 <h1 className="profile__name">{profile.fullName}</h1>
                 {myId === userId &&
                     <button
-                        className="button button_place_info-button"
+                        className="button button_place_profile-data-edit"
                         onClick={activeteEditMode}>
                     </button>}
             </div>

@@ -104,7 +104,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
 
                             </div>
 
-                            <button className="button form__button button_place_edit-info" type={'submit'}>Save</button>
+                            <button className="button form__button button_place_profile-data-save" type={'submit'}>Save</button>
                         </Form>
 
                     )}

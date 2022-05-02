@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DialogsItem from './DialogsItem';
 import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';

@@ -9,11 +9,12 @@
 @import url(./blocks/title/_place/title_place_job.css);
 
 @import url(./blocks/button/button.css);
+@import url(./blocks/button/_place/button_place_login.css);
 @import url(./blocks/button/_place/button_place_users.css);
 @import url(./blocks/button/_place/button_place_posts.css);
 @import url(./blocks/button/_place/button_place_dialogs.css);
-@import url(./blocks/button/_place/button_place_edit-info.css);
-@import url(./blocks/button/_place/button_place_info-button.css);
+@import url(./blocks/button/_place/button_place_profile-data-save.css);
+@import url(./blocks/button/_place/button_place_profile-data-edit.css);
 @import url(./blocks/button/_place/button_place_profile-data-close.css);
 
 @import url(./blocks/preloader/preloader.css);
@@ -50,7 +51,6 @@
 @import url(./blocks/form/__input/_place/form__input_place_edit-info.css);
 @import url(./blocks/form/__label-container/form__label-container.css);
 @import url(./blocks/form/__label/form__label.css);
-@import url(./blocks/form/__button/form__button.css);
 @import url(./blocks/form/__checkbox/form__checkbox.css);
 @import url(./blocks/form/__error/form__error.css);
 @import url(./blocks/form/__input-wrapper/form__input-wrapper.css);
