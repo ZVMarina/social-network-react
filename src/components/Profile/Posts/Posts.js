@@ -20,9 +20,9 @@ const Posts = ({ postsData, addPostCreator }) => {
 
     return (
         <section className="posts">
-            <h2 className="posts__title">My posts</h2>
+            <h2 className="title title_place-posts">My posts</h2>
             <textarea
-                className="posts__input"
+                className="input input_place_posts"
                 placeholder='your news...'
                 onChange={updatePostHandler}
                 value={postText}
