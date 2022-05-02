@@ -1,6 +1,14 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+const validateLoginForm = values => {
+    const errors = {};
+    if (!values.fullName) {
+        errors.fullName = 'Required';
+    }
+    return errors;
+};
+
 const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) => {
     const onSubmit = (values, { setSubmitting }) => {
         saveProfile(
@@ -28,6 +36,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                         lookingForAJobDescription: profile.lookingForAJobDescription,
                         contacts: profile.contacts,
                     }}
+                    validate={validateLoginForm}
                     onSubmit={onSubmit}
                 >
                     {({ errors, touched, isValid, dirty, status }) => (
@@ -40,6 +49,9 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                     type={'text'}
                                     name={'fullName'}
                                 />
+                                {touched.fullName && errors.fullName && (
+                                    <div className="form__error">{errors.fullName}</div>
+                                )}
                             </div>
 
                             <div className="form__input-wrapper form__input-wrapper_theme_about">
@@ -92,7 +104,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
 
                             </div>
 
-                            <button /* onClick={deactiveteEditMode}  */className="button form__button button_place_edit-info" type={'submit'}>Save</button>
+                            <button className="button form__button button_place_edit-info" type={'submit'}>Save</button>
                         </Form>
 
                     )}
