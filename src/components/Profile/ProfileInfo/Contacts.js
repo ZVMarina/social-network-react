@@ -1,7 +1,7 @@
 const Contacts = ({ contactsTitle, contactsValue }) => {
     return (
-        <div >
-            <b className="contacts__heading">{contactsTitle}</b>: {contactsValue}
+        <div className="contacts__item-container">
+            <b className="contacts__item-heading">{contactsTitle}</b>: {contactsValue}
         </div>
     )
 }

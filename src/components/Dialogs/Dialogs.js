@@ -4,23 +4,33 @@ import MessagesItem from './MessagesItem';
 import { Navigate } from 'react-router-dom';
 
 const Dialogs = (props) => {
-    const dialogsElements = props.dialogsData.map(dialogItem => <DialogsItem name={dialogItem.name} id={dialogItem.id} key={dialogItem.id} />);
-    const messagesElements = props.messagesData.map(messageItem => <MessagesItem message={messageItem.message} key={messageItem.id} />);
+    const dialogsElements = props.dialogsData
+        .map(dialogItem =>
+            <DialogsItem
+                name={dialogItem.name}
+                id={dialogItem.id}
+                key={dialogItem.id}
+            />);
+    const messagesElements = props.messagesData
+        .map(messageItem =>
+            <MessagesItem
+                message={messageItem.message}
+                key={messageItem.id} />);
 
     const [disabled, setDisabled] = useState(true);
 
     const sendMessageHandler = () => {
         props.sendMessageCreator();
-        setDisabled(true)
+        setDisabled(true);
     }
 
     const updateMessageHandler = (evt) => {
         const newMessageText = evt.currentTarget.value;
 
         if (newMessageText) {
-            setDisabled(false)
+            setDisabled(false);
         } else {
-            setDisabled(true)
+            setDisabled(true);
         }
 
         props.updateMessageBodyCreator(newMessageText);
@@ -40,11 +50,18 @@ const Dialogs = (props) => {
                 {messagesElements}
             </ul>
             <div className="dialogs__new-message-container">
-                <textarea className="input input_place_dialogs"
+                <textarea
+                    className="input input_place_dialogs"
                     placeholder="Write your message here..."
                     value={props.messageText}
-                    onChange={updateMessageHandler}></textarea>
-                <button className="button button_place_dialogs" onClick={sendMessageHandler} disabled={disabled}>Send</button>
+                    onChange={updateMessageHandler}>
+                </textarea>
+                <button
+                    className="button button_place_dialogs"
+                    onClick={sendMessageHandler}
+                    disabled={disabled}
+                >Send
+                </button>
             </div>
         </section>
     )

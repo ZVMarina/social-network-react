@@ -7,10 +7,6 @@
 @import url(./blocks/title/_place/title_place_profile.css);
 @import url(./blocks/title/_place/title_place-posts.css);
 @import url(./blocks/title/_place/title_place_edit-info.css);
-@import url(./blocks/title/_place/title_place_contacts.css);
-@import url(./blocks/title/_place/title_place_job.css);
-
-@import url(./blocks/subtitle/subtitle.css);
 
 @import url(./blocks/popup/_type/popup_type_edit-info.css);
 @import url(./blocks/popup/__container/popup__container.css);
@@ -50,7 +46,7 @@
 @import url(./blocks/paginator/__button/_without-indent/paginator__button_without-indent.css);
 
 @import url(./blocks/contacts/contacts.css);
-@import url(./blocks/contacts/__heading/contacts__heading.css);
+@import url(./blocks/contacts/__item-heading/contacts__item-heading.css);
 
 @import url(./blocks/form/form.css);
 @import url(./blocks/form/__heading/form__heading.css);
@@ -109,7 +105,6 @@
 @import url(./blocks/posts/__text/posts__text.css);
 
 @import url(./blocks/dialogs/dialogs.css);
-@import url(./blocks/dialogs/__title/dialogs__title.css);
 @import url(./blocks/dialogs/__list/dialogs__list.css);
 @import url(./blocks/dialogs/__list/_type/dialogs__list_type_dialog.css);
 @import url(./blocks/dialogs/__list/_type/dialogs__list_type_messages.css);
@@ -122,7 +117,6 @@
 @import url(./blocks/dialogs/__new-message-container/dialogs__new-message-container.css);
 
 @import url(./blocks/users/users.css);
-@import url(./blocks/users/__title/users__title.css);
 @import url(./blocks/users/__list/users__list.css);
 @import url(./blocks/users/__item/users__item.css);
 @import url(./blocks/users/__follow-container/users__follow-container.css);

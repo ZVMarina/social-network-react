@@ -54,7 +54,9 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
                         multiple
                     />
                     <label htmlFor="file" className="button avatar-file__button">
-                        <span className="avatar-file__icon-wrapper"><img className="avatar-file__icon" src={iconDownload} alt="Выбрать файл" width="25" /></span>
+                        <span className="avatar-file__icon-wrapper">
+                            <img className="avatar-file__icon" src={iconDownload} alt="Выбрать файл" width="25" />
+                        </span>
                         <span className="avatar-file__button-text">Select a file</span>
                     </label>
                 </div>

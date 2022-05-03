@@ -11,7 +11,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
 
     useEffect(() => {
         setStatus(status);
-    }, [status]);
+    }, [status])
 
     const activeteEditMode = () => {
         if (myId === userId) {
@@ -37,10 +37,14 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
         <div className="profile__status-wrapper">
             <b className="profile__subtitle">Status:</b>
             {!editMode &&
-                <p className="profile__status" onClick={activeteEditMode}>{status || 'Status should be here'}</p>
+                <p
+                    className="profile__status"
+                    onClick={activeteEditMode}>{status || 'Status should be here'}
+                </p>
             }
             {editMode &&
-                <input className="profile__status-input"
+                <input
+                    className="profile__status-input"
                     onBlur={deactiveteEditMode}
                     value={statusText}
                     onChange={changeStatusHandler}

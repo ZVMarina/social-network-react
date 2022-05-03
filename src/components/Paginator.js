@@ -31,13 +31,17 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                     className='button paginator__button_type_first-last-page'
                     onClick={setFirstPage}
                 >1
-                </button>}
+                </button>
+            }
+
             {portionNumber > 1 &&
                 <button
                     className='button paginator__button_type_next-back'
                     onClick={() => { setPortionNumber(portionNumber - 1) }}
                 >Back
-                </button>}
+                </button>
+            }
+
             {pages
                 .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
                 .map(page => {
@@ -54,7 +58,9 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                             {page}
                         </li>
                     )
-                })}
+                })
+            }
+
             {portionCount > portionNumber &&
                 <button
                     className=
@@ -65,13 +71,16 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                     }
                     onClick={() => { setPortionNumber(portionNumber + 1) }}
                 >Next
-                </button>}
+                </button>
+            }
+
             {portionCount > portionNumber &&
                 <button
                     className='button paginator__button_type_first-last-page'
                     onClick={setLastPage}
                 >{pagesCount}
-                </button>}
+                </button>
+            }
         </ul>
     )
 }

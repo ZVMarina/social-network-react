@@ -15,14 +15,23 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                         onClick={activeteEditMode}>
                     </button>}
             </div>
-            <ProfileStatus className="profile__status" status={status} updateStatus={updateStatus} myId={myId} />
+            <ProfileStatus
+                className="profile__status"
+                status={status}
+                updateStatus={updateStatus}
+                myId={myId}
+            />
             <div className="profile__about-container">
                 <b className="profile__subtitle">About me: </b>
-                <p className="profile__info profile__about">{profile.aboutMe ? profile.aboutMe : 'no data'}</p>
+                <p className="profile__info profile__about">
+                    {profile.aboutMe ? profile.aboutMe : 'no data'}
+                </p>
             </div>
             <div className="profile__job-container">
                 <b className="profile__subtitle">Looking for a job: </b>
-                <p className=" profile__info profile__job">{profile.lookingForAJob ? 'Yes' : 'No'}</p>
+                <p className=" profile__info profile__job">
+                    {profile.lookingForAJob ? 'Yes' : 'No'}
+                </p>
             </div>
             {profile.lookingForAJob &&
                 <div className="profile__skills-container">
@@ -39,7 +48,6 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                             key={contactKey}
                             contactsTitle={contactKey}
                             contactsValue={profile.contacts[contactKey] ? profile.contacts[contactKey] : 'no data'}
-                            className="contacts__url"
                         />
                     )
                 }
