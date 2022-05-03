@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import photo from '../../images/users/no-photo.png';
+import photo from '../../images/no-photo.png';
 
 const User = ({ user, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Preloader from '../../Preloader'
-import photo from '../../../images/users/no-photo.png'
+import photo from '../../../images/no-photo.png'
 import iconDownload from '../../../images/icon-download-white.svg'
 import { useParams } from 'react-router-dom';
 import ProfileData from './ProfileData';

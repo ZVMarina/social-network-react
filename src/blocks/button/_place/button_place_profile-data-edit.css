@@ -1,6 +1,6 @@
 .button_place_profile-data-edit {
     grid-area: button;
-    background-image: url('../../../images/edit-profile.svg');
+    background-image: url('../../../images/edit.svg');
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 0;
