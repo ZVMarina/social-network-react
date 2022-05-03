@@ -9,6 +9,7 @@ The file structure is organized according to the BEM methodology. The grid modul
 3. You can add posts and send messages (without connecting to the server up to date). 
 4. Added validation of input fields (login and password). 
 5. Added the ability to upload a new photo (with preloader).
+6. Now you can edit the profile information.
 
 ### Stack
 
@@ -19,7 +20,6 @@ The file structure is organized according to the BEM methodology. The grid modul
 ### Improvement plans
 
 1. Optimize the site for viewing on screens from 320 pixels to infinity. 
-2. Refine the page of dialogues and posts.
 
 ### Link to GitHub Pages
 
