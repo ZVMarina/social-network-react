@@ -5,7 +5,11 @@
         "about contacts"
         "job contacts"
         "skills contacts";
+    align-content: start;
     column-gap: 30px;
+    row-gap: 20px;
     height: 450px;
     overflow-y: scroll;
+    /* grid-template-rows: 80px 120px 80px 120px */
+    grid-template-rows: 14% 36% 15% 35%
 }

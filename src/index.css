@@ -24,6 +24,7 @@
 @import url(./blocks/input/_place/input_place_dialogs.css);
 @import url(./blocks/input/_place/input_place_login.css);
 @import url(./blocks/input/_place/input_place_profile-data-form.css);
+@import url(./blocks/input/_theme/input_theme_about-and-skills.css);
 
 @import url(./blocks/button/button.css);
 @import url(./blocks/button/_place/button_place_login.css);
@@ -59,6 +60,7 @@
 @import url(./blocks/form/__container/form__container.css);
 @import url(./blocks/form/__data-container/form__data-container.css);
 @import url(./blocks/form/__checkbox-container/form__checkbox-container.css);
+@import url(./blocks/form/__checkbox-container/_place/form__checkbox-container_place_form-data.css);
 @import url(./blocks/form/__label-container/form__label-container.css);
 @import url(./blocks/form/__checkbox/form__checkbox.css);
 @import url(./blocks/form/__label/form__label.css);

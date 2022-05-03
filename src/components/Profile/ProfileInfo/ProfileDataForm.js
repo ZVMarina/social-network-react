@@ -58,7 +58,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                 <div className="form__input-wrapper form__input-wrapper_theme_about">
                                     <h3 className="subtitle subtitle_place_form-data">{'About me'}</h3>
                                     <Field
-                                        className="input input_place_theme_about-and-skills"
+                                        className="input input_theme_about-and-skills"
                                         type={'text'}
                                         name={'aboutMe'}
                                         as={'textarea'}
@@ -68,7 +68,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
 
                                 <div className="form__input-wrapper form__input-wrapper_theme_job">
                                     <h3 className="subtitle subtitle_place_form-data">{'Are you looking for a job?'}</h3>
-                                    <div className="form__checkbox-container">
+                                    <div className="form__checkbox-container form__checkbox-container_place_form-data">
                                         <Field
                                             className="form__checkbox"
                                             type={'checkbox'}
@@ -82,7 +82,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                     <div className="form__input-wrapper form__input-wrapper_theme_skills">
                                         <h3 className="subtitle subtitle_place_form-data">{'My skills'}</h3>
                                         <Field
-                                            className="input input_place_theme_about-and-skills"
+                                            className="input input_theme_about-and-skills"
                                             type={'text'}
                                             name={'lookingForAJobDescription'}
                                             as={'textarea'}
