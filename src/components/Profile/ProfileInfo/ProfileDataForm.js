@@ -42,8 +42,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                     {({ errors, touched, isValid, dirty, status }) => (
                         <Form className="form form_place_edit-info">
 
-                            {/* <div className="form_data-container"> */}
-                                {/* <div className="form_data-container"> */}
+                            <div className="form__data-container">
                                     <div className="form__input-wrapper form__input-wrapper_theme_name">
                                         <h3 className="form__heading">{'My name'}</h3>
                                         <Field
@@ -87,8 +86,6 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                             />
                                         </div>
                                     }
-                                {/* </div> */}
-
 
                                 <div className="contacts">
                                     <h3 className="form__heading">Contacts: </h3>
@@ -107,7 +104,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                     }
 
                                 </div>
-                            {/* </div> */}
+                            </div>
 
                             <button className="button form__button button_place_profile-data-save" type={'submit'}>Save</button>
                         </Form>

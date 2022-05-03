@@ -1,20 +1,6 @@
 .form_place_edit-info {
-    /* display: flex;
-    flex-direction: column;
-    width: 100%; */
-    display: grid;
-    grid-template-areas: 
-    "name contacts"
-    "about contacts"
-    "job contacts"
-    "skills contacts"
-    "button button";
-    column-gap: 50px;
-    row-gap: 30px;
     width: 100%;
     max-width: none;
-    /* grid-template-columns: repeat(2, minmax(min-content, max-content)); */
-    /* grid-template-columns: minmax(min-content, max-content); */
-   /*  grid-template-rows: repeat(4, minmax(min-content, max-content));
-    align-items: start; */
+    display: flex;
+    flex-direction: column;
 }

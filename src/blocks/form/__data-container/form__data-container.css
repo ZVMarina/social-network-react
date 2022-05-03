@@ -1,0 +1,11 @@
+.form__data-container {
+    display: grid;
+    grid-template-areas:
+        "name contacts"
+        "about contacts"
+        "job contacts"
+        "skills contacts";
+    column-gap: 30px;
+    height: 450px;
+    overflow-y: scroll;
+}
