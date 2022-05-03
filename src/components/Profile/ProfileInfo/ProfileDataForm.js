@@ -42,67 +42,72 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                     {({ errors, touched, isValid, dirty, status }) => (
                         <Form className="form form_place_edit-info">
 
-                            <div className="form__input-wrapper form__input-wrapper_theme_name">
-                                <h3 className="form__heading">{'My name'}</h3>
-                                <Field
-                                    className="input input_place_profile-data-form"
-                                    type={'text'}
-                                    name={'fullName'}
-                                />
-                                {touched.fullName && errors.fullName && (
-                                    <div className="form__error">{errors.fullName}</div>
-                                )}
-                            </div>
+                            {/* <div className="form_data-container"> */}
+                                {/* <div className="form_data-container"> */}
+                                    <div className="form__input-wrapper form__input-wrapper_theme_name">
+                                        <h3 className="form__heading">{'My name'}</h3>
+                                        <Field
+                                            className="input input_place_profile-data-form"
+                                            type={'text'}
+                                            name={'fullName'}
+                                        />
+                                        {touched.fullName && errors.fullName && (
+                                            <div className="form__error">{errors.fullName}</div>
+                                        )}
+                                    </div>
 
-                            <div className="form__input-wrapper form__input-wrapper_theme_about">
-                                <h3 className="form__heading">{'About me'}</h3>
-                                <Field
-                                    className="input input_place_theme_about-and-skills"
-                                    type={'text'}
-                                    name={'aboutMe'}
-                                    as={'textarea'}
-                                    placeholder='write here...'
-                                />
-                            </div>
+                                    <div className="form__input-wrapper form__input-wrapper_theme_about">
+                                        <h3 className="form__heading">{'About me'}</h3>
+                                        <Field
+                                            className="input input_place_theme_about-and-skills"
+                                            type={'text'}
+                                            name={'aboutMe'}
+                                            as={'textarea'}
+                                            placeholder='write here...'
+                                        />
+                                    </div>
 
-                            <div className="form__input-wrapper form__input-wrapper_theme_job">
-                                <h3 className="form__heading">{'Are you looking for a job?'}</h3>
-                                <div className="form__checkbox-container">
-                                    <Field className="form__checkbox" type={'checkbox'} name={'lookingForAJob'} />
-                                    <label className="form__label" htmlFor={'rememberMe'}>Yes</label>
-                                </div>
-                            </div>
+                                    <div className="form__input-wrapper form__input-wrapper_theme_job">
+                                        <h3 className="form__heading">{'Are you looking for a job?'}</h3>
+                                        <div className="form__checkbox-container">
+                                            <Field className="form__checkbox" type={'checkbox'} name={'lookingForAJob'} />
+                                            <label className="form__label" htmlFor={'rememberMe'}>Yes</label>
+                                        </div>
+                                    </div>
 
-                            {profile.lookingForAJob &&
-                                <div className="form__input-wrapper form__input-wrapper_theme_skills">
-                                    <h3 className="form__heading">{'My skills'}</h3>
-                                    <Field
-                                        className="input input_place_theme_about-and-skills"
-                                        type={'text'}
-                                        name={'lookingForAJobDescription'}
-                                        as={'textarea'}
-                                        placeholder='write here...'
-                                    />
-                                </div>
-                            }
-
-                            <div className="contacts">
-                                <h3 className="form__heading">Contacts: </h3>
-                                {profile && Object.keys(profile.contacts)
-                                    .map((contactKey) =>
-                                        <div key={contactKey} className="form__input-wrapper form__input-wrapper_theme_contacts">
-                                            <p className="contacts__heading">{contactKey}</p>
+                                    {profile.lookingForAJob &&
+                                        <div className="form__input-wrapper form__input-wrapper_theme_skills">
+                                            <h3 className="form__heading">{'My skills'}</h3>
                                             <Field
-                                                className="input input_place_profile-data-form"
+                                                className="input input_place_theme_about-and-skills"
                                                 type={'text'}
-                                                name={`contacts.${contactKey}`}
-                                                placeholder={'Your contacts'}
+                                                name={'lookingForAJobDescription'}
+                                                as={'textarea'}
+                                                placeholder='write here...'
                                             />
                                         </div>
-                                    )
-                                }
+                                    }
+                                {/* </div> */}
 
-                            </div>
+
+                                <div className="contacts">
+                                    <h3 className="form__heading">Contacts: </h3>
+                                    {profile && Object.keys(profile.contacts)
+                                        .map((contactKey) =>
+                                            <div key={contactKey} className="form__input-wrapper form__input-wrapper_theme_contacts">
+                                                <p className="contacts__heading">{contactKey}</p>
+                                                <Field
+                                                    className="input input_place_profile-data-form"
+                                                    type={'text'}
+                                                    name={`contacts.${contactKey}`}
+                                                    placeholder={'Your contacts'}
+                                                />
+                                            </div>
+                                        )
+                                    }
+
+                                </div>
+                            {/* </div> */}
 
                             <button className="button form__button button_place_profile-data-save" type={'submit'}>Save</button>
                         </Form>
