@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, portionSize = 15 }) => {
-    const pagesCount = Math.ceil(totalUsersCount / pageSize);
+const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, portionSize = 15, setPage }) => {
+    const pagesCount = Math.ceil(totalUsersCount / pageSize); // количество страниц
 
     const pages = [];
 
@@ -44,7 +44,11 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                     return (
                         <li
                             key={page}
-                            className={currentPage === page ? 'paginator__page_active' : 'paginator__page' || currentPage === rightPortionPageNumber && 'paginator__page_without-indent'}
+                            className=
+                            {
+                                currentPage === page ? 'paginator__page_active' : 'paginator__page'
+                                    || currentPage === rightPortionPageNumber && 'paginator__page_without-indent'
+                            }
                             onClick={() => { pageChangeHandler(page) }}
                         >
                             {page}
@@ -53,7 +57,12 @@ const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, 
                 })}
             {portionCount > portionNumber &&
                 <button
-                    className={currentPage === rightPortionPageNumber ? 'button paginator__button_type_next-back paginator__button_without-indent' : 'button paginator__button_type_next-back'}
+                    className=
+                    {
+                        currentPage === rightPortionPageNumber
+                            ? 'button paginator__button_type_next-back paginator__button_without-indent'
+                            : 'button paginator__button_type_next-back'
+                    }
                     onClick={() => { setPortionNumber(portionNumber + 1) }}
                 >Next
                 </button>}
