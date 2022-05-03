@@ -98,7 +98,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                             <div
                                                 key={contactKey}
                                                 className="form__input-wrapper form__input-wrapper_theme_contacts">
-                                                <p className="contacts__heading">{contactKey}</p>
+                                                <p className="contacts__item-heading">{contactKey}</p>
                                                 <Field
                                                     className="input input_place_profile-data-form"
                                                     type={'text'}
