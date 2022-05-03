@@ -14,7 +14,9 @@
 
 @import url(./blocks/subtitle/subtitle.css);
 @import url(./blocks/subtitle/_place/subtitle_place_contatcs.css);
+@import url(./blocks/subtitle/_place/subtitle_place_contatcs-data.css);
 @import url(./blocks/subtitle/_place/subtitle_place_form-data.css);
+@import url(./blocks/subtitle/_place/subtitle_place_contatcs-form-data.css);
 
 @import url(./blocks/popup/_type/popup_type_edit-info.css);
 @import url(./blocks/popup/__container/popup__container.css);

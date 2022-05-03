@@ -1,7 +1,7 @@
 const Contacts = ({ profile }) => {
     return (
         <div className="contacts">
-            <b className="subtitle subtitle_place_data">Contacts: </b>
+            <b className="subtitle subtitle_place_contatcs-data">Contacts: </b>
             {profile && Object.keys(profile.contacts)
                 .map(contactKey =>
                     <div key={contactKey} className="contacts__item-container">

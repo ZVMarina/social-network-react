@@ -92,7 +92,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                 }
 
                                 <div className="contacts">
-                                    <h3 className="subtitle subtitle_place_form-data">Contacts: </h3>
+                                    <h3 className="subtitle subtitle_place_contatcs-form-data">Contacts: </h3>
                                     {profile && Object.keys(profile.contacts)
                                         .map((contactKey) =>
                                             <div
