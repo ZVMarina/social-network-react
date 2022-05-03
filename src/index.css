@@ -13,7 +13,7 @@
 @import url(./blocks/title/_place/title_place_edit-info.css);
 
 @import url(./blocks/subtitle/subtitle.css);
-@import url(./blocks/subtitle/_place/subtitle_place_contatcs.css);
+@import url(./blocks/subtitle/_place/subtitle_place_contatcs-item.css);
 @import url(./blocks/subtitle/_place/subtitle_place_contatcs-data.css);
 @import url(./blocks/subtitle/_place/subtitle_place_form-data.css);
 @import url(./blocks/subtitle/_place/subtitle_place_contatcs-form-data.css);
