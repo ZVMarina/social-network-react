@@ -1,9 +1,9 @@
-.navigation__link {
+.link_place_novigation {
     color: #8793a3;
 }
 
 /* Если у ссылки есть класс active, то */
 /* Класс active добавляет NavLink */
-.navigation__link.active {
+.link_place_novigation.active {
     opacity: .7;
 }

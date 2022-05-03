@@ -8,10 +8,10 @@ const Header = ({ isAuth, myId, login, logout }) => {
             <img className="header__logo" src={logo} />
             {isAuth
                 ? <div className="header__login-container">
-                    <NavLink className="link header__login-link" to={'/profile/' + myId}>{login}</NavLink>
+                    <NavLink className="link link_theme_login" to={'/profile/' + myId}>{login}</NavLink>
                     <div className="header__line"> | </div>
                     <button
-                        className="link header__logout-link"
+                        className="link link_theme-logout"
                         onClick={logout}
                     >Logout
                     </button>
