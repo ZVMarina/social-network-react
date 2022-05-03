@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Contacts from "./Contacts";
 import ProfileStatus from "./ProfileStatus";
 
 const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) => {
@@ -44,11 +43,11 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                 <b className="subtitle subtitle_place_data">Contacts: </b>
                 {profile && Object.keys(profile.contacts)
                     .map(contactKey =>
-                        <Contacts
-                            key={contactKey}
-                            contactsTitle={contactKey}
-                            contactsValue={profile.contacts[contactKey] ? profile.contacts[contactKey] : 'no data'}
-                        />
+                        <div key={contactKey} className="contacts__item-container">
+                            <b className="subtitile subtitle_place_contatcs">
+                                {contactKey}
+                            </b>: {profile.contacts[contactKey] ? profile.contacts[contactKey] : 'no data'}
+                        </div>
                     )
                 }
             </div>
