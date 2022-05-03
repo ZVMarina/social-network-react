@@ -22,26 +22,26 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
                 myId={myId}
             />
             <div className="profile__about-container">
-                <b className="profile__subtitle">About me: </b>
+                <b className="subtitle subtitle_place_data">About me: </b>
                 <p className="profile__info profile__about">
                     {profile.aboutMe ? profile.aboutMe : 'no data'}
                 </p>
             </div>
             <div className="profile__job-container">
-                <b className="profile__subtitle">Looking for a job: </b>
+                <b className="subtitle subtitle_place_data">Looking for a job: </b>
                 <p className=" profile__info profile__job">
                     {profile.lookingForAJob ? 'Yes' : 'No'}
                 </p>
             </div>
             {profile.lookingForAJob &&
                 <div className="profile__skills-container">
-                    <b className="profile__subtitle">My skills: </b>
+                    <b className="subtitle subtitle_place_data">My skills: </b>
                     <p className=" profile__info profile__skills">
                         {profile.lookingForAJobDescription ? profile.lookingForAJobDescription : 'no data'}</p>
                 </div>
             }
             <div className="contacts">
-                <b className="profile__subtitle">Contacts: </b>
+                <b className="subtitle subtitle_place_data">Contacts: </b>
                 {profile && Object.keys(profile.contacts)
                     .map(contactKey =>
                         <Contacts
