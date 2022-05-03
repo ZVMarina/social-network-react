@@ -39,7 +39,7 @@ const Login = ({ login, isAuth, myId }) => {
                 onSubmit={onSubmit}
             >
                 {({ errors, touched, isValid, dirty, status }) => (
-                    <Form className="form">
+                    <Form className="form form_place_login">
 
                         <Field
                             className="input input_place_login"

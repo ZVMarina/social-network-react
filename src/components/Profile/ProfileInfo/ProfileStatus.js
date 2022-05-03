@@ -38,7 +38,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
             <b className="subtitle subtitle_place_data">Status:</b>
             {!editMode &&
                 <p
-                    className="profile__status"
+                    className="profile__text profile__text_theme_status"
                     onClick={activeteEditMode}>{status || 'Status should be here'}
                 </p>
             }

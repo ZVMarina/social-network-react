@@ -1,6 +1,5 @@
 .form_place_edit-info {
     width: 100%;
-    max-width: none;
     display: flex;
     flex-direction: column;
 }

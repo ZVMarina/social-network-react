@@ -2,7 +2,6 @@
     grid-area: name;
     margin: 0;
     padding: 0;
-    padding-bottom: 15px;
     display: flex;
     align-items: center;
     column-gap: 10px;

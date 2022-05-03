@@ -6,5 +6,6 @@
     "status job contacts"
     "about skills contacts";
     column-gap: 30px;
+    row-gap: 15px;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
 }

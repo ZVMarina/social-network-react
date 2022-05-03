@@ -25,14 +25,14 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
 
             <div className="profile__about-container">
                 <b className="subtitle subtitle_place_data">About me: </b>
-                <p className="profile__info profile__about">
+                <p className="profile__text">
                     {profile.aboutMe ? profile.aboutMe : 'no data'}
                 </p>
             </div>
 
             <div className="profile__job-container">
                 <b className="subtitle subtitle_place_data">Looking for a job: </b>
-                <p className=" profile__info profile__job">
+                <p className="profile__text">
                     {profile.lookingForAJob ? 'Yes' : 'No'}
                 </p>
             </div>
@@ -40,7 +40,7 @@ const ProfileData = ({ profile, myId, status, updateStatus, activeteEditMode }) 
             {profile.lookingForAJob &&
                 <div className="profile__skills-container">
                     <b className="subtitle subtitle_place_data">My skills: </b>
-                    <p className=" profile__info profile__skills">
+                    <p className=" profile__text">
                         {profile.lookingForAJobDescription ? profile.lookingForAJobDescription : 'no data'}</p>
                 </div>
             }

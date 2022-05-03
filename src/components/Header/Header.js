@@ -16,7 +16,7 @@ const Header = ({ isAuth, myId, login, logout }) => {
                     >Logout
                     </button>
                 </div>
-                : <NavLink className="link header__login-link" to={'/login '}>Login</NavLink>}
+                : <NavLink className="link link_theme_login" to={'/login '}>Login</NavLink>}
         </header>
     )
 }
