@@ -23,6 +23,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
         setEditMode(false);
         setIsLoading(true);
 
+
         updateStatus(statusText)
             .then(() => {
                 setIsLoading(false);
@@ -35,16 +36,19 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
 
     return (
         <div className="profile__status-container">
-            {/* <div className="profile__preloader-container"> */}
-                <b className="subtitle subtitle_place_data">Status:</b>
-                {isLoading && <Preloader className="preloader_place_status" />}
-            {/* </div> */}
+            <b className="subtitle subtitle_place_data">Status:</b>
+
             {!editMode &&
-                <p
-                    className="profile__text profile__text_theme_status"
-                    onClick={activeteEditMode}>{status || 'Status should be here'}
-                </p>
+                <div className="profile__text-container">
+                    {isLoading && <Preloader className="preloader_place_status" />}
+                    <p
+                        className="profile__text profile__text_theme_status"
+                        onClick={activeteEditMode}>{status || 'Status should be here'}
+                    </p>
+                </div>
+
             }
+
             {editMode &&
                 <input
                     className="profile__status-input"

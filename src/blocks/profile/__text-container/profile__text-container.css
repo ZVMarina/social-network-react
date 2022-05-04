@@ -1,0 +1,5 @@
+.profile__text-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
