@@ -49,9 +49,10 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                         className="input input_place_profile-form-data"
                                         type={'text'}
                                         name={'fullName'}
+                                        placeholder='write here...'
                                     />
                                     {touched.fullName && errors.fullName && (
-                                        <div className="form__error">{errors.fullName}</div>
+                                        <div className="form__error form__error_place_form-data">{errors.fullName}</div>
                                     )}
                                 </div>
 
@@ -103,7 +104,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                                                     className="input input_place_profile-form-data"
                                                     type={'text'}
                                                     name={`contacts.${contactKey}`}
-                                                    placeholder={'Your contacts'}
+                                                    placeholder={'write here...'}
                                                 />
                                             </div>
                                         )

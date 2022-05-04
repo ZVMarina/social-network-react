@@ -1,3 +1,4 @@
 .form__input-wrapper_theme_name {
     grid-area: name;
+    position: relative;
 }

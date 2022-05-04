@@ -67,6 +67,7 @@
 @import url(./blocks/form/__checkbox/form__checkbox.css);
 @import url(./blocks/form/__label/form__label.css);
 @import url(./blocks/form/__error/form__error.css);
+@import url(./blocks/form/__error/_place/form__error_place_form-data.css);
 @import url(./blocks/form/__input-wrapper/form__input-wrapper.css);
 @import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_about.css);
 @import url(./blocks/form/__input-wrapper/_theme/form__input-wrapper_theme_name.css);
