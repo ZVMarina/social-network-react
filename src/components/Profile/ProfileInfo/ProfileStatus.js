@@ -35,7 +35,10 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
 
     return (
         <div className="profile__status-container">
-            <b className="subtitle subtitle_place_data">Status:</b>
+            {/* <div className="profile__preloader-container"> */}
+                <b className="subtitle subtitle_place_data">Status:</b>
+                {isLoading && <Preloader className="preloader_place_status" />}
+            {/* </div> */}
             {!editMode &&
                 <p
                     className="profile__text profile__text_theme_status"
@@ -51,7 +54,6 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
                     autoFocus={true}>
                 </input>
             }
-            {isLoading && <Preloader className="preloader_place_status" />}
         </div>
     )
 }

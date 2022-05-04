@@ -1,0 +1,7 @@
+.profile__preloader-container {
+    display: flex; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    background-color: aquamarine;
+}

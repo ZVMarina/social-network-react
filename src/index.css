@@ -95,6 +95,7 @@
 @import url(./blocks/profile/__avatar/profile__avatar.css);
 @import url(./blocks/profile/__text/profile__text.css);
 @import url(./blocks/profile/__text/_theme/profile__text_theme_status.css);
+@import url(./blocks/profile/__preloader-container/profile__preloader-container.css);
 @import url(./blocks/profile/__status-input/profile__status-input.css);
 @import url(./blocks/profile/__status-container/profile__status-container.css);
 @import url(./blocks/profile/__about-container/profile__about-container.css);
