@@ -56,6 +56,11 @@
 @import url(./blocks/paginator/__button/_type/paginator__button_type_next-back.css);
 @import url(./blocks/paginator/__button/_without-indent/paginator__button_without-indent.css);
 
+@import url(./blocks/status/status.css);
+@import url(./blocks/status/__text-container/status__text-container.css);
+@import url(./blocks/status/__text/status__text.css);
+@import url(./blocks/status/__input/status__input.css);
+
 @import url(./blocks/form/form.css);
 @import url(./blocks/form/_place/form_place_edit-info.css);
 @import url(./blocks/form/_place/form_place_login.css);
@@ -93,11 +98,7 @@
 @import url(./blocks/profile/__name-container/profile__name-container.css);
 @import url(./blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
-@import url(./blocks/profile/__text-container/profile__text-container.css);
 @import url(./blocks/profile/__text/profile__text.css);
-@import url(./blocks/profile/__text/_theme/profile__text_theme_status.css);
-@import url(./blocks/profile/__status-input/profile__status-input.css);
-@import url(./blocks/profile/__status-container/profile__status-container.css);
 @import url(./blocks/profile/__about-container/profile__about-container.css);
 @import url(./blocks/profile/__job-container/profile__job-container.css);
 @import url(./blocks/profile/__skills-container/profile__skills-container.css);
