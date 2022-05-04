@@ -2,10 +2,8 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/main/main.css);
 
-@import url(./blocks/link/link.css);
-@import url(./blocks/link/_theme/link_theme_login.css);
-@import url(./blocks/link/_theme/link_theme_logout.css);
-@import url(./blocks/link/_place/link_place_novigation.css);
+@import url(./blocks/popup/_type/popup_type_edit-info.css);
+@import url(./blocks/popup/__container/popup__container.css);
 
 @import url(./blocks/title/title.css);
 @import url(./blocks/title/_place/title_place_profile.css);
@@ -18,8 +16,13 @@
 @import url(./blocks/subtitle/_place/subtitle_place_form-data.css);
 @import url(./blocks/subtitle/_place/subtitle_place_contatcs-form-data.css);
 
-@import url(./blocks/popup/_type/popup_type_edit-info.css);
-@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/text/text.css);
+@import url(./blocks/text/_place/text_place_status.css);
+
+@import url(./blocks/link/link.css);
+@import url(./blocks/link/_theme/link_theme_login.css);
+@import url(./blocks/link/_theme/link_theme_logout.css);
+@import url(./blocks/link/_place/link_place_novigation.css);
 
 @import url(./blocks/input/input.css);
 @import url(./blocks/input/_place/input_place_posts.css);
@@ -58,7 +61,6 @@
 
 @import url(./blocks/status/status.css);
 @import url(./blocks/status/__text-container/status__text-container.css);
-@import url(./blocks/status/__text/status__text.css);
 @import url(./blocks/status/__input/status__input.css);
 
 @import url(./blocks/form/form.css);
@@ -106,7 +108,6 @@
 @import url(./blocks/posts/posts.css);
 @import url(./blocks/posts/__item/posts__item.css);
 @import url(./blocks/posts/__item-list/posts__item-list.css);
-@import url(./blocks/posts/__text/posts__text.css);
 
 @import url(./blocks/dialogs/dialogs.css);
 @import url(./blocks/dialogs/__list/dialogs__list.css);
@@ -114,9 +115,7 @@
 @import url(./blocks/dialogs/__list/_type/dialogs__list_type_messages.css);
 @import url(./blocks/dialogs/__item/dialogs__item.css);
 @import url(./blocks/dialogs/__item/_type/dialogs__item_type_dialog.css);
-@import url(./blocks/dialogs/__item/_type/dialogs__item_type_messages.css);
 @import url(./blocks/dialogs/__link/dialogs__link.css);
-@import url(./blocks/dialogs/__text/dialogs__text.css);
 @import url(./blocks/dialogs/__container/dialogs__container.css);
 @import url(./blocks/dialogs/__new-message-container/dialogs__new-message-container.css);
 

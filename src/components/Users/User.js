@@ -32,11 +32,11 @@ const User = ({ user, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
                 }
             </div>
             <div className="users__info-container">
-                <h2 className="users__name">{user.name}</h2>
-                <p className="users__status">
+                <h2 className="users__name text">{user.name}</h2>
+                <p className="users__status text">
                     {user.status != null ? user.status : 'There should be a status here'}
                 </p>
-                <p className="users__country">
+                <p className="users__country text">
                     {user.country ? user.country : 'There should be a country here'}
                 </p>
             </div>

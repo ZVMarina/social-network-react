@@ -42,7 +42,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
                 <div className="status__text-container">
                     {isLoading && <Preloader className="preloader_place_status" />}
                     <p
-                        className="status__text"
+                        className="text text_place_status"
                         onClick={activeteEditMode}>{status || 'Status should be here'}
                     </p>
                 </div>

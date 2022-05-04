@@ -1,5 +1,4 @@
-.status__text {
+.text_place_status {
     cursor: pointer;
     border: 2px solid transparent;
-    margin: 0;
 }

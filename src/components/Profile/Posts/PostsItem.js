@@ -3,7 +3,7 @@ import React from 'react';
 const PostsItem = ({ post }) => {
     return (
         <li className="posts__item">
-            <span className="posts__text">{post}</span>
+            <span className="text">{post}</span>
         </li>
     )
 }

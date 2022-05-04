@@ -7,7 +7,7 @@ const DialogsItem = ({ id, name }) => {
     return (
         <li className="dialogs__item dialogs__item_type_dialog">
             <NavLink className="link dialogs__link" to={path}>
-                <span className="dialogs__text">{name}</span>
+                <span className="text">{name}</span>
             </NavLink>
         </li>
     )
