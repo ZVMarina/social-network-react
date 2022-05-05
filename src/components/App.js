@@ -18,7 +18,7 @@ const App = ({ initializedApp, initialized, myId, store }) => {
   })
 
   if (!initialized) {
-    return <Preloader className={'preloader_place_app'}/>
+    return <Preloader className={'preloader_place_app'} />
   }
 
   return (
@@ -28,6 +28,7 @@ const App = ({ initializedApp, initialized, myId, store }) => {
         <Navbar myId={myId} />
         <main className="main">
           <Routes>
+            <Route path='/' element={<UsersContainer />} />
             <Route path='/login' element={<Login />} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer props={store} />} />
