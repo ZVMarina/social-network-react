@@ -15,14 +15,14 @@ import { compose } from 'redux';
 const ProfileContainer = (
     { getProfileInfo, getUserStatus, isAuth, profile, status, updateStatus, myId, saveAvatar, saveProfile }
 ) => {
-    
-    const params = useParams();
+
+    const { userId } = useParams();
 
     useEffect(() => {
-        getProfileInfo(params.userId);
-        getUserStatus(params.userId);
+        getProfileInfo(userId);
+        getUserStatus(userId);
 
-    }, [params.userId])
+    }, [userId])
 
     if (!isAuth) {
         return <Navigate to={'/login'} />

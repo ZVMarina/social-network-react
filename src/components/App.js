@@ -20,7 +20,7 @@ const App = ({ initializedApp, initialized, myId, store }) => {
   if (!initialized) {
     return <Preloader className={'preloader_place_app'} />
   }
-
+  
   return (
     <div className="App">
       <div className="page">

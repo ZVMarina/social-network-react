@@ -3,6 +3,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import PostsContainer from './Posts/PostsContainer';
 
 const Profile = ({ profile, status, updateStatus, myId, store, saveAvatar, saveProfile }) => {
+    console.log(store);
     return (
         <>
             <section className="profile">

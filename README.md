@@ -19,7 +19,8 @@ The file structure is organized according to the BEM methodology. The grid modul
 
 ### Improvement plans
 
-1. Optimize the site for viewing on screens from 320 pixels to infinity. 
+1. Optimize the site for viewing on screens from 320 pixels to infinity.
+2. Add Page 404
 
 ### Link to GitHub Pages
 
