@@ -28,4 +28,4 @@ Important:
 1. You need login information - ask by phone or in messages.
 2. If you have already visited the site (with Google Chrome), do a hard cache cleanup.
 
-[Social Network (React)](https://zvmarina.github.io/react-test-task-Kanalservice/)
+[Social Network (React)](https://zvmarina.github.io/social-network-react/)
