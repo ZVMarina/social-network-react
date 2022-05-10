@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-test-task-Kanalservice/static/css/main.50246b3a.css",
-    "main.js": "/react-test-task-Kanalservice/static/js/main.522349e9.js",
-    "static/media/people.png": "/react-test-task-Kanalservice/static/media/people.7a7c346d8638abc2c353.png",
-    "static/media/no-photo.png": "/react-test-task-Kanalservice/static/media/no-photo.a70779f1f0e37cac43dc.png",
-    "static/media/logo_light.svg": "/react-test-task-Kanalservice/static/media/logo_light.aad060e7440634590b95d19641db3c82.svg",
-    "static/media/preloader.svg": "/react-test-task-Kanalservice/static/media/preloader.986f73b863d28190d56a39e16ccfe8e2.svg",
-    "static/media/icon-download-white.svg": "/react-test-task-Kanalservice/static/media/icon-download-white.2453b1a010d053c6c69532aa0f0c2603.svg",
-    "index.html": "/react-test-task-Kanalservice/index.html",
-    "static/media/close.svg": "/react-test-task-Kanalservice/static/media/close.58aaf1081fb73be79fc3.svg",
-    "static/media/edit.svg": "/react-test-task-Kanalservice/static/media/edit.686ec1de24fcfb5046fa.svg",
-    "main.50246b3a.css.map": "/react-test-task-Kanalservice/static/css/main.50246b3a.css.map",
-    "main.522349e9.js.map": "/react-test-task-Kanalservice/static/js/main.522349e9.js.map"
+    "main.css": "/social-network-react/static/css/main.432c8d6b.css",
+    "main.js": "/social-network-react/static/js/main.7fd31e66.js",
+    "static/media/people.png": "/social-network-react/static/media/people.7a7c346d8638abc2c353.png",
+    "static/media/no-photo.png": "/social-network-react/static/media/no-photo.a70779f1f0e37cac43dc.png",
+    "static/media/logo_light.svg": "/social-network-react/static/media/logo_light.aad060e7440634590b95d19641db3c82.svg",
+    "static/media/preloader.svg": "/social-network-react/static/media/preloader.986f73b863d28190d56a39e16ccfe8e2.svg",
+    "static/media/icon-download-white.svg": "/social-network-react/static/media/icon-download-white.2453b1a010d053c6c69532aa0f0c2603.svg",
+    "index.html": "/social-network-react/index.html",
+    "static/media/close.svg": "/social-network-react/static/media/close.58aaf1081fb73be79fc3.svg",
+    "static/media/edit.svg": "/social-network-react/static/media/edit.686ec1de24fcfb5046fa.svg",
+    "main.432c8d6b.css.map": "/social-network-react/static/css/main.432c8d6b.css.map",
+    "main.7fd31e66.js.map": "/social-network-react/static/js/main.7fd31e66.js.map"
   },
   "entrypoints": [
-    "static/css/main.50246b3a.css",
-    "static/js/main.522349e9.js"
+    "static/css/main.432c8d6b.css",
+    "static/js/main.7fd31e66.js"
   ]
 }
