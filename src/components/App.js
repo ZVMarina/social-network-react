@@ -11,6 +11,7 @@ import { initializedAppTC } from '../redux/appReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './Preloader';
+import NotFoundPage from './NotFoundPage/NotFoundPage';
 
 const App = ({ initializedApp, initialized, myId, store }) => {
   useEffect(() => {
@@ -20,9 +21,9 @@ const App = ({ initializedApp, initialized, myId, store }) => {
   if (!initialized) {
     return <Preloader className={'preloader_place_app'} />
   }
-  
+
   return (
-    <div className="App">
+    <div className="app">
       <div className="page">
         <HeaderContainer />
         <Navbar myId={myId} />
@@ -33,6 +34,7 @@ const App = ({ initializedApp, initialized, myId, store }) => {
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer props={store} />} />
             <Route path="/users" element={<UsersContainer />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
       </div>

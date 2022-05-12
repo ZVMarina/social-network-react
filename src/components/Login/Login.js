@@ -22,7 +22,6 @@ const validateLoginForm = values => {
 };
 
 const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
-    console.log(captchaUrl);
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         login(values.email, values.password, values.rememberMe, values.captcha, setStatus);  // setStatus - метод формика
         getGaptcha();

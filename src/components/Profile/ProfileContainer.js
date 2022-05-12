@@ -15,7 +15,6 @@ import { compose } from 'redux';
 const ProfileContainer = (
     { getProfileInfo, getUserStatus, isAuth, profile, status, updateStatus, myId, saveAvatar, saveProfile }
 ) => {
-
     const { userId } = useParams();
 
     useEffect(() => {
