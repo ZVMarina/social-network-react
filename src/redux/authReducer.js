@@ -29,8 +29,8 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserDataAC = (id, email, login, isAuth) => (
-    { type: SET_AUTH_DATA_ACTION_TYPE, data: { id, email, login, isAuth } }
+export const setAuthUserDataAC = (id, email, login, isAuth, captchaUrl) => (
+    { type: SET_AUTH_DATA_ACTION_TYPE, data: { id, email, login, isAuth, captchaUrl } }
 )
 
 export const getCaptchaUrlAC = (captchaUrl) => (
@@ -66,7 +66,7 @@ export const logoutThunkCreator = () => async (dispatch) => {
     const response = await authApi.logout()
 
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserDataAC(null, null, null, false));
+        dispatch(setAuthUserDataAC(null, null, null, false, null));
     }
 }
 
