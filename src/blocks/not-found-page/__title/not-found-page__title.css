@@ -1,4 +1,6 @@
 .not-found-page__title {
     font-size: 100px;
     font-weight: normal;
+    margin: 0;
+    margin-bottom: 50px;
 }
