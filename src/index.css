@@ -30,6 +30,7 @@
 @import url(./blocks/input/_place/input_place_login.css);
 @import url(./blocks/input/_place/input_place_profile-data-form.css);
 @import url(./blocks/input/_theme/input_theme_about-and-skills.css);
+@import url(./blocks/input/_theme/input_theme_captcha.css);
 
 @import url(./blocks/button/button.css);
 @import url(./blocks/button/_place/button_place_login.css);

@@ -24,7 +24,7 @@ const validateLoginForm = values => {
 const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
     console.log(captchaUrl);
     const onSubmit = (values, { setSubmitting, setStatus }) => {
-        login(values.email, values.password, values.rememberMe, setStatus);  // setStatus - метод формика
+        login(values.email, values.password, values.rememberMe, values.captcha, setStatus);  // setStatus - метод формика
         getGaptcha();
         setSubmitting(false);
     };
@@ -37,7 +37,7 @@ const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
         <section className="login">
             <h1 className="title">Login</h1>
             <Formik
-                initialValues={{ email: "", password: "", rememberMe: false }}
+                initialValues={{ email: "", password: "", rememberMe: false, captcha: '' }}
                 validate={validateLoginForm}
                 onSubmit={onSubmit}
             >
@@ -76,6 +76,12 @@ const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
                         </div>
 
                         {captchaUrl && <img className="form__captcha" src={captchaUrl} />}
+                        {captchaUrl && <Field
+                            className="input input_place_login input_theme_captcha"
+                            type={'text'}
+                            name={'captcha'}
+                            placeholder={'Captcha'}
+                        />}
 
                         <button className="button button_place_login" type={'submit'}>Login</button>
                     </Form>

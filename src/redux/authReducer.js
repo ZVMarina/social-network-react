@@ -47,8 +47,8 @@ export const getAuthInfoThunkCreator = () => async (dispatch) => {
 
 }
 
-export const loginThunkCreator = (email, password, rememberMe, setStatus) => async (dispatch) => {
-    const response = await authApi.login(email, password, rememberMe)
+export const loginThunkCreator = (email, password, rememberMe, captcha, setStatus) => async (dispatch) => {
+    const response = await authApi.login(email, password, rememberMe, captcha)
 
     if (response.data.resultCode === 0) {
         dispatch(getAuthInfoThunkCreator());
