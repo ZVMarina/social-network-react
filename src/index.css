@@ -64,6 +64,7 @@
 @import url(./blocks/status/__input/status__input.css);
 
 @import url(./blocks/form/form.css);
+@import url(./blocks/form/__captcha/form__captcha.css);
 @import url(./blocks/form/_place/form_place_edit-info.css);
 @import url(./blocks/form/_place/form_place_login.css);
 @import url(./blocks/form/__container/form__container.css);

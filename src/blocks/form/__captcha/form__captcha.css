@@ -1,0 +1,5 @@
+.form__captcha {
+    align-self: flex-start;
+    width: 50%;
+    max-height: 50px;
+}

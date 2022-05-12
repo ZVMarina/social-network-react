@@ -1,8 +1,9 @@
 import React from "react"
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
-import { loginThunkCreator } from '../../redux/authReducer'
+import { getGaptchaThunkCreator, loginThunkCreator } from '../../redux/authReducer'
 import { Navigate } from "react-router-dom";
+//import Recaptcha from "react-recaptcha";
 
 const validateLoginForm = values => {
     const errors = {};
@@ -20,9 +21,11 @@ const validateLoginForm = values => {
     return errors;
 };
 
-const Login = ({ login, isAuth, myId }) => {
+const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
+    console.log(captchaUrl);
     const onSubmit = (values, { setSubmitting, setStatus }) => {
         login(values.email, values.password, values.rememberMe, setStatus);  // setStatus - метод формика
+        getGaptcha();
         setSubmitting(false);
     };
 
@@ -72,6 +75,8 @@ const Login = ({ login, isAuth, myId }) => {
                             <label className="form__label" htmlFor={'rememberMe'}>Remember me</label>
                         </div>
 
+                        {captchaUrl && <img className="form__captcha" src={captchaUrl} />}
+
                         <button className="button button_place_login" type={'submit'}>Login</button>
                     </Form>
                 )}
@@ -85,7 +90,8 @@ const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
         myId: state.auth.id,
+        captchaUrl: state.auth.captchaUrl
     }
 }
 
-export default connect(mapStateToProps, { login: loginThunkCreator })(Login);
+export default connect(mapStateToProps, { login: loginThunkCreator, getGaptcha: getGaptchaThunkCreator })(Login);
