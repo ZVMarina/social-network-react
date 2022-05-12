@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, portionSize = 15 }) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize); // количество страниц
