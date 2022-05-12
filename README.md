@@ -10,6 +10,7 @@ The file structure is organized according to the BEM methodology. The grid modul
 4. Added validation of input fields (login and password). 
 5. Added the ability to upload a new photo (with preloader).
 6. Now you can edit the profile information.
+7. The captcha appears when logging in if the user has sent too many requests
 
 ### Stack
 
