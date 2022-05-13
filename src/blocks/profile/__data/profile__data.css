@@ -9,4 +9,5 @@
     row-gap: 15px;
     grid-template-columns: repeat(3, minmax(min-content, max-content));
     padding-right: 10px;
+    align-content: start;
 }

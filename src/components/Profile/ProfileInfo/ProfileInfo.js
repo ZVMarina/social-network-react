@@ -12,6 +12,12 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
     const [editMode, setEditMode] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
+    if (userId) {
+        console.log(userId);
+        console.log("myId", myId);
+    }
+
+
     if (!profile) {
         return <Preloader className="preloader_place_profile" />
     }
@@ -53,12 +59,12 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
                         onChange={chooseAvatarHandler}
                         multiple
                     />
-                    <label htmlFor="file" className="button avatar-file__button">
-                        <span className="avatar-file__icon-wrapper">
-                            <img className="avatar-file__icon" src={iconDownload} alt="Выбрать файл" width="25" />
-                        </span>
-                        <span className="avatar-file__button-text">Select a file</span>
-                    </label>
+                        <label htmlFor="file" className="button avatar-file__button">
+                            <span className="avatar-file__icon-wrapper">
+                                <img className="avatar-file__icon" src={iconDownload} alt="Выбрать файл" width="25" />
+                            </span>
+                            <span className="avatar-file__button-text">Select a file</span>
+                        </label>
                 </div>
             }
             <ProfileData

@@ -4,7 +4,7 @@
         "avatar content"
         "file content";
     grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
     column-gap: 45px;
     row-gap: 15px;
-    /* max-width: 80%; */
 }
