@@ -12,12 +12,6 @@ const ProfileInfo = ({ profile, status, updateStatus, myId, saveAvatar, saveProf
     const [editMode, setEditMode] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    if (userId) {
-        console.log(userId);
-        console.log("myId", myId);
-    }
-
-
     if (!profile) {
         return <Preloader className="preloader_place_profile" />
     }
