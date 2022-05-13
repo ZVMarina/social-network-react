@@ -38,43 +38,62 @@ export const getCaptchaUrlAC = (captchaUrl) => (
 )
 
 export const getAuthInfoThunkCreator = () => async (dispatch) => {
-    const data = await authApi.getAuthInfo()
+    try {
+        const data = await authApi.getAuthInfo()
 
-    if (data.resultCode === 0) {
-        const authInfo = data.data
-        dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login, true));
+        if (data.resultCode === 0) {
+            const authInfo = data.data
+            dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login, true));
+        }
     }
-
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export const loginThunkCreator = (email, password, rememberMe, captcha, setStatus) => async (dispatch) => {
-    const response = await authApi.login(email, password, rememberMe, captcha)
+    try {
+        const response = await authApi.login(email, password, rememberMe, captcha)
 
-    if (response.data.resultCode === 0) {
-        dispatch(getAuthInfoThunkCreator());
-    }
-    else {
         if (response.data.resultCode === 0) {
-            dispatch(getGaptchaThunkCreator());
+            dispatch(getAuthInfoThunkCreator());
         }
+        else {
+            if (response.data.resultCode === 0) {
+                dispatch(getGaptchaThunkCreator());
+            }
 
-        setStatus(response.data.messages);
+            setStatus(response.data.messages);
+        }
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
 export const logoutThunkCreator = () => async (dispatch) => {
-    const response = await authApi.logout()
+    try {
+        const response = await authApi.logout()
 
-    if (response.data.resultCode === 0) {
-        dispatch(setAuthUserDataAC(null, null, null, false, null));
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserDataAC(null, null, null, false, null));
+        }
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
 export const getGaptchaThunkCreator = () => async (dispatch) => {
-    const response = await securutyApi.getCaptchaUrl();
-    const captchaUrl = response.data.url;
+    try {
+        const response = await securutyApi.getCaptchaUrl();
+        const captchaUrl = response.data.url;
 
-    dispatch(getCaptchaUrlAC(captchaUrl));
+        dispatch(getCaptchaUrlAC(captchaUrl));
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 

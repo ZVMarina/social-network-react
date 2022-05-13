@@ -112,43 +112,67 @@ export const setProfileAC = (profile) => {
 }
 
 export const getProfileInfoThunkCreator = (userId) => async (dispatch) => {
-    const data = await profileApi.getProfileInfo(userId);
-    dispatch(setProfileInfoAC(data));
+    try {
+        const data = await profileApi.getProfileInfo(userId);
+        dispatch(setProfileInfoAC(data));
+    } 
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export const getStatusThunkCreator = (userId) => async (dispatch) => {
-    const response = await profileApi.getStatus(userId);
-    dispatch(setStatusAC(response.data));
+    try {
+        const response = await profileApi.getStatus(userId);
+        dispatch(setStatusAC(response.data));
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export const updateStatusThunkCreator = (status) => async (dispatch) => {
-    const response = await profileApi.updateStatus(status);
+    try {
+        const response = await profileApi.updateStatus(status);
 
-    if (response.data.resultCode === 0) {
-        dispatch(setStatusAC(status))
+        if (response.data.resultCode === 0) {
+            dispatch(setStatusAC(status))
+        }
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
 export const saveAvatarThunkCreator = (avatarFile) => async (dispatch) => {
-    const response = await profileApi.saveAvatar(avatarFile);
+    try {
+        const response = await profileApi.saveAvatar(avatarFile);
 
-    if (response.data.resultCode === 0) {
-        dispatch(setAvatarAC(response.data.data.photos))
+        if (response.data.resultCode === 0) {
+            dispatch(setAvatarAC(response.data.data.photos))
+        }
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
 export const saveProfileThunkCreator = (profile, userId) =>
     async (dispatch) => {
-        const response = await profileApi.saveProfile(profile);
+        try {
+            const response = await profileApi.saveProfile(profile);
 
-        if (response.data.resultCode === 0) {
-            const data = await profileApi.getProfileInfo(userId);
+            if (response.data.resultCode === 0) {
+                const data = await profileApi.getProfileInfo(userId);
 
-            delete data[userId];
+                delete data[userId];
 
-            dispatch(setProfileInfoAC(data));
+                dispatch(setProfileInfoAC(data));
+            }
         }
-
+        catch (error) {
+            console.log(error);
+        }
     }
 
 export default profileReducer;

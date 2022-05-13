@@ -21,11 +21,15 @@ const appReducer = (state = initialState, action) => {
 export const initializedSuccessAC = () => ({ type: INITIALIZED_SUCCESS_ACTION_TYPE })
 
 export const initializedAppTC = () => (dispatch) => {
-   const promis = dispatch(getAuthInfoThunkCreator());
+    const promis = dispatch(getAuthInfoThunkCreator());
 
-   promis.then(() => {
-       dispatch(initializedSuccessAC())
-   })
+    promis
+        .then(() => {
+            dispatch(initializedSuccessAC())
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 
 

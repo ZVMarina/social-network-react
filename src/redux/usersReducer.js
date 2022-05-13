@@ -98,35 +98,50 @@ export const toggleButtonDisabledAC = (disabled, userId) => ({ type: TOGGLE_BUTT
 export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => {
     dispatch(setIsFetchingAC(true));
 
-    const data = await usersApi.getUsers(currentPage, pageSize)
+    try {
+        const data = await usersApi.getUsers(currentPage, pageSize)
 
-    dispatch(setIsFetchingAC(false));
-    dispatch(setUsersAC(data.items));
-    dispatch(setUsersCountAC(data.totalCount));
+        dispatch(setIsFetchingAC(false));
+        dispatch(setUsersAC(data.items));
+        dispatch(setUsersCountAC(data.totalCount));
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export const followThunkCreator = (userId) => async (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
 
-    const data = await usersApi.postFollow(userId)
+    try {
+        const data = await usersApi.postFollow(userId)
 
-    if (data.resultCode === 0) {
-        dispatch(followAC(userId));
+        if (data.resultCode === 0) {
+            dispatch(followAC(userId));
+        }
+
+        dispatch(toggleButtonDisabledAC(false, userId));
     }
-
-    dispatch(toggleButtonDisabledAC(false, userId));
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export const unfollowThunkCreator = (userId) => async (dispatch) => {
     dispatch(toggleButtonDisabledAC(true, userId));
 
-    const data = await usersApi.deleteFollow(userId)
+    try {
+        const data = await usersApi.deleteFollow(userId)
 
-    if (data.resultCode === 0) {
-        dispatch(unfollowAC(userId));
+        if (data.resultCode === 0) {
+            dispatch(unfollowAC(userId));
+        }
+
+        dispatch(toggleButtonDisabledAC(false, userId));
     }
-
-    dispatch(toggleButtonDisabledAC(false, userId));
+    catch (error) {
+        console.log(error);
+    }
 }
 
 export default usersReducer;

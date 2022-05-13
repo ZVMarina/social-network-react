@@ -11,6 +11,7 @@ The file structure is organized according to the BEM methodology. The grid modul
 5. Added the ability to upload a new photo (with preloader).
 6. Now you can edit the profile information.
 7. The captcha appears when logging in if the user has sent too many requests
+8. Added Page 404
 
 ### Stack
 
@@ -21,7 +22,6 @@ The file structure is organized according to the BEM methodology. The grid modul
 ### Improvement plans
 
 1. Optimize the site for viewing on screens from 320 pixels to infinity.
-2. Add Page 404
 
 ### Link to GitHub Pages
 
