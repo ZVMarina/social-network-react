@@ -24,11 +24,11 @@ const appReducer = (state = initialState, action: any): InitialStateType  => { /
     }
 }
 
-type initializedSuccessActionType = {
+type InitializedSuccessActionType = {
     type: typeof INITIALIZED_SUCCESS_ACTION_TYPE
 }
 
-export const initializedSuccessAC = (): initializedSuccessActionType => ({ type: INITIALIZED_SUCCESS_ACTION_TYPE })
+export const initializedSuccessAC = (): InitializedSuccessActionType => ({ type: INITIALIZED_SUCCESS_ACTION_TYPE })
 
 export const initializedAppTC = () => (dispatch: any) => {
     const promis = dispatch(getAuthInfoThunkCreator());
