@@ -7,7 +7,7 @@ import UsersContainer from './Users/UsersContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import Login from './Login/Login';
-import { initializedAppTC } from '../redux/appReducer';
+import { initializedAppTC } from '../redux/appReducer.ts';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './Preloader';
