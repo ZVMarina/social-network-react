@@ -28,8 +28,10 @@ const initialState = {
 
 export type InitialStateType = typeof initialState
 
+type ActionsTypes = SendMessageActionType | UpdateMessageActionType
+
 // сюда уже придёт нужная часть стейта (dialogsPage)
-const dialogsReducer = (state = initialState, action: any): InitialStateType => {
+const dialogsReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case SEND_MESSAGE_ACTION_TYPE:
             const message = {

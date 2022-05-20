@@ -1,3 +1,4 @@
+import { Dispatch } from 'react';
 // @ts-ignore
 import { getAuthInfoThunkCreator } from './authReducer.ts'
 
@@ -11,7 +12,11 @@ const initialState: InitialStateType = {
     initialized: false
 }
 
-const appReducer = (state = initialState, action: any): InitialStateType  => { // InitialStateType - тип, который возвращается
+type ActionsTypes = InitializedSuccessActionType
+
+type DispatchType = Dispatch<ActionsTypes>
+
+const appReducer = (state = initialState, action: ActionsTypes): InitialStateType  => { // InitialStateType - тип, который возвращается
     switch (action.type) {
         case INITIALIZED_SUCCESS_ACTION_TYPE:
             return {
@@ -36,7 +41,7 @@ export const initializedAppTC = () => (dispatch: any) => {
         .then(() => {
             dispatch(initializedSuccessAC())
         })
-        .catch((error) => {
+        .catch((error: any) => {
             console.log(error);
         })
 }

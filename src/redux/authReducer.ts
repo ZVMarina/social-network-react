@@ -1,3 +1,5 @@
+import { AppStateType } from './reduxStore';
+import { ThunkAction } from 'redux-thunk';
 import { authApi, securutyApi } from "../api/api"
 
 const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data'
@@ -11,10 +13,13 @@ const initialState = {
     captchaUrl: null as string | null, // если null, значит каптча не обязательна
 }
 
-
 export type InitialStateType = typeof initialState // создать тип динамически
 
-const authReducer = (state = initialState, action: any): InitialStateType => {
+type ActionsTypes = SetAuthUserDataActionType | GetCaptchaUrActionType
+
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
+const authReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case SET_AUTH_DATA_ACTION_TYPE:
             return {
@@ -59,7 +64,7 @@ export const getCaptchaUrlAC = (captchaUrl: string): GetCaptchaUrActionType => (
     { type: GET_CAPTCHA_ACTION_TYPE, payload: { captchaUrl } }
 )
 
-export const getAuthInfoThunkCreator = () => async (dispatch: any) => {
+export const getAuthInfoThunkCreator = (): ThunkType => async (dispatch: any) => {
     try {
         const data = await authApi.getAuthInfo()
 
@@ -74,7 +79,7 @@ export const getAuthInfoThunkCreator = () => async (dispatch: any) => {
 }
 
 export const loginThunkCreator =
-    (email: string, password: number, rememberMe: boolean, captcha: string) => async (dispatch: any) => {
+    (email: string, password: number, rememberMe: boolean, captcha: string): ThunkType => async (dispatch: any) => {
         try {
             const response = await authApi.login(email, password, rememberMe, captcha)
 
@@ -92,7 +97,7 @@ export const loginThunkCreator =
         }
     }
 
-export const logoutThunkCreator = () => async (dispatch: any) => {
+export const logoutThunkCreator = (): ThunkType => async (dispatch: any) => {
     try {
         const response = await authApi.logout()
 
@@ -105,7 +110,7 @@ export const logoutThunkCreator = () => async (dispatch: any) => {
     }
 }
 
-export const getGaptchaThunkCreator = () => async (dispatch: any) => {
+export const getGaptchaThunkCreator = (): ThunkType => async (dispatch: any) => {
     try {
         const response = await securutyApi.getCaptchaUrl();
         const captchaUrl = response.data.url;

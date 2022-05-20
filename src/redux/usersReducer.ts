@@ -1,6 +1,8 @@
+import { AppStateType } from './reduxStore';
 import { UsersType } from './../types/types';
 import { usersApi } from "../api/api";
 import { Dispatch } from 'react';
+import { ThunkAction } from 'redux-thunk';
 
 const FOLLOW_ACTION_TYPE = 'users/follow';
 const UNFOLLOW_ACTION_TYPE = 'users/unfollow';
@@ -23,6 +25,12 @@ export type initialStateType = typeof initialState
 
 type ActionsTypes = FollowActionType | UnFollowActionType | SetUsersActionType | SetPageActionType
     | SetUsersCountActionType | SetIsFetchingActionType | ToggleFollowingInProgressActionType
+
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
+// или
+
+type DispatchType = Dispatch<ActionsTypes>
 
 const usersReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
@@ -135,7 +143,6 @@ type ToggleFollowingInProgressActionType = {
 
 export const toggleFollowingInProgressAC = (disabled: boolean, userId: number): ToggleFollowingInProgressActionType => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
 
-type DispatchType = Dispatch<ActionsTypes>
 export const getUsersThunkCreator = (currentPage: number, pageSize: number) => async (dispatch: DispatchType) => {
     dispatch(setIsFetchingAC(true));
 
@@ -151,7 +158,7 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => a
     }
 }
 
-export const followThunkCreator = (userId: number) => async (dispatch: DispatchType) => {
+export const followThunkCreator = (userId: number): ThunkType => async (dispatch) => {
     dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {
@@ -168,7 +175,7 @@ export const followThunkCreator = (userId: number) => async (dispatch: DispatchT
     }
 }
 
-export const unfollowThunkCreator = (userId: number) => async (dispatch: DispatchType) => {
+export const unfollowThunkCreator = (userId: number): ThunkType => async (dispatch) => {
     dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {

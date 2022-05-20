@@ -1,3 +1,5 @@
+import { AppStateType } from './reduxStore';
+import { ThunkAction } from 'redux-thunk';
 import { ContactsType, PhotosType, PostsType } from './../types/types';
 import { profileApi } from "../api/api";
 
@@ -29,8 +31,13 @@ const initialState =
 
 export type initialStateType = typeof initialState
 
+type ActionsTypes = AddPostActionType | DeleteostActionType
+    | SetProfileInfoActionType | SetStatusActionType | SetAvatarActionType | SetProfileActionType
+
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
 // сюда уже придёт нужная часть стейта (profilePage)
-const profileReducer = (state = initialState, action: any): initialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case ADD_POST_ACTION_TYPE:
             const post = {
@@ -75,7 +82,7 @@ const profileReducer = (state = initialState, action: any): initialStateType => 
         }
 
         case SET_PROFILE_ACTION_TYPE: {
-            return {...state, profile: action.profile};
+            return { ...state, profile: action.profile };
         }
 
         default: return state;
@@ -148,7 +155,7 @@ export const setProfileAC = (profile: ProfileType): SetProfileActionType => {
     }
 }
 
-export const getProfileInfoThunkCreator = (userId: number) => async (dispatch: any) => {
+export const getProfileInfoThunkCreator = (userId: number): ThunkType => async (dispatch) => {
     try {
         const data = await profileApi.getProfileInfo(userId);
         dispatch(setProfileInfoAC(data));
@@ -158,7 +165,7 @@ export const getProfileInfoThunkCreator = (userId: number) => async (dispatch: a
     }
 }
 
-export const getStatusThunkCreator = (userId: number) => async (dispatch: any) => {
+export const getStatusThunkCreator = (userId: number): ThunkType => async (dispatch) => {
     try {
         const response = await profileApi.getStatus(userId);
         dispatch(setStatusAC(response.data));
@@ -168,7 +175,7 @@ export const getStatusThunkCreator = (userId: number) => async (dispatch: any) =
     }
 }
 
-export const updateStatusThunkCreator = (status: string) => async (dispatch: any) => {
+export const updateStatusThunkCreator = (status: string): ThunkType => async (dispatch) => {
     try {
         const response = await profileApi.updateStatus(status);
 
@@ -181,7 +188,7 @@ export const updateStatusThunkCreator = (status: string) => async (dispatch: any
     }
 }
 
-export const saveAvatarThunkCreator = (avatarFile: any) => async (dispatch: any) => {
+export const saveAvatarThunkCreator = (avatarFile: any): ThunkType => async (dispatch) => {
     try {
         const response = await profileApi.saveAvatar(avatarFile);
 
@@ -194,8 +201,8 @@ export const saveAvatarThunkCreator = (avatarFile: any) => async (dispatch: any)
     }
 }
 
-export const saveProfileThunkCreator = (profile: ProfileType, userId: number) =>
-    async (dispatch: any) => {
+export const saveProfileThunkCreator = (profile: ProfileType, userId: number): ThunkType =>
+    async (dispatch) => {
         try {
             const response = await profileApi.saveProfile(profile);
 
