@@ -1,4 +1,5 @@
-import * as axios from 'axios';
+import { ProfileType } from '../redux/profileReducer';
+import axios from 'axios';
 
 const instance = axios.create({
     withCredentials: true,
@@ -8,39 +9,48 @@ const instance = axios.create({
     baseURL: `https://social-network.samuraijs.com/api/1.0/`
 })
 
+export enum ResultCodeEnum {
+    Success = 0,
+    Error = 1,
+}
+
+export enum ResultCodeForCaptchaEnum {
+    CaptchaIsRequired = 10
+}
+
 export const usersApi = {
     getUsers(currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
 
-    postFollow(userId) {
+    postFollow(userId: number) {
         return instance.post(`follow/${userId}`)
             .then(response => response.data)
     },
 
-    deleteFollow(userId) {
+    deleteFollow(userId: number) {
         return instance.delete(`follow/${userId}`)
             .then(response => response.data)
     }
 }
 
 export const profileApi = {
-    getProfileInfo(userId) {
+    getProfileInfo(userId: number) {
         return instance.get(`profile/${userId}`)
             .then(response => response.data)
     },
 
-    getStatus(userId) {
+    getStatus(userId: number) {
         return instance.get(`profile/status/${userId}`)
             .then(response => response)
     },
 
-    updateStatus(status) {
+    updateStatus(status: string) {
         return instance.put(`profile/status`, { status: status });
     },
 
-    saveAvatar(avatarFile) {
+    saveAvatar(avatarFile: any) {
         const formData = new FormData();
         formData.append('image', avatarFile);
 
@@ -51,20 +61,38 @@ export const profileApi = {
         });
     },
 
-    saveProfile(profile) {
+    saveProfile(profile: ProfileType) {
         return instance.put(`profile/`, profile);
     }
 }
 
+type GetAuthInfoResponseType = {
+    data: {
+        id: number
+        email: string
+        login: string
+    }
+    resultCode: ResultCodeEnum
+    messages: Array<string>
+}
+
+type LoginResponseType = {
+    data: {
+        userId: number
+    }
+    resultCode: ResultCodeEnum | ResultCodeForCaptchaEnum
+    messages: Array<string>
+}
+
 export const authApi = {
-    getAuthInfo() {
-        return instance.get(`auth/me/`)
-            .then(response => response.data)
+    async getAuthInfo() {
+        const response = await instance.get<GetAuthInfoResponseType>(`auth/me/`);
+        return response.data;
     },
 
-    login(email, password, rememberMe = false, captcha = null) {
-        return instance.post(`auth/login/`, { email, password, rememberMe, captcha })
-            .then(response => response)
+    async login(email: string, password: number, rememberMe = false, captcha: null | string = null) {
+        const response = await instance.post<LoginResponseType>(`auth/login/`, { email, password, rememberMe, captcha });
+        return response.data;
     },
 
     logout() {
@@ -72,7 +100,7 @@ export const authApi = {
     }
 }
 
-export const securutyApi = {
+export const securityApi = {
     getCaptchaUrl() {
         return instance.get(`security/get-captcha-url`)
             .then(response => response);

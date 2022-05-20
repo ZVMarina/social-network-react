@@ -1,7 +1,7 @@
 import React from "react"
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
-import { getGaptchaThunkCreator, loginThunkCreator } from '../../redux/authReducer.ts'
+import { getCaptchaThunkCreator, loginThunkCreator } from '../../redux/authReducer.ts'
 import { Navigate } from "react-router-dom";
 //import Recaptcha from "react-recaptcha";
 
@@ -99,4 +99,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { login: loginThunkCreator, getGaptcha: getGaptchaThunkCreator })(Login);
+export default connect(mapStateToProps, { login: loginThunkCreator, getGaptcha: getCaptchaThunkCreator })(Login);

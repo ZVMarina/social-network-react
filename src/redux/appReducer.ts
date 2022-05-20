@@ -34,10 +34,8 @@ type InitializedSuccessActionType = {
 
 export const initializedSuccessAC = (): InitializedSuccessActionType => ({ type: INITIALIZED_SUCCESS_ACTION_TYPE })
 
-export const initializedAppTC = () => (dispatch: any) => {
-    const promis = dispatch(getAuthInfoThunkCreator());
-
-    promis
+export const initializedAppTC = () => async (dispatch: any) => {
+    return dispatch(getAuthInfoThunkCreator())
         .then(() => {
             dispatch(initializedSuccessAC())
         })

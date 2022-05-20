@@ -1,6 +1,7 @@
 import { AppStateType } from './reduxStore';
 import { UsersType } from './../types/types';
-import { usersApi } from "../api/api";
+// @ts-ignore
+import { usersApi } from "../api/api.ts";
 import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
 

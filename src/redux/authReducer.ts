@@ -1,6 +1,11 @@
+// @ts-ignore
+import { ResultCodeEnum } from '../api/api.ts';
 import { AppStateType } from './reduxStore';
 import { ThunkAction } from 'redux-thunk';
-import { authApi, securutyApi } from "../api/api"
+// @ts-ignore
+import { authApi, securityApi } from "../api/api.ts"
+// @ts-ignore
+import { ResultCodeForCaptchaEnum } from '../api/api.ts';
 
 const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data'
 const GET_CAPTCHA_ACTION_TYPE = 'auth/set-user-auth-data'
@@ -9,7 +14,7 @@ const initialState = {
     id: null as number | null,
     email: null as string | null,
     login: null as string | null,
-    isAuth: false ,
+    isAuth: false,
     captchaUrl: null as string | null, // если null, значит каптча не обязательна
 }
 
@@ -68,9 +73,9 @@ export const getAuthInfoThunkCreator = (): ThunkType => async (dispatch: any) =>
     try {
         const data = await authApi.getAuthInfo()
 
-        if (data.resultCode === 0) {
-            const authInfo = data.data
-            dispatch(setAuthUserDataAC(authInfo.id, authInfo.email, authInfo.login, true, null));
+        if (data.resultCode === ResultCodeEnum.Success) {
+            const { id, email, login } = data.data
+            dispatch(setAuthUserDataAC(id, email, login, true, null));
         }
     }
     catch (error) {
@@ -81,14 +86,14 @@ export const getAuthInfoThunkCreator = (): ThunkType => async (dispatch: any) =>
 export const loginThunkCreator =
     (email: string, password: number, rememberMe: boolean, captcha: string): ThunkType => async (dispatch: any) => {
         try {
-            const response = await authApi.login(email, password, rememberMe, captcha)
+            const data = await authApi.login(email, password, rememberMe, captcha)
 
-            if (response.data.resultCode === 0) {
+            if (data.resultCode === ResultCodeEnum.Success) {
                 dispatch(getAuthInfoThunkCreator());
             }
             else {
-                if (response.data.resultCode === 0) {
-                    dispatch(getGaptchaThunkCreator());
+                if (data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
+                    dispatch(getCaptchaThunkCreator());
                 }
             }
         }
@@ -101,7 +106,7 @@ export const logoutThunkCreator = (): ThunkType => async (dispatch: any) => {
     try {
         const response = await authApi.logout()
 
-        if (response.data.resultCode === 0) {
+        if (response.data.resultCode === ResultCodeEnum.Success) {
             dispatch(setAuthUserDataAC(null, null, null, false, null));
         }
     }
@@ -110,9 +115,9 @@ export const logoutThunkCreator = (): ThunkType => async (dispatch: any) => {
     }
 }
 
-export const getGaptchaThunkCreator = (): ThunkType => async (dispatch: any) => {
+export const getCaptchaThunkCreator = (): ThunkType => async (dispatch: any) => {
     try {
-        const response = await securutyApi.getCaptchaUrl();
+        const response = await securityApi.getCaptchaUrl();
         const captchaUrl = response.data.url;
 
         dispatch(getCaptchaUrlAC(captchaUrl));
@@ -124,4 +129,4 @@ export const getGaptchaThunkCreator = (): ThunkType => async (dispatch: any) => 
 
 
 
-export default authReducer; 
+export default authReducer;
