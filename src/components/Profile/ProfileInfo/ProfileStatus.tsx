@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Preloader from "../../Preloader";
 
-const ProfileStatus = ({ status, myId, updateStatus }) => {
+type PropsType = {
+    status: string
+    myId: number
+    updateStatus: (statusText: string) => any
+}
+
+const ProfileStatus: React.FC<PropsType> = ({ status, myId, updateStatus }) => {
     const userId = Number(useParams().userId);
 
     const [editMode, setEditMode] = useState(false);
@@ -30,7 +36,7 @@ const ProfileStatus = ({ status, myId, updateStatus }) => {
             })
     }
 
-    const changeStatusHandler = (evt) => {
+    const changeStatusHandler = (evt: ChangeEvent<HTMLInputElement>) => {
         setStatus(evt.currentTarget.value);
     }
 
