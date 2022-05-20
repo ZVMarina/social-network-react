@@ -1,3 +1,4 @@
+import { PhotosType, UsersType } from './../types/types';
 import { usersApi } from "../api/api";
 
 const FOLLOW_ACTION_TYPE = 'users/follow';
@@ -9,15 +10,17 @@ const SET_IS_FETCHING_ACTION_TYPE = 'users/set-is-fetching';
 const TOGGLE_BUTTON_DISABLED_ACTION_TYPE = 'users/toggle-button-disabled';
 
 const initialState = {
-    users: [],
+    users: [] as Array<UsersType>,
     pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    buttonDisabled: [],
+    buttonDisabled: [] as Array<number>, // array of users ids
 }
 
-const usersReducer = (state = initialState, action) => {
+export type initialStateType = typeof initialState
+
+const usersReducer = (state = initialState, action: any): initialStateType => {
     switch (action.type) {
         case FOLLOW_ACTION_TYPE:
             return {
@@ -46,7 +49,6 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS_ACTION_TYPE:
             return {
                 ...state,
-                // сначала сделал копию юзеров, затем добавили туда пришедших юзеров
                 users: [...action.users]
             }
 
@@ -80,22 +82,57 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
+type FollowActionType = {
+    userId: number
+    type: typeof FOLLOW_ACTION_TYPE
+}
 // userId, так как action.userId
-export const followAC = (userId) => ({ type: FOLLOW_ACTION_TYPE, userId })
+export const followAC = (userId: number): FollowActionType => ({ type: FOLLOW_ACTION_TYPE, userId })
 
-export const unfollowAC = (userId) => ({ type: UNFOLLOW_ACTION_TYPE, userId })
+type UnFollowActionType = {
+    userId: number
+    type: typeof UNFOLLOW_ACTION_TYPE
+}
 
-export const setUsersAC = (users) => ({ type: SET_USERS_ACTION_TYPE, users })
+export const unfollowAC = (userId: number): UnFollowActionType => ({ type: UNFOLLOW_ACTION_TYPE, userId })
 
-export const setPageAC = (currentPage) => ({ type: SET_PAGE_ACTION_TYPE, currentPage })
+type SetUsersActionType = {
+    users: UsersType
+    type: typeof SET_USERS_ACTION_TYPE
+}
 
-export const setUsersCountAC = (usersCount) => ({ type: SET_USERS_COUNT_ACTION_TYPE, usersCount })
+export const setUsersAC = (users: UsersType): SetUsersActionType => ({ type: SET_USERS_ACTION_TYPE, users })
 
-export const setIsFetchingAC = (isFetching) => ({ type: SET_IS_FETCHING_ACTION_TYPE, isFetching })
+type SetPageActionType = {
+    currentPage: number
+    type: typeof SET_PAGE_ACTION_TYPE
+}
 
-export const toggleButtonDisabledAC = (disabled, userId) => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
+export const setPageAC = (currentPage: number): SetPageActionType => ({ type: SET_PAGE_ACTION_TYPE, currentPage })
 
-export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => {
+type SetUsersCountActionType = {
+    usersCount: number
+    type: typeof SET_USERS_COUNT_ACTION_TYPE
+}
+
+export const setUsersCountAC = (usersCount: number): SetUsersCountActionType => ({ type: SET_USERS_COUNT_ACTION_TYPE, usersCount })
+
+type SetIsFetchingActionType = {
+    isFetching: boolean
+    type: typeof SET_IS_FETCHING_ACTION_TYPE
+}
+
+export const setIsFetchingAC = (isFetching: boolean): SetIsFetchingActionType => ({ type: SET_IS_FETCHING_ACTION_TYPE, isFetching })
+
+type ToggleButtonDisabledActionType = {
+    disabled: boolean
+    userId: number
+    type: typeof TOGGLE_BUTTON_DISABLED_ACTION_TYPE
+}
+
+export const toggleButtonDisabledAC = (disabled: boolean, userId: number): ToggleButtonDisabledActionType => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
+
+export const getUsersThunkCreator = (currentPage: number, pageSize: number) => async (dispatch: any) => {
     dispatch(setIsFetchingAC(true));
 
     try {
@@ -110,7 +147,7 @@ export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) 
     }
 }
 
-export const followThunkCreator = (userId) => async (dispatch) => {
+export const followThunkCreator = (userId: number) => async (dispatch: any) => {
     dispatch(toggleButtonDisabledAC(true, userId));
 
     try {
@@ -127,7 +164,7 @@ export const followThunkCreator = (userId) => async (dispatch) => {
     }
 }
 
-export const unfollowThunkCreator = (userId) => async (dispatch) => {
+export const unfollowThunkCreator = (userId: number) => async (dispatch: any) => {
     dispatch(toggleButtonDisabledAC(true, userId));
 
     try {

@@ -1,3 +1,4 @@
+import { ContactsType, PhotosType, PostsType } from './../types/types';
 import { profileApi } from "../api/api";
 
 const ADD_POST_ACTION_TYPE = 'profile/add-post';
@@ -6,27 +7,6 @@ const SET_PROFILE_INFO_ACTION_TYPE = 'profile/set-profile-info';
 const SET_STATUS_ACTION_TYPE = 'profile/set-status';
 const SET_AVATAR_ACTION_TYPE = 'profile/set-avatar';
 const SET_PROFILE_ACTION_TYPE = ' profile/set-profile';
-
-type PostsType = {
-    id: number
-    post: string
-}
-
-type ContactsType = {
-    github: string
-    vk: string
-    facebook: string
-    instagram: string
-    twitter: string
-    website: string
-    youtube: string
-    mainLink: string
-} 
-
-type PhotosType = {
-    small: string | null
-    large: string | null
-} 
 
 type ProfileType = {
     userId: number
