@@ -1,8 +1,7 @@
+// @ts-ignore
+import { getAuthInfoThunkCreator } from './authReducer.ts'
 
-
-import { getAuthInfoThunkCreator } from './authReducer.ts';
-
-const INITIALIZED_SUCCESS_ACTION_TYPE = 'app/initialized-success';
+const INITIALIZED_SUCCESS_ACTION_TYPE = 'app/initialized-success'
 
 export type InitialStateType = {
     initialized: boolean

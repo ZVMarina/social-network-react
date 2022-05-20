@@ -1,23 +1,18 @@
-import { authApi, securutyApi } from "../api/api";
+import { authApi, securutyApi } from "../api/api"
 
-const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data';
-const GET_CAPTCHA_ACTION_TYPE = 'auth/set-user-auth-data';
+const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data'
+const GET_CAPTCHA_ACTION_TYPE = 'auth/set-user-auth-data'
 
-export type InitialStateType = {
-    id: number | null,
-    email: string | null,
-    login: string | null,
-    isAuth: boolean,
-    captchaUrl: string | null,
+const initialState = {
+    id: null as number | null,
+    email: null as string | null,
+    login: null as string | null,
+    isAuth: false ,
+    captchaUrl: null as string | null, // если null, значит каптча не обязательна
 }
 
-const initialState: InitialStateType = {
-    id: null,
-    email: null,
-    login: null,
-    isAuth: false,
-    captchaUrl: null, // если null, значит каптча не обязательна
-}
+
+export type InitialStateType = typeof initialState // создать тип динамически
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
