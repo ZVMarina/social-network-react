@@ -5,7 +5,7 @@ import Preloader from "../../Preloader";
 type PropsType = {
     status: string
     myId: number
-    updateStatus: (statusText: string) => any
+    updateStatus: (statusText: string) => Promise<void>
 }
 
 const ProfileStatus: React.FC<PropsType> = ({ status, myId, updateStatus }) => {

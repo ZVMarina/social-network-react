@@ -1,3 +1,5 @@
+// пример кастомного store
+
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 

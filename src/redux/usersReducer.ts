@@ -1,5 +1,6 @@
-import { PhotosType, UsersType } from './../types/types';
+import { UsersType } from './../types/types';
 import { usersApi } from "../api/api";
+import { Dispatch } from 'react';
 
 const FOLLOW_ACTION_TYPE = 'users/follow';
 const UNFOLLOW_ACTION_TYPE = 'users/unfollow';
@@ -20,7 +21,10 @@ const initialState = {
 
 export type initialStateType = typeof initialState
 
-const usersReducer = (state = initialState, action: any): initialStateType => {
+type ActionsTypes = FollowActionType | UnFollowActionType | SetUsersActionType | SetPageActionType
+    | SetUsersCountActionType | SetIsFetchingActionType | ToggleFollowingInProgressActionType
+
+const usersReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case FOLLOW_ACTION_TYPE:
             return {
@@ -48,8 +52,7 @@ const usersReducer = (state = initialState, action: any): initialStateType => {
 
         case SET_USERS_ACTION_TYPE:
             return {
-                ...state,
-                users: [...action.users]
+                ...state, users: action.users
             }
 
         case SET_PAGE_ACTION_TYPE:
@@ -97,11 +100,11 @@ type UnFollowActionType = {
 export const unfollowAC = (userId: number): UnFollowActionType => ({ type: UNFOLLOW_ACTION_TYPE, userId })
 
 type SetUsersActionType = {
-    users: UsersType
+    users: Array<UsersType>
     type: typeof SET_USERS_ACTION_TYPE
 }
 
-export const setUsersAC = (users: UsersType): SetUsersActionType => ({ type: SET_USERS_ACTION_TYPE, users })
+export const setUsersAC = (users: Array<UsersType>): SetUsersActionType => ({ type: SET_USERS_ACTION_TYPE, users })
 
 type SetPageActionType = {
     currentPage: number
@@ -132,7 +135,8 @@ type ToggleFollowingInProgressActionType = {
 
 export const toggleFollowingInProgressAC = (disabled: boolean, userId: number): ToggleFollowingInProgressActionType => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
 
-export const getUsersThunkCreator = (currentPage: number, pageSize: number) => async (dispatch: any) => {
+type DispatchType = Dispatch<ActionsTypes>
+export const getUsersThunkCreator = (currentPage: number, pageSize: number) => async (dispatch: DispatchType) => {
     dispatch(setIsFetchingAC(true));
 
     try {
@@ -147,7 +151,7 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => a
     }
 }
 
-export const followThunkCreator = (userId: number) => async (dispatch: any) => {
+export const followThunkCreator = (userId: number) => async (dispatch: DispatchType) => {
     dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {
@@ -164,7 +168,7 @@ export const followThunkCreator = (userId: number) => async (dispatch: any) => {
     }
 }
 
-export const unfollowThunkCreator = (userId: number) => async (dispatch: any) => {
+export const unfollowThunkCreator = (userId: number) => async (dispatch: DispatchType) => {
     dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {
