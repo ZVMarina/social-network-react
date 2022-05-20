@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import photo from '../../images/no-photo.png';
 
-const User = ({ user, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
+const User = ({ user, isAuth, followThunk, unfollowThunk, followingInProgress }) => {
     return (
         <li className="users__item">
             <div className="users__follow-container">
@@ -18,14 +18,14 @@ const User = ({ user, isAuth, followThunk, unfollowThunk, buttonDisabled }) => {
                     isAuth && (user.followed
                         ? <button
                             className="button button_place_users"
-                            disabled={buttonDisabled.some(id => id === user.id)}
+                            disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => { unfollowThunk(user.id) }}
                         >Unfollow
                         </button>
 
                         : <button
                             className="button button_place_users"
-                            disabled={buttonDisabled.some(id => id === user.id)}
+                            disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => { followThunk(user.id) }}
                         >Follow
                         </button>)

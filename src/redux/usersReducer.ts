@@ -15,7 +15,7 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    buttonDisabled: [] as Array<number>, // array of users ids
+    followingInProgress: [] as Array<number>, // array of users ids
 }
 
 export type initialStateType = typeof initialState
@@ -73,9 +73,9 @@ const usersReducer = (state = initialState, action: any): initialStateType => {
         case TOGGLE_BUTTON_DISABLED_ACTION_TYPE:
             return {
                 ...state,
-                buttonDisabled: action.disabled
-                    ? [...state.buttonDisabled, action.userId]
-                    : state.buttonDisabled.filter(id => id !== action.userId)
+                followingInProgress: action.disabled
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
 
         default: return state;
@@ -124,13 +124,13 @@ type SetIsFetchingActionType = {
 
 export const setIsFetchingAC = (isFetching: boolean): SetIsFetchingActionType => ({ type: SET_IS_FETCHING_ACTION_TYPE, isFetching })
 
-type ToggleButtonDisabledActionType = {
+type ToggleFollowingInProgressActionType = {
     disabled: boolean
     userId: number
     type: typeof TOGGLE_BUTTON_DISABLED_ACTION_TYPE
 }
 
-export const toggleButtonDisabledAC = (disabled: boolean, userId: number): ToggleButtonDisabledActionType => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
+export const toggleFollowingInProgressAC = (disabled: boolean, userId: number): ToggleFollowingInProgressActionType => ({ type: TOGGLE_BUTTON_DISABLED_ACTION_TYPE, disabled, userId })
 
 export const getUsersThunkCreator = (currentPage: number, pageSize: number) => async (dispatch: any) => {
     dispatch(setIsFetchingAC(true));
@@ -148,7 +148,7 @@ export const getUsersThunkCreator = (currentPage: number, pageSize: number) => a
 }
 
 export const followThunkCreator = (userId: number) => async (dispatch: any) => {
-    dispatch(toggleButtonDisabledAC(true, userId));
+    dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {
         const data = await usersApi.postFollow(userId)
@@ -157,7 +157,7 @@ export const followThunkCreator = (userId: number) => async (dispatch: any) => {
             dispatch(followAC(userId));
         }
 
-        dispatch(toggleButtonDisabledAC(false, userId));
+        dispatch(toggleFollowingInProgressAC(false, userId));
     }
     catch (error) {
         console.log(error);
@@ -165,7 +165,7 @@ export const followThunkCreator = (userId: number) => async (dispatch: any) => {
 }
 
 export const unfollowThunkCreator = (userId: number) => async (dispatch: any) => {
-    dispatch(toggleButtonDisabledAC(true, userId));
+    dispatch(toggleFollowingInProgressAC(true, userId));
 
     try {
         const data = await usersApi.deleteFollow(userId)
@@ -174,7 +174,7 @@ export const unfollowThunkCreator = (userId: number) => async (dispatch: any) =>
             dispatch(unfollowAC(userId));
         }
 
-        dispatch(toggleButtonDisabledAC(false, userId));
+        dispatch(toggleFollowingInProgressAC(false, userId));
     }
     catch (error) {
         console.log(error);

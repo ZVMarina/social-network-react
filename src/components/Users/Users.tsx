@@ -1,8 +1,22 @@
 import React from 'react';
-import Paginator from '../Paginator';
+import { UsersType } from '../../types/types';
+// @ts-ignore
+import Paginator from '../Paginator.tsx';
 import User from './User';
 
-const Users = (props) => {
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    isAuth: boolean
+    users: Array<UsersType>
+    followingInProgress: Array<number>
+    pageChangeHandler: (page: number) => void
+    followThunk: () => void
+    unfollowThunk: () => void
+}
+
+const Users: React.FC<PropsType> = (props) => {
     return (
         <section className="users">
             <h1 className="title users__title">Users</h1>
@@ -20,7 +34,7 @@ const Users = (props) => {
                         isAuth={props.isAuth}
                         followThunk={props.followThunk}
                         unfollowThunk={props.unfollowThunk}
-                        buttonDisabled={props.buttonDisabled}
+                        followingInProgress={props.followingInProgress}
                     />
 
                 )}

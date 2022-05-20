@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 
-const Paginator = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, portionSize = 15 }) => {
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    portionSize?: number
+    pageChangeHandler: (page: number) => void
+}
+
+const Paginator: React.FC<PropsType> = ({ totalUsersCount, pageSize, currentPage, pageChangeHandler, portionSize = 15 }) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize); // количество страниц
 
-    const pages = [];
+    const pages: Array<number> = [];
 
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);

@@ -3,12 +3,12 @@ import {
     followAC,
     setPageAC,
     unfollowAC,
-    toggleButtonDisabledAC,
+    toggleFollowingInProgressAC,
     getUsersThunkCreator,
     followThunkCreator,
     unfollowThunkCreator,
-} from '../../redux/usersReducer';
-import Users from './Users';
+} from '../../redux/usersReducer.ts';
+import Users from './Users.tsx';
 import React, { useEffect } from 'react';
 import Preloader from '../Preloader';
 import { compose } from 'redux';
@@ -35,8 +35,8 @@ const UsersContainer = (props) => {
                 follow={props.follow}
                 unfollow={props.unfollow}
                 pageChangeHandler={pageChangeHandler}
-                toggleButtonDisabled={props.toggleButtonDisabled}
-                buttonDisabled={props.buttonDisabled}
+                toggleFollowingInProgress={props.toggleFollowingInProgress}
+                followingInProgress={props.followingInProgress}
                 followThunk={props.followThunk}
                 unfollowThunk={props.unfollowThunk}
                 isAuth={props.isAuth}
@@ -52,7 +52,7 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        buttonDisabled: state.usersPage.buttonDisabled,
+        followingInProgress: state.usersPage.followingInProgress,
         isAuth: state.auth.isAuth,
     }
 }
@@ -63,7 +63,7 @@ export default compose(
             follow: followAC,
             unfollow: unfollowAC,
             setPage: setPageAC,
-            toggleButtonDisabled: toggleButtonDisabledAC,
+            toggleFollowingInProgress: toggleFollowingInProgressAC,
             getUsersThunk: getUsersThunkCreator,
             followThunk: followThunkCreator,
             unfollowThunk: unfollowThunkCreator,
