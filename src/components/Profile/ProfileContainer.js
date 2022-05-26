@@ -9,7 +9,7 @@ import {
     updateStatusThunkCreator
 } from '../../redux/profileReducer.ts'
 import { Navigate, useParams } from 'react-router-dom';
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withAuthRedirect } from "../../utils/hoc/withAuthRedirect";
 import { compose } from 'redux';
 
 const ProfileContainer = (

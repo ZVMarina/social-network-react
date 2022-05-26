@@ -15,7 +15,7 @@ import Users from './Users.tsx';
 import React, { useEffect } from 'react';
 import Preloader from '../Preloader';
 import { compose } from 'redux';
-import { UsersType } from '../../types/types';
+import { UsersType } from '../../utils/types/types';
 // @ts-ignore
 import { AppStateType } from '../../redux/reduxStore.ts';
 

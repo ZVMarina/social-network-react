@@ -1,13 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-
-const validateProfileDataForm = values => {
-    const errors = {};
-    if (!values.fullName) {
-        errors.fullName = 'Required';
-    }
-    return errors;
-};
+import { validateProfileDataForm } from "../../../utils/validateForm"
 
 const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) => {
     const onSubmit = (values, { setSubmitting }) => {

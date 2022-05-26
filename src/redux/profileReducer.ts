@@ -1,8 +1,8 @@
 import { AppStateType } from './reduxStore';
 import { ThunkAction } from 'redux-thunk';
-import { ContactsType, PhotosType, PostsType, ProfileType } from './../types/types';
+import { PhotosType, PostsType, ProfileType } from '../utils/types/types';
 // @ts-ignore
-import { profileApi } from "../api/api.ts";
+import { profileApi } from "../utils/api/api.ts";
 
 const ADD_POST_ACTION_TYPE = 'profile/add-post';
 const DELETE_POST_ACTION_TYPE = 'profile/delete-post';

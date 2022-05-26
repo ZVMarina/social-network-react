@@ -13,3 +13,11 @@ export const validateLoginForm = values => {
     }
     return errors;
 };
+
+export const validateProfileDataForm = values => {
+    const errors = {};
+    if (!values.fullName) {
+        errors.fullName = 'Required';
+    }
+    return errors;
+};

@@ -1,11 +1,7 @@
-// @ts-ignore
-import { ResultCodeEnum } from '../api/api.ts';
 import { AppStateType } from './reduxStore';
 import { ThunkAction } from 'redux-thunk';
 // @ts-ignore
-import { authApi, securityApi } from "../api/api.ts"
-// @ts-ignore
-import { ResultCodeForCaptchaEnum } from '../api/api.ts';
+import { ResultCodeForCaptchaEnum, ResultCodeEnum, authApi, securityApi } from '../utils/api/api.ts';
 
 const SET_AUTH_DATA_ACTION_TYPE = 'auth/set-user-auth-data'
 const GET_CAPTCHA_ACTION_TYPE = 'auth/set-user-auth-data'

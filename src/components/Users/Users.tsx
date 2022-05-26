@@ -1,5 +1,5 @@
 import React from 'react';
-import { UsersType } from '../../types/types';
+import { UsersType } from '../../utils/types/types';
 // @ts-ignore
 import Paginator from '../Paginator.tsx';
 import User from './User';
