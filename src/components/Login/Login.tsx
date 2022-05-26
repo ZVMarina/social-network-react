@@ -1,28 +1,28 @@
 import React from "react"
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
+// @ts-ignore
 import { getCaptchaThunkCreator, loginThunkCreator } from '../../redux/authReducer.ts'
 import { Navigate } from "react-router-dom";
-//import Recaptcha from "react-recaptcha";
+import { validateLoginForm } from "../../utils/validateForm"
+// @ts-ignore
+import { AppStateType } from '../../redux/reduxStore.ts';
 
-const validateLoginForm = values => {
-    const errors = {};
-    if (!values.email) {
-        errors.email = 'Required';
-    } else if
-        (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-    }
-    if (!values.password) {
-        errors.password = 'Required';
-    } else if (values.password.length <= 6) {
-        errors.password = 'Must be longer than 6 characters';
-    }
-    return errors;
-};
+type MapStatePropsType = {
+    isAuth: boolean,
+    myId: number | null,
+    captchaUrl: string | null
+}
 
-const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
-    const onSubmit = (values, { setSubmitting }) => {
+type MapDispatchPropsType = {
+    login: (email: string, password: number, rememberMe: boolean, captcha: string) => void
+    getGaptcha: () => void
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+const Login: React.FC<PropsType> = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
+    const onSubmit = (values: any, { setSubmitting }) => {
         login(values.email, values.password, values.rememberMe, values.captcha);  // setStatus - метод формика
         getGaptcha();
         setSubmitting(false);
@@ -91,7 +91,7 @@ const Login = ({ login, isAuth, myId, captchaUrl, getGaptcha }) => {
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         isAuth: state.auth.isAuth,
         myId: state.auth.id,

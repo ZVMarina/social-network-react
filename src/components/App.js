@@ -7,7 +7,7 @@ import DialogsContainer from './Dialogs/DialogsContainer';
 import UsersContainer from './Users/UsersContainer.tsx';
 import ProfileContainer from './Profile/ProfileContainer';
 import HeaderContainer from './Header/HeaderContainer';
-import Login from './Login/Login';
+import Login from './Login/Login.tsx';
 import { initializedAppTC } from '../redux/appReducer.ts';
 import { connect } from 'react-redux';
 import { compose } from 'redux';

@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 
-const validateLoginForm = values => {
+const validateProfileDataForm = values => {
     const errors = {};
     if (!values.fullName) {
         errors.fullName = 'Required';
@@ -36,7 +36,7 @@ const ProfileDataForm = ({ profile, saveProfile, deactiveteEditMode, userId }) =
                         lookingForAJobDescription: profile.lookingForAJobDescription,
                         contacts: profile.contacts,
                     }}
-                    validate={validateLoginForm}
+                    validate={validateProfileDataForm}
                     onSubmit={onSubmit}
                 >
                     {({ errors, touched, isValid, dirty, status }) => (

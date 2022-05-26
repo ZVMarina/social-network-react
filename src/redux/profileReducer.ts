@@ -1,6 +1,6 @@
 import { AppStateType } from './reduxStore';
 import { ThunkAction } from 'redux-thunk';
-import { ContactsType, PhotosType, PostsType } from './../types/types';
+import { ContactsType, PhotosType, PostsType, ProfileType } from './../types/types';
 // @ts-ignore
 import { profileApi } from "../api/api.ts";
 
@@ -10,15 +10,6 @@ const SET_PROFILE_INFO_ACTION_TYPE = 'profile/set-profile-info';
 const SET_STATUS_ACTION_TYPE = 'profile/set-status';
 const SET_AVATAR_ACTION_TYPE = 'profile/set-avatar';
 const SET_PROFILE_ACTION_TYPE = ' profile/set-profile';
-
-export type ProfileType = {
-    userId: number
-    lookingForAJob: boolean
-    lookingForAJobDescription: string
-    fuulName: string
-    contacts: ContactsType
-    photos: PhotosType
-}
 
 const initialState =
 {

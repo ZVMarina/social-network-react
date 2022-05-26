@@ -1,4 +1,4 @@
-import { ProfileType } from '../redux/profileReducer';
+import { ProfileType } from '../types/types';
 import axios from 'axios';
 
 const instance = axios.create({
@@ -84,6 +84,11 @@ type LoginResponseType = {
     messages: Array<string>
 }
 
+type LogoutResponseType = {
+    resultCode: ResultCodeEnum
+    messages: Array<string>
+}
+
 export const authApi = {
     async getAuthInfo() {
         const response = await instance.get<GetAuthInfoResponseType>(`auth/me/`);
@@ -96,13 +101,17 @@ export const authApi = {
     },
 
     logout() {
-        return instance.delete(`auth/login/`)
+        return instance.delete<LogoutResponseType>(`auth/login/`)
     }
+}
+
+type SecurityApiResponseType = {
+    url: string
 }
 
 export const securityApi = {
     getCaptchaUrl() {
-        return instance.get(`security/get-captcha-url`)
+        return instance.get<SecurityApiResponseType>(`security/get-captcha-url`)
             .then(response => response);
     }
 }
